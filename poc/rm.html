@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RM Console — ArthSakhi Advisor OS (PoC)</title>
+<link rel="stylesheet" href="styles.css">
+<style>body{background:var(--bg)} .top{background:var(--teal-dark);color:#fff;padding:16px 26px;display:flex;justify-content:space-between;align-items:center}
+.top a{color:#7dffd0;text-decoration:none;font-size:.85rem}</style>
+</head>
+<body>
+<div class="top">
+  <div><b>Advisor OS — RM Console</b> · Priya Sharma, RM (Kanpur Cluster) · <small>ONE ENGINE, TWO FACES: same brain as Asha</small></div>
+  <a href="index.html">← Customer app</a>
+</div>
+<div class="rm-wrap">
+  <div class="kpis">
+    <div class="kpi"><div class="n" id="k-leads">0</div><div class="l">AVATAR-QUALIFIED LEADS</div></div>
+    <div class="kpi"><div class="n" id="k-actions">0</div><div class="l">NEXT-BEST-ACTIONS TODAY</div></div>
+    <div class="kpi"><div class="n">30 min</div><div class="l">SAVED PER MEETING (MS DEBRIEF BENCHMARK)</div></div>
+  </div>
+
+  <div class="rm-grid">
+    <div class="panel">
+      <h2>🔥 Lead queue (avatar escalations)</h2>
+      <div class="sub">Customer spoke to Asha at 11pm; you see full context at 10am — no fintech can copy this handoff.</div>
+      <div id="leads"></div>
+    </div>
+
+    <div class="panel">
+      <h2>📋 Morning briefing — your book</h2>
+      <div class="sub">Same insight engine, book-level view (synthetic clients + live demo customer).</div>
+      <div id="nbas"></div>
+    </div>
+  </div>
+
+  <div class="panel" style="margin-top:18px">
+    <h2>👤 Client 360 — live from the Client Graph</h2>
+    <div class="sub">This card is generated from the SAME graph the avatar reads/writes. Zero re-keying.</div>
+    <div id="c360"></div>
+  </div>
+</div>
+
+<script src="data.js"></script>
+<script src="engine.js"></script>
+<script>
+'use strict';
+const F = Engine.fmt;
+const saved = localStorage.getItem('arthsakhi-graph-v1');
+const graph = saved ? JSON.parse(saved) : Engine.createGraph(PERSONA_ROHAN);
+
+/* Lead queue */
+const leads = graph.escalations || [];
+document.getElementById('k-leads').textContent = leads.length;
+document.getElementById('leads').innerHTML = leads.length ? leads.map(l => `
+  <div class="lead"><div class="who">${l.customer} <small>(${l.custId})</small></div>
+  <div class="ctx">${l.topic}</div>
+  <div class="meta">Risk: ${l.riskBucket} · Relationship value: ${F(l.portfolioValue)} · ${new Date(l.ts).toLocaleString()}</div></div>`).join('')
+  : '<div class="sub">No escalations yet — in the customer app, tap "📈 Stock tips?" or the market-crash flow, then refresh this page.</div>';
+
+/* Morning briefing: live customer + synthetic book */
+const nbas = [];
+if (graph.riskProfile) {
+  const idle = Engine.detectIdleCash(graph);
+  if (idle) nbas.push(`<b>${graph.profile.name}</b>: ${idle.msg} → propose deployment call`);
+  const fd = graph.assets.fds.find(f=>f.maturesInDays<=30);
+  if (fd) nbas.push(`<b>${graph.profile.name}</b>: FD ${F(fd.amount)} matures in ${fd.maturesInDays} days — renewal vs glide-path switch conversation`);
+  const reb = Engine.rebalanceCheck(graph);
+  if (reb.needed) nbas.push(`<b>${graph.profile.name}</b>: portfolio drifted ${reb.maxDrift}pp from target — tax-aware rebalance proposal ready`);
+}
+nbas.push(`<b>Sunita Devi</b> (synthetic): ₹3.2L FD matured yesterday, no reinvestment instruction — high-intent call`);
+nbas.push(`<b>Amit Verma</b> (synthetic): salary credit up 18% for 2 months — step-up SIP conversation`);
+nbas.push(`<b>Rekha Joshi</b> (synthetic): LIC premium ₹48K due in 12 days, savings balance ₹31K — liquidity assist (loan-against-FD)`);
+document.getElementById('k-actions').textContent = nbas.length;
+document.getElementById('nbas').innerHTML = nbas.map(n=>`<div class="nba">${n}</div>`).join('');
+
+/* Client 360 */
+const mfV = graph.assets.mf.reduce((s,m)=>s+m.value,0);
+const fdV = graph.assets.fds.reduce((s,f)=>s+f.amount,0);
+const recs = (graph.recommendations||[]).slice(-4).reverse();
+document.getElementById('c360').innerHTML = `
+  <div class="rm-grid">
+    <div>
+      <b>${graph.profile.name}, ${graph.profile.age}</b> · ${graph.profile.city} ·
+      Risk: <b>${graph.riskProfile ? graph.riskProfile.bucket : 'not profiled yet'}</b><br>
+      <small>Salary ${F(graph.income.salaryMonthly)}/mo · Savings ${F(graph.assets.savingsBalance)} ·
+      FD ${F(fdV)} · MF ${F(mfV)} · EPF ${F(graph.assets.epfBalance)} ·
+      Home loan ${F(graph.liabilities[0].outstanding)} @ 8.4%</small><br><br>
+      <b>Goals:</b> ${graph.goals.map(g=>`${g.name} (${g.targetYear})`).join(' · ')}<br>
+      <b>Last conversations:</b> ${(graph.interactions||[]).filter(i=>i.kind==='topic').slice(-3).map(i=>i.topic).join(' · ') || '—'}
+    </div>
+    <div>
+      <b>Recent engine recommendations (audit-grade):</b>
+      ${recs.length ? recs.map(r=>`<div class="nba"><b>${r.action}</b> ${r.amount?F(r.amount):''} → ${r.instrument||''}<br><small>${r.ruleId}: ${r.reason}</small></div>`).join('') : '<div class="sub">None yet — interact with Asha first.</div>'}
+    </div>
+  </div>`;
+</script>
+</body>
+</html>

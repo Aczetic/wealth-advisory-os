@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ArthSakhi — IDBI Digital Wealth PoC</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="app">
+
+  <aside class="avatar-panel">
+    <div class="brand">IDBI Bank · GO Mobile+ module (PoC)</div>
+    <div class="avatar-stage"></div>
+    <div class="avatar-name">Asha <span class="speaking-dot"></span></div>
+    <div class="avatar-tag">Aapki wealth saathi — har customer ka apna RM</div>
+    <div class="voice-row">
+      <button id="speaker">🔊 Voice on</button>
+      <button id="reset">↺ Reset demo</button>
+    </div>
+    <div class="disclosure">
+      🤖 Asha ek AI assistant hai. IDBI Bank AMFI-registered Mutual Fund <b>distributor</b> hai
+      (ARN-0058), investment adviser nahi. Recommendations information ke liye hain,
+      suitability-checked, aur audit-logged. Mutual funds are subject to market risks.
+      <br><br>DEMO: synthetic data only. Not investment advice.
+    </div>
+  </aside>
+
+  <main class="chat">
+    <div class="chat-head">
+      <h1>💬 Asha — Digital Wealth Advisory</h1>
+      <a href="rm.html" target="_blank">RM Console →</a>
+    </div>
+    <div class="insights" id="insights"></div>
+    <div class="msgs" id="msgs"></div>
+    <div class="chips" id="chips"></div>
+    <div class="input-row">
+      <input id="inp" placeholder="Kuch bhi poochhiye… (ya mic dabaiye)">
+      <button id="send">Send</button>
+    </div>
+  </main>
+
+  <aside class="audit">
+    <h2>⚙️ Advice Audit Trail</h2>
+    <div class="sub">Every recommendation: action · amount · instrument · reason · rule+version · tax note.
+    The avatar explains; the deterministic engine decides. (SEBI AI/ML + DPDP by design)</div>
+    <div id="audit-list"></div>
+  </aside>
+
+</div>
+<script src="data.js"></script>
+<script src="engine.js"></script>
+<script src="llm.js"></script>
+<script src="avatar.js"></script>
+<script src="voice.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,14 @@
+# OS / editor
+.DS_Store
+*.log
+
+# Local tooling & settings (not for collaborators)
+.claude/
+
+# Node (future-proofing; PoC currently has zero deps)
+node_modules/
+npm-debug.log*
+
+# Scratch
+tmp/
+*.tmp
