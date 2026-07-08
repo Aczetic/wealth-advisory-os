@@ -5,6 +5,20 @@ template (`deck/IDBI-submission-template.pptx`). Slide-by-slide asset mapping is
 `01-challenge-brief.md`. This note covers style, structure, differentiators, business
 case, and roadmap — the judgment calls, not the mechanics.
 
+## 0. Naming — you own it
+
+**"ArthSakhi" and the avatar name "Asha" are working names only. Kartik has given you
+naming authority for the startup, the product, and the avatar.** Suggested checks before
+locking a name: meaningful in Hindi + acceptable in English; easy to say for a tier-2/3
+customer; no obvious trademark/domain conflict (quick MCA/Trademark + domain search);
+survives the writing-style test (credible on a PSU bank slide, not startup-cute); the
+avatar's name should sound like a person customers would trust with money. Once chosen,
+tell Kartik/Claude and we will rename across repo, PoC UI, and deck in one pass.
+
+The reference proposal reviewed for this direction is saved at
+`deck/reference/Udyam_Sehat_Card_Proposal.docx` (Modus AI founder's rough working for a
+different IDBI theme — **internal reference only, do not redistribute or quote**).
+
 Sources for this direction: the official template; a proposal document prepared by the
 founder of Modus AI for a different IDBI theme (Udyam Sehat Card — reviewed for structure,
 not copied); Kartik's instructions (2026-07-09).

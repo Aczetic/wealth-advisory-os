@@ -131,7 +131,10 @@ artifact?" before writing it, and propose those steps proactively.
   `WRITING-STYLE.md` (binding for all external copy — deck, submission, video script)
 - `deck/` — official IDBI 15-slide template (`IDBI-submission-template.pptx`) +
   `DECK-DIRECTION-JYOTI.md` (style, differentiator table, flagship demo moment,
-  business-case framing, Phase|Focus|Outcome roadmap incl. shadow-mode pilot).
+  business-case framing, Phase|Focus|Outcome roadmap incl. shadow-mode pilot) +
+  `reference/Udyam_Sehat_Card_Proposal.docx` (Modus AI founder's working — internal only).
+  **NAMING: "ArthSakhi"/"Asha" are working names; Jyoti has naming authority** (direction §0);
+  rename across repo/PoC/deck happens in one pass once she decides.
   Slide-by-asset mapping: `01-challenge-brief.md`. S13 needs: PUBLIC repo at submission,
   3-min demo video, hosted product link (PoC is static → GitHub Pages/Vercel).
 - `poc/` — working demo + engine + 36 golden tests

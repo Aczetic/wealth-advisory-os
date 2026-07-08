@@ -1,4 +1,7 @@
-# ArthSakhi — AI Digital Wealth Advisory for IDBI (IDBI Innovate 2026, Track 01)
+# ArthSakhi* — AI Digital Wealth Advisory for IDBI (IDBI Innovate 2026, Track 01)
+
+*\*Working name. Jyoti owns final naming of the startup, product, and avatar — see
+`deck/DECK-DIRECTION-JYOTI.md` §0.*
 
 An **avatar-led, engine-driven wealth advisory module** that embeds into IDBI's mobile
 app. The bank's own transaction data becomes a **standing investment strategy per
@@ -70,6 +73,11 @@ cd poc
 node server.js          # → http://localhost:8765   (open in Chrome for voice + mic)
 node tests/run-tests.js # → 36 passed, 0 failed
 ```
+
+## Staying in sync
+
+Before you start working and after you finish: `./sync.sh` (pulls with rebase, commits
+local changes, pushes). One command, safe to repeat, keeps every machine current.
 
 ---
 
