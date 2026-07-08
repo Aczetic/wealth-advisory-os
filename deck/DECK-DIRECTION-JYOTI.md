@@ -58,6 +58,31 @@ the evaluator's decision, not what it does. Ours (draft — trim to the best 4�
 Recommendation: lead S3 with the Twin, the audit-grade engine, the Liquidity Advisor,
 and One Engine Two Faces. The others appear in S4 (feature list).
 
+### 2a-i. Memory is the lead differentiator — show the machinery, not the phrase
+
+Kartik's direction (2026-07-09): assume **every serious team will say "unified database"
+or "digital twin."** Those words alone will not differentiate. What no other team is
+likely to show is a worked memory *system*. The deck should therefore spend real slide
+estate (S4 or S5) on how memory actually operates, drawn from `docs/MEMORY-ARCHITECTURE.md`:
+
+- **Graph-based memory** — one customer graph, five typed layers (identity, financial
+  state, preferences/behaviour, interactions, decisions), not a flat profile table.
+- **Relationship memory** — the household graph: dependents, obligations, spouse,
+  employer. Show one concrete consequence: *a dependent parent raises the emergency-fund
+  target and the insurance requirement — the numbers change because the graph knows.*
+- **Event-based memory** — salary credit, FD maturity, bonus, life events trigger
+  re-planning (Persistent Investment Intelligence).
+- **Time- and topic-indexed recall** — the same memory reachable by date ("the 25 June
+  discussion") and by subject ("gold — last discussed 5 May").
+- **Governed memory** — bi-temporal (what we knew when advice was given), provenance-
+  tagged, consent-scoped, customer-editable. This is the line generic twin pitches
+  cannot say, and the one a bank's risk team will remember.
+
+One effective exhibit: a single customer question answered twice — once by a "chatbot
+with a database" (generic, correct, useless) and once by the memory graph (references
+the family obligation, the last gold conversation, and the FD maturing next week).
+The difference *is* the pitch.
+
 ### 2b. A "flagship demo moment"
 
 They scripted one moment the judges remember. Ours (for the 3-minute video and S10):
@@ -96,11 +121,31 @@ Their time-bound roadmap table reads as a deployment plan, not a wish list. Ours
 | Hackathon | End-to-end spine on sandbox APIs: twin, engine, avatar, RM view (PoC already runs with 36 engine tests) | Working prototype on IDBI sandbox data |
 | Pilot (0–3 months) | **Insight-only shadow mode** inside GO Mobile+ for one customer segment; RM console for one cluster; consent and audit hardening | Advisory quality measured against RM decisions before any customer-facing recommendation |
 | Scale (3–9 months) | AA integration live; Hindi voice production-grade; recommendation mode enabled; meeting copilot | Measured lift in SIP activation and RM productivity |
-| Expand (9–18 months) | Additional languages; WhatsApp channel; lifecycle-fund partnerships; optional RIA-SIDD track | Bank-wide advisory coverage |
+| Expand (9–18 months) | Additional languages; WhatsApp channel; lifecycle-fund partnerships; optional RIA-SIDD track; **app-wide contextual advisory (below)** | Bank-wide advisory coverage |
 
 The **shadow-mode pilot** is the single most bank-credible idea in this table — the
 system proves itself against human decisions before it touches a customer. Give it a
 full sentence on S12, not a bullet fragment.
+
+### 2d-i. Future roadmap spike: app-wide contextual advisory
+
+Kartik's direction (2026-07-09) for S12: the module does not stay confined to a wealth
+tab. Because the twin and engine sit behind the whole app, the assistant can surface
+**in context, at the moment of intent**, anywhere in GO Mobile+:
+
+| Where the customer is | What the assistant does |
+|---|---|
+| Searching for a bank statement | Locates and prepares the statement; offers the derived insight ("your Q1 spends were 18% higher — want the breakdown?") |
+| Viewing account balance (balance unusually high) | Suggests, in place, deploying the surplus per the customer's standing strategy |
+| Credit-card section (large purchase or dues) | Offers EMI conversion, or a lower-cost alternative — loan against MF/equity instead of revolving at card rates |
+| Loan section | Prepay-vs-invest comparison before a prepayment; loan-against-FD before a new personal loan |
+| FD booking screen | Shows the post-tax comparison with debt funds for the customer's slab before the customer commits |
+
+Framing for the slide: *"Phase 4 extends the same engine and memory to every screen of
+the bank's application — advisory becomes ambient, not a destination."* One line + the
+table (trimmed to 3 rows if space demands). This lands as vision grounded in the same
+architecture, not a feature wish list — the twin already knows the context; only the
+surface changes.
 
 ## 3. Post-hackathon deployment plan (their strength; make it ours)
 
