@@ -58,7 +58,8 @@ Full challenge facts: see `01-challenge-brief.md`.
 | D5 | Pitch lead: **data/behavior engine as the moat**; avatar is the interface/face of it | ✅ Decided 2026-07-08 |
 | D6 | Advisor OS (RM-facing side, "one engine two faces"): how much in PoC scope? (a) roadmap-only, (b) avatar + one RM surface demoed [recommended], (c) full both sides | ⏳ Open — see `research/research-advisor-os.md` |
 | D7 | Delivery mechanism: **hybrid, channel-agnostic** (native micro-SDK for mic/TTS/avatar canvas + server-driven conversational UI); GO Mobile+ = reference integration for PoC, but module must embed in any IDBI channel (new digital app per 2022 RFP, WhatsApp later) — see screens file + addendum | ⏳ Recommended — awaiting Kartik |
-| D8 | Unifying architecture = **AI-native financial twin**: one Customer Graph (memory graph + relationship graph), 5 typed layers, 3 retrieval indexes (time/event/topic), consent-scoped. Extends the engine's Client Graph. Design in `docs/MEMORY-ARCHITECTURE.md` | 🔄 Framework set by Kartik; brainstorm with Jyoti pending |
+| D8 | Unifying architecture = **AI-native financial twin**: one Customer Graph (memory graph + relationship graph), 5 typed layers, 3 retrieval indexes (time/event/topic), consent-scoped. Extends the engine's Client Graph. Design in `docs/MEMORY-ARCHITECTURE.md` | 🔄 Framework set by Kartik; brainstorm with Jyoti pending — Jyoti's prep in `docs/brainstorm-prep-jyoti.md` (items 1, 2, 4 complete) |
+| D9 | **Naming final (Jyoti, 2026-07-08): product = "ArthSakhi", avatar = "Asha"** — working names confirmed as final after clash-checking ~20 alternatives (Samridhi/Setu/Mitra/Sarthi/Saathi compounds all taken by existing financial firms; ArthSakhi clean, no company found). `arthsakhi.in` unregistered as of 2026-07-08 — register before repo goes public. No rename pass needed. | ✅ Decided |
 
 ## Done
 
