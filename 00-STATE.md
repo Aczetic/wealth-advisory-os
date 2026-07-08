@@ -21,8 +21,17 @@ Full challenge facts: see `01-challenge-brief.md`.
 
 ## Team
 
-- **Kartik** — Product Manager + Chartered Accountant. Owns product, finance/tax/regulatory angles.
-- **Tech friend** (being onboarded) — owns engineering.
+- **Kartik** — Product Manager + Chartered Accountant. Owns product, finance/tax/regulatory.
+- **Afraz** — Engineer. Owns technical architecture, tech stack (LLM/TTS/STT), UI, integration. Onboarding: `docs/ONBOARDING-AFRAZ.md`.
+- **Jyoti** — CFA L1 + BAF. Owns deck, AI logic/smart layer, tiered AI→RM switch, RM view, memory design. Onboarding: `docs/ONBOARDING-JYOTI.md`.
+
+## Repo (collaboration)
+
+- GitHub (**private**): https://github.com/iamkartik4793/arthsakhi-idbi-wealth
+- `git clone` then read `README.md` → routes each teammate to their onboarding doc.
+- Add Afraz & Jyoti as collaborators: repo Settings → Collaborators (or
+  `gh repo edit --add-collaborator <user>`).
+- `.claude/` is gitignored (local tooling). Memory files live outside the repo (personal).
 
 ## Operating rules (set by Kartik — do not violate)
 
@@ -49,6 +58,7 @@ Full challenge facts: see `01-challenge-brief.md`.
 | D5 | Pitch lead: **data/behavior engine as the moat**; avatar is the interface/face of it | ✅ Decided 2026-07-08 |
 | D6 | Advisor OS (RM-facing side, "one engine two faces"): how much in PoC scope? (a) roadmap-only, (b) avatar + one RM surface demoed [recommended], (c) full both sides | ⏳ Open — see `research-advisor-os.md` |
 | D7 | Delivery mechanism: **hybrid, channel-agnostic** (native micro-SDK for mic/TTS/avatar canvas + server-driven conversational UI); GO Mobile+ = reference integration for PoC, but module must embed in any IDBI channel (new digital app per 2022 RFP, WhatsApp later) — see screens file + addendum | ⏳ Recommended — awaiting Kartik |
+| D8 | Unifying architecture = **AI-native financial twin**: one Customer Graph (memory graph + relationship graph), 5 typed layers, 3 retrieval indexes (time/event/topic), consent-scoped. Extends the engine's Client Graph. Design in `docs/MEMORY-ARCHITECTURE.md` | 🔄 Framework set by Kartik; brainstorm with Jyoti pending |
 
 ## Done
 
@@ -83,24 +93,28 @@ Full challenge facts: see `01-challenge-brief.md`.
 Rule (Kartik, 2026-07-08): discovery before definition — always ask "what must inform this
 artifact?" before writing it, and propose those steps proactively.
 
+## Done (overnight 2026-07-09 + collaboration setup)
+
+- [x] **Working PoC built & verified** (`poc/`) — avatar app + deterministic engine +
+      RM console; 36/36 golden tests passing; all flows click-verified in browser.
+      Run: `cd poc && node server.js`. Guide: `README-TEST.md`.
+- [x] **v0.9 solution spec** (`03-solution-spec.md`) — methodology marked ⚠️CA pending Kartik.
+- [x] **GitHub repo (private)** created + pushed: iamkartik4793/arthsakhi-idbi-wealth.
+- [x] **Team onboarding docs** — `docs/ONBOARDING-AFRAZ.md`, `docs/ONBOARDING-JYOTI.md`.
+- [x] **Memory architecture / AI-native twin** (`docs/MEMORY-ARCHITECTURE.md`, D8) — framework
+      + 5 layers + 3 indexes + third-order gaps + AA/ULI/OCEN mapping; brainstorm-ready.
+
 ## Next action (do this one thing, completely)
 
-1. **Kartik: register on Hack2skill TODAY (before 2026-07-09)** and capture the
-   submission form's required fields into `01-challenge-brief.md`.
-2. Work through `02-spec-decomposition-map.md` in its suggested closure order.
-   DONE: GO Mobile+ screens, app portfolio + 2022 RFP baseline, avatar spec patterns
-   (`research-avatar-spec-patterns.md` — voice-note-first model, anti-sycophancy,
-   conversational onboarding, swipeless curation). NEXT: advisory-methodology design
-   session WITH Kartik (subsystem B — the engine's brain), then data map (C).
-3. Founder-mode gaps flagged to Kartik (2026-07-08): register NOW, lock tech friend's
-   commitment, talk to 1 real IDBI RM/wealth person this week.
-3. Kartik to decide **D6** (Advisor OS scope in PoC — recommendation: option b).
-4. `02-solution-spec.md` is written only after the map's items are closed — it then
-   becomes an assembly job, not a thinking job.
-
-NOTE (2026-07-08): file map updated — `02-spec-decomposition-map.md` inserted; the
-solution spec file will be `03-solution-spec.md` when its turn comes (renumber later
-files accordingly).
+1. **Kartik: register on Hack2skill — DEADLINE TODAY 2026-07-09** and capture submission
+   form fields into `01-challenge-brief.md`. (Only hard blocker.)
+2. **Add Afraz & Jyoti as GitHub collaborators** and share the repo + their onboarding docs.
+3. **Jyoti brainstorm: memory** — run `docs/MEMORY-ARCHITECTURE.md` §7 agenda with Kartik.
+4. **Kartik CA-review** the ⚠️CA methodology numbers in `03-solution-spec.md` /
+   `poc/engine.js` (glide matrix, gate thresholds, suitability scoring, return/tax assumptions).
+5. Confirm open decisions: **D6** (Advisor OS scope — rec: option b, already built),
+   **D7** (delivery — rec: hybrid), **D8** (twin framework).
+6. Then: `05-deck-outline.md` → deck (Jyoti), only after methodology is CA-signed.
 
 ## Planned file map (create only when its turn comes)
 
