@@ -83,6 +83,25 @@ with a database" (generic, correct, useless) and once by the memory graph (refer
 the family obligation, the last gold conversation, and the FD maturing next week).
 The difference *is* the pitch.
 
+### 2a-ii. Language commitment — 15+ languages, voice and text (Kartik, 2026-07-09)
+
+The pitch commits to **support for 15+ Indian languages, in both voice and text**. Place
+it in S4 (features) and repeat in S8 (technology). Three anchors make this credible
+rather than aspirational:
+
+1. **IDBI asked for it**: the bank's own 2022 digital-app RFP requires "minimum 15
+   regional languages" — we are meeting their written requirement, not inventing one.
+2. **Deployed precedent**: NH Bank (Korea) operates avatar kiosks in 110+ languages;
+   Indic TTS/STT stacks (Sarvam AI, Bhashini, Google/Azure Indic) make 15+ practical today.
+3. **The inclusion story**: voice in the customer's own language is what makes advisory
+   usable for the tier-2/3, first-time-investor segment the problem statement describes —
+   India's voice-note behaviour (voice = 22% of WhatsApp communications) shows the
+   interaction pattern already exists.
+
+Wording note (style guide): "supports 15+ Indian languages across voice and text,
+rolled out in phases beginning with Hindi and English" — phased and factual, not
+"seamlessly multilingual".
+
 ### 2b. A "flagship demo moment"
 
 They scripted one moment the judges remember. Ours (for the 3-minute video and S10):
