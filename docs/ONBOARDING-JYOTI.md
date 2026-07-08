@@ -79,9 +79,12 @@ show "one twin, right advice for NRI vs GenZ vs pensioner."
 
 ## Your deliverables & where to start
 
-- **Deck** — high-level "proper machinery" story. Don't start slides yet; first internalize
-  the research so the deck has no fluff (Kartik's rule). Draft outline will become
-  `05-deck-outline.md`.
+- **Deck** — your primary deliverable, on the official IDBI template. Everything you need
+  is in `deck/`: the template (`IDBI-submission-template.pptx`), your direction brief
+  (`DECK-DIRECTION-JYOTI.md` — style rules, differentiator table, flagship demo moment,
+  business-case framing, roadmap format), and the slide-by-asset mapping in
+  `01-challenge-brief.md`. All deck copy follows `docs/WRITING-STYLE.md` (binding).
+  Still: internalize the research first so the deck has no fluff (Kartik's rule).
 - **Smart-layer / logic** — how AI works: the engine decides, the LLM/avatar only explains
   (see `03-solution-spec.md` §5 + `poc/engine.js`). Formalize the persona and memory logic.
 - **Tiered AI→RM switch** — the escalation boundary is a *feature* (compliance + lead-gen).

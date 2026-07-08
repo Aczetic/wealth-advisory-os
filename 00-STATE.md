@@ -127,6 +127,12 @@ artifact?" before writing it, and propose those steps proactively.
   post-consent payloads in `source-specs/` (vendored); availability research note in its
   `docs/`. **Primary tool for Jyoti's smart-layer/personalization work** — every twin
   attribute must trace to a row here or be declared conversational/bank-internal.
-- `docs/` — onboarding (Afraz, Jyoti) + `MEMORY-ARCHITECTURE.md` (AI-native twin, D8)
+- `docs/` — onboarding (Afraz, Jyoti) + `MEMORY-ARCHITECTURE.md` (AI-native twin, D8) +
+  `WRITING-STYLE.md` (binding for all external copy — deck, submission, video script)
+- `deck/` — official IDBI 15-slide template (`IDBI-submission-template.pptx`) +
+  `DECK-DIRECTION-JYOTI.md` (style, differentiator table, flagship demo moment,
+  business-case framing, Phase|Focus|Outcome roadmap incl. shadow-mode pilot).
+  Slide-by-asset mapping: `01-challenge-brief.md`. S13 needs: PUBLIC repo at submission,
+  3-min demo video, hosted product link (PoC is static → GitHub Pages/Vercel).
 - `poc/` — working demo + engine + 36 golden tests
-- Still to create: `04-architecture.md` (Afraz), `05-deck-outline.md` → deck (Jyoti, last)
+- Still to create: `04-architecture.md` (Afraz), the deck itself (Jyoti, last)
