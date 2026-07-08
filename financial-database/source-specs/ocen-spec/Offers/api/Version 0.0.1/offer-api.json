@@ -1,0 +1,118 @@
+{
+    "openapi":"3.2.0",
+    "info":{
+        "title":"Offer API",
+        "description":"Generate offer for a set of loan application & set offer",
+        "version":"3.2"
+    },
+    "paths":{
+        "/v3/offer/generateOffersRequest":{
+            "post":{
+                "description":"Invoked by LSP to request lender to generate offer after consent for data is ready",
+                "requestBody":{
+                    "description":"Request to generate offer for a set of loan application",
+                    "content":{
+                        "application/json":{
+                            "schema":{
+                                "$ref":"https://github.com/juspay/lsp-lender-protocol-specification/blob/master/Offers/schema/Version%200.0.1/Generate%20Offer/GenerateOfferRequest.json"
+                            }
+                        }
+                    }
+                },
+                "responses":{
+                    "200":{
+                        "description":"Acknowledgement of Request Received",
+                        "content":{
+                            "application/json":{
+                                "schema":{
+                                    "$ref":"https://github.com/juspay/lsp-lender-protocol-specification/blob/master/Core/schema/Version%200.0.1/ack.json"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/v3/offer/generateOffersResponse":{
+            "post":{
+                "description":"Invoked by lender informing borrower about offers",
+                "requestBody":{
+                    "description":"Returns the tentaive loan offer",
+                    "content":{
+                        "application/json":{
+                            "schema":{
+                                "$ref":"https://github.com/juspay/lsp-lender-protocol-specification/blob/master/Offers/schema/Version%200.0.1/Generate%20Offer/GenerateOfferResponse.json"
+                            }
+                        }
+                    }
+                },
+                "responses":{
+                    "200":{
+                        "description":"Acknowledgement of Response Received",
+                        "content":{
+                            "application/json":{
+                                "schema":{
+                                    "$ref":"https://github.com/juspay/lsp-lender-protocol-specification/blob/master/Core/schema/Version%200.0.1/ack.json"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/v3/offer/setOfferRequest":{
+            "post":{
+                "description":"Invoked by LSP to request lender to set chosen offer",
+                "requestBody":{
+                    "description":"Informing lender about offer chosen by borrower",
+                    "content":{
+                        "application/json":{
+                            "schema":{
+                                "$ref":"https://github.com/juspay/lsp-lender-protocol-specification/blob/master/Offers/schema/Version%200.0.1/Set%20Offer/SetOfferRequest.json"
+                            }
+                        }
+                    }
+                },
+                "responses":{
+                    "200":{
+                        "description":"Acknowledgement of Request Received",
+                        "content":{
+                            "application/json":{
+                                "schema":{
+                                    "$ref":"https://github.com/juspay/lsp-lender-protocol-specification/blob/master/Core/schema/Version%200.0.1/ack.json"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+    "/v3/offer/setOfferResponse":{
+            "post":{
+                "description":"Invoked by lender & asynchronous resposne to initiate AcceptOfferRequest API",
+                "requestBody":{
+                    "description":"Response to setOfferRequest with loan Application status",
+                    "content":{
+                        "application/json":{
+                            "schema":{
+                                "$ref":"https://github.com/juspay/lsp-lender-protocol-specification/blob/master/Offers/schema/Version%200.0.1/Set%20Offer/SetOfferResponse.json"
+                            }
+                        }
+                    }
+                },
+                "responses":{
+                    "200":{
+                        "description":"Acknowledgement of Response Received",
+                        "content":{
+                            "application/json":{
+                                "schema":{
+                                    "$ref":"https://github.com/juspay/lsp-lender-protocol-specification/blob/master/Core/schema/Version%200.0.1/ack.json"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,32 @@
+{
+	"$schema": "http://json-schema.org/draft-07/schema#", 
+	"$id": "https://github.com/juspay/lsp-lender-protocol-specification/blob/master/KYC/schema/Version%200.0.1/Trigger%20Kyc/TriggerKycRequest.json", 
+	"type": "object",
+	"required": [
+		"metadata",
+		"requestId",
+		"loanApplicationIds",
+		"kyc"
+	],
+	"properties": {
+		"metadata": {
+			"$ref": "https://github.com/juspay/lsp-lender-protocol-specification/blob/master/Core/schema/Version%200.0.1/metadata.json"
+		}
+,
+		"requestId": { 
+			"type": "string"
+		},
+		"loanApplicationIds": {
+			"type": "array",
+			"items":{
+				"type": "string",
+				"examples": [
+					"t8cc6822bd4bbb4eb1b9e1b4996fbff8acb"
+				]
+			}
+		},
+		"kyc":{
+			"$ref":"https://github.com/juspay/lsp-lender-protocol-specification/blob/master/Core/schema/Version%200.0.1/kyc.json"
+		}
+	}
+}

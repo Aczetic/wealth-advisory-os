@@ -1,0 +1,44 @@
+{
+	"$schema": "http://json-schema.org/draft-07/schema#", 
+	"$id": "https://github.com/juspay/lsp-lender-protocol-specification/blob/master/Core/schema/Version%200.0.1/contactdetails.json", 
+	"type": "object",
+	"required": [
+		"type",
+		"phone"
+	],
+	"properties": {
+		"type": { 
+			"type": "string",
+			"enum": [
+				"PRIMARY","OTHER"
+			]
+		},
+		"desctiption":{
+			"type":"string"
+		},
+		"phone": { 
+			"type": "string",
+			"examples": [
+				"7777777777"
+			]
+		},
+		"email": { 
+			"type": "string",
+			"examples": [
+				"johndoe@defenterprises"
+			]
+		},
+		"address": {
+			"$ref": "https://github.com/juspay/lsp-lender-protocol-specification/blob/master/Core/schema/Version%200.0.1/address.json"	
+			},
+			"url":{
+				"type":"string"
+			},
+			"extensibleData":{
+				"$ref": "https://github.com/juspay/lsp-lender-protocol-specification/blob/master/Core/schema/Version%200.0.1/extensibleData.json"
+			}
+
+	}
+}
+
+ 

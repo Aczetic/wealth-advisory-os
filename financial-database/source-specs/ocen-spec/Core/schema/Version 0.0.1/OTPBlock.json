@@ -1,0 +1,43 @@
+{
+	"$schema": "http://json-schema.org/draft-07/schema#", 
+	"$id": "https://github.com/juspay/lsp-lender-protocol-specification/blob/master/Core/schema/Version%200.0.1/OTPBlock.json", 
+	"type": "object",
+	"required": [
+		"status"
+	],
+	"properties": {
+		"appToken": { 
+			"type": "string",
+			"examples": [
+				"<token for auto-reading otp>"
+			]
+		},
+		"otpSessionKey": { 
+			"type": "string"
+		},
+		"maskedPhoneNumber": {
+			"type": "string",
+			"examples": [
+				"XXXXXXX775"
+			]
+		},
+		"otp": {
+			"type": "number",
+			"examples": [
+				"856429"
+			]
+		},
+		"status": { 
+			"type": "string",
+			"enum": [
+				"SUCCESS" , "INVALID_SESSION" , "INCORRECT_OTP"
+			]
+		},
+		"url":{
+			"type":"string"
+		},
+		"extensibleData":{
+			"$ref": "https://github.com/juspay/lsp-lender-protocol-specification/blob/master/Core/schema/Version%200.0.1/extensibleData.json"
+		}
+	}
+}

@@ -1,0 +1,63 @@
+{
+	"$schema": "http://json-schema.org/draft-07/schema#", 
+	"$id": "https://github.com/juspay/lsp-lender-protocol-specification/blob/master/Grant%20Loan/schema/Version%200.0.1/List%20Loans/ListLoansResponse.json", 
+	"type": "object",
+	"required": [
+		"metadata",
+		"requestId",
+		"response",
+		"loans"
+	],
+	"properties": {
+		"metadata": {
+			"$ref": "https://github.com/juspay/lsp-lender-protocol-specification/blob/master/Core/schema/Version%200.0.1/metadata.json"
+		}
+,
+		"requestId": {
+			"type": "string",
+			"default": "",
+			"examples": [
+				"e8cc6822bd4bbb4eb1b9e1b4996fbff8acb"
+			]
+		},
+		"response": {
+			"type": "object",
+			"required": [
+				"error"
+			],
+			"properties": {
+				"error": {
+					"type": "string",
+					"default": "",
+					"examples": [
+						"0"
+					]
+				}
+			}
+		}
+,
+		"loans": {
+			"type": "array",
+			"items":{ 
+				"type": "object",
+				"required": [
+					"loanId",
+					"terms"
+				],
+				"properties": {
+					"loanId": { 
+						"type": "string",
+						"examples": [
+							"e8cc6822bd4bbb4eb1b9e1b4996fbff8acb"
+						]
+					},
+					"terms": {
+						"$ref": "https://github.com/juspay/lsp-lender-protocol-specification/blob/master/Core/schema/Version%200.0.1/loanterms.json"
+					}
+
+				}
+			}
+
+		}
+	}
+}

@@ -54,9 +54,9 @@ Full challenge facts: see `01-challenge-brief.md`.
 | D1 | Spec-first, deck-last workflow | ✅ Decided |
 | D2 | Product universe for PoC: **MF-first + bank products (FD/RD) + gold** (gold via Gold ETF/MF route to stay on distribution rails) | ✅ Decided 2026-07-08 |
 | D3 | Avatar: **lightweight 2D animated + voice** (lip-sync TTS, multilingual); photoreal only as roadmap if at all | ✅ Decided 2026-07-08 |
-| D4 | Advice posture: **distributor wrapper** (AMFI ARN, "curated portfolios/insights" language, never "advice"); AA data for analysis only, recommendations restricted to bank-distributed universe; out-of-universe needs **escalate to RM/wealth desk**; **SEBI AI/ML governance designed in natively** (deterministic engine decides, LLM explains, full audit trail); RIA-via-SIDD roadmap-only. Basis: `research-d4-bfsi-advice-posture.md` | ✅ Decided 2026-07-08 |
+| D4 | Advice posture: **distributor wrapper** (AMFI ARN, "curated portfolios/insights" language, never "advice"); AA data for analysis only, recommendations restricted to bank-distributed universe; out-of-universe needs **escalate to RM/wealth desk**; **SEBI AI/ML governance designed in natively** (deterministic engine decides, LLM explains, full audit trail); RIA-via-SIDD roadmap-only. Basis: `research/research-d4-bfsi-advice-posture.md` | ✅ Decided 2026-07-08 |
 | D5 | Pitch lead: **data/behavior engine as the moat**; avatar is the interface/face of it | ✅ Decided 2026-07-08 |
-| D6 | Advisor OS (RM-facing side, "one engine two faces"): how much in PoC scope? (a) roadmap-only, (b) avatar + one RM surface demoed [recommended], (c) full both sides | ⏳ Open — see `research-advisor-os.md` |
+| D6 | Advisor OS (RM-facing side, "one engine two faces"): how much in PoC scope? (a) roadmap-only, (b) avatar + one RM surface demoed [recommended], (c) full both sides | ⏳ Open — see `research/research-advisor-os.md` |
 | D7 | Delivery mechanism: **hybrid, channel-agnostic** (native micro-SDK for mic/TTS/avatar canvas + server-driven conversational UI); GO Mobile+ = reference integration for PoC, but module must embed in any IDBI channel (new digital app per 2022 RFP, WhatsApp later) — see screens file + addendum | ⏳ Recommended — awaiting Kartik |
 | D8 | Unifying architecture = **AI-native financial twin**: one Customer Graph (memory graph + relationship graph), 5 typed layers, 3 retrieval indexes (time/event/topic), consent-scoped. Extends the engine's Client Graph. Design in `docs/MEMORY-ARCHITECTURE.md` | 🔄 Framework set by Kartik; brainstorm with Jyoti pending |
 
@@ -64,27 +64,27 @@ Full challenge facts: see `01-challenge-brief.md`.
 
 - [x] Challenge researched; dates, stages, prize pool confirmed (see `01-challenge-brief.md`)
 - [x] Folder structure + this STATE file created (2026-07-08)
-- [x] D4 advice-posture research (`research-d4-bfsi-advice-posture.md`) — D4 decided
-- [x] Global + India landscape scan (`research-landscape-products.md`) — precedents, gap analysis, 10-item feature steal-list for the spec (2026-07-08)
+- [x] D4 advice-posture research (`research/research-d4-bfsi-advice-posture.md`) — D4 decided
+- [x] Global + India landscape scan (`research/research-landscape-products.md`) — precedents, gap analysis, 10-item feature steal-list for the spec (2026-07-08)
 
 ## Discovery checklist (gate: complete before writing 02-solution-spec.md)
 
-- [x] Regulatory posture — how BFSI handles advice boundary (`research-d4-bfsi-advice-posture.md`)
-- [x] Landscape scan — global + India products/startups, gaps, steal-list (`research-landscape-products.md`)
-- [x] **Client research: IDBI Bank** (`research-idbi-client.md`) — LIC-owned (94.72% w/ GoI),
+- [x] Regulatory posture — how BFSI handles advice boundary (`research/research-d4-bfsi-advice-posture.md`)
+- [x] Landscape scan — global + India products/startups, gaps, steal-list (`research/research-landscape-products.md`)
+- [x] **Client research: IDBI Bank** (`research/research-idbi-client.md`) — LIC-owned (94.72% w/ GoI),
       tier-2/3 retail-heavy base, ARN-0058 distributor, GO Mobile+ is transactional-only,
       3 draft personas, + flagship feature idea: **Emergency Liquidity Advisor** (Kartik's
       EPF thought, upgraded — liquidity waterfall using IDBI's own loan products)
-- [x] **Advisor OS research** (`research-advisor-os.md`) — Kartik's insight; Vise ($1B),
+- [x] **Advisor OS research** (`research/research-advisor-os.md`) — Kartik's insight; Vise ($1B),
       Zocks/Jump agentic-OS wave, Morgan Stanley AI@MS precedent (98% adoption, 30 min/meeting,
       $64B NNA quarter); "one engine, two faces" architecture mapped; D6 scope decision open
-- [x] **Failure analysis + Judge lens** (`research-failures-judge-lens.md`) — 5 robo-1.0
+- [x] **Failure analysis + Judge lens** (`research/research-failures-judge-lens.md`) — 5 robo-1.0
       failure causes each answered structurally by bank-embedding; judge lens = RBI outsourcing/
       data-residency/AI posture, staff-augmentation framing, integration-over-replacement
-- [x] **GO Mobile+ screens + app portfolio** (`research-gomobile-screens.md` + addendum) —
+- [x] **GO Mobile+ screens + app portfolio** (`research/research-gomobile-screens.md` + addendum) —
       nav tree, 5 avatar entry points, app fleet is fragmented, D7 recommended
-- [x] **IDBI's own 2022 Digital Bank App RFP** (`research-rfp-2022-baseline.md` + PDF saved as
-      `source-rfp-2022-idbi-digital-bank.pdf`) — THE BASELINE: bank's written table stakes
+- [x] **IDBI's own 2022 Digital Bank App RFP** (`research/research-rfp-2022-baseline.md` + PDF saved as
+      `research/source-rfp-2022-idbi-digital-bank.pdf`) — THE BASELINE: bank's written table stakes
       (wealth module W1–W6, spend analytics, chatbot, 15 languages, on-prem DC/DR, their tech
       stack). Spec must cover-and-exceed line by line. Pitch: "we're the intelligence layer
       your 2022 RFP's rails were waiting for"
@@ -116,11 +116,17 @@ artifact?" before writing it, and propose those steps proactively.
    **D7** (delivery — rec: hybrid), **D8** (twin framework).
 6. Then: `05-deck-outline.md` → deck (Jyoti), only after methodology is CA-signed.
 
-## Planned file map (create only when its turn comes)
+## Repo layout (reorganized 2026-07-09; see README.md for the full annotated map)
 
-- `00-STATE.md` — this file
-- `01-challenge-brief.md` — fixed challenge facts + submission form fields
-- `02-solution-spec.md` — product spec (next up)
-- `03-architecture.md` — technical architecture (after spec is locked)
-- `04-compliance.md` — SEBI/AMFI/DPDP/AA compliance design (after spec)
-- `05-deck-outline.md` → deck (last)
+- Root: `00-STATE.md` (this), `01-challenge-brief.md`, `02-spec-decomposition-map.md`,
+  `03-solution-spec.md`, `spec-input-kartik-methodology.md`, `README.md`, `README-TEST.md`
+- `research/` — all 8 research files + `source-rfp-2022-idbi-digital-bank.pdf`
+- `financial-database/` — **Kartik's field inventory of India's open-finance rails**:
+  `field-inventory/MASTER_field_inventory.csv` = 1,731 fields (AA 1,318 · OCEN 299 ·
+  ULI 114) parsed from official ReBIT/Sahamati XSDs + iSPIRT OCEN schemas; sample
+  post-consent payloads in `source-specs/` (vendored); availability research note in its
+  `docs/`. **Primary tool for Jyoti's smart-layer/personalization work** — every twin
+  attribute must trace to a row here or be declared conversational/bank-internal.
+- `docs/` — onboarding (Afraz, Jyoti) + `MEMORY-ARCHITECTURE.md` (AI-native twin, D8)
+- `poc/` — working demo + engine + 36 golden tests
+- Still to create: `04-architecture.md` (Afraz), `05-deck-outline.md` → deck (Jyoti, last)

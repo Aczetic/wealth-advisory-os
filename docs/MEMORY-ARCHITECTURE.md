@@ -152,6 +152,13 @@ These are the hard parts. Flagged for the Jyoti brainstorm:
 Accuracy note for the deck: AA = *data sharing*; ULI = *credit-enabling data access*;
 OCEN = *credit distribution protocol*. Don't conflate them — a bank judge will notice.
 
+**Field-level ground truth: `financial-database/`** — Kartik's inventory of all **1,731
+fields** on these rails (`field-inventory/MASTER_field_inventory.csv`), parsed from the
+official ReBIT/Sahamati XSDs and iSPIRT OCEN schemas, with sample post-consent payloads
+in `source-specs/`. Every L1/L2 twin attribute we design should cite its source row there;
+anything not in the inventory must come from conversation (L1 questions) or bank-internal
+systems — that mapping IS the twin's data contract.
+
 ---
 
 ## 6. How the deck should show this (high-level machinery)

@@ -1,0 +1,93 @@
+{
+	"$schema": "http://json-schema.org/draft-07/schema#", 
+	"$id": "https://github.com/juspay/lsp-lender-protocol-specification/blob/master/Core/schema/Version%200.0.1/address.json", 
+	"title": "Root", 
+	"type": "object",
+	"required": [
+		"hba",
+		"srl",
+		"pinCode",
+		"state",
+		"country"
+	],
+	"properties": {
+		"hba": { 
+			"type": "string",
+			"examples": [
+				"<House/Building/Apartment>"
+			]
+		},
+		"srl": { 
+			"type": "string",
+			"examples": [
+				"<Street/Road/Lane>"
+			]
+		},
+		"landmark": {
+			"type": "string"
+		},
+		"als": {
+			"type": "string",
+			"examples": [
+				"<Area/Locality/Sector>"
+			]
+		},
+		"vtc": {
+			"type": "string",
+			"examples": [
+				"<Village/Town/City>"
+			]
+		},
+		"pinCode": {
+			"type": "string",
+			"examples": [
+				""
+			]
+		},
+		"po": { 
+			"type": "string",
+			"examples": [
+				""
+			]
+		},
+		"district": { 
+			"type": "string",
+			"examples": [
+				""
+			]
+		},
+		"state": { 
+			"type": "string",
+			"examples": [
+				""
+			]
+		},
+		"country": { 
+			"type": "string",
+			"examples": [
+				""
+			]
+		},
+		"url": { 
+			"type": "string",
+			"examples": [
+				"<digital address>"
+			]
+		},
+		"latitude": { 
+			"type": "string",
+			"examples": [
+				""
+			]
+		},
+		"longitude": { 
+			"type": "string",
+			"examples": [
+				""
+			]
+		},
+		"extensibleData":{
+			"$ref": "https://github.com/juspay/lsp-lender-protocol-specification/blob/master/Core/schema/Version%200.0.1/extensibleData.json"
+		}
+	}
+}

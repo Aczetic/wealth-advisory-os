@@ -21,14 +21,14 @@ if a subsystem has no benchmark identified yet, that's the first work item for i
 | G. Economics/metrics | Range (RM-deflection metrics); AI-lab eval-harness practice (golden test cases) |
 | H. PoC/demo strategy | Morgan Stanley AI@MS rollout (pilot→scale); hackathon-winner demo patterns |
 
-**FLOOR for all subsystems:** IDBI's own 2022 Digital Bank App RFP (`research-rfp-2022-baseline.md`)
+**FLOOR for all subsystems:** IDBI's own 2022 Digital Bank App RFP (`research/research-rfp-2022-baseline.md`)
 = the bank's written table stakes (wealth W1–W6, spend analytics, chatbot-ready, 15 languages,
 on-prem DC/DR, their recommended tech stack). Every subsystem must cover its RFP lines, then exceed.
 
 ## A. Integration surface & delivery (Kartik Q1, Q2)
 
 - ✅ GO Mobile+ feature list (transactional; deposits, demat view, basic MF journey, IPO)
-- ✅ **Screen map reconstructed** (`research-gomobile-screens.md`, 2026-07-08): nav tree
+- ✅ **Screen map reconstructed** (`research/research-gomobile-screens.md`, 2026-07-08): nav tree
   w/ confidence labels; 5 ranked avatar entry points (E1 deck-card … E5 RM deep-link);
   key finds: pre-login mPassbook already does manual expense categories (our seed),
   v3.5 added balance graphs, app is vendor-built (Snapwork), 3.7★ → crash isolation
@@ -76,7 +76,7 @@ on-prem DC/DR, their recommended tech stack). Every subsystem must cover its RFP
 ## D. Avatar experience — persona, memory, human-feel (Kartik Q3, Q6)
 
 - ✅ Vendors known; Cleo proves voice+memory+personality = 20x engagement
-- ✅ **Avatar spec patterns researched** (`research-avatar-spec-patterns.md`, 2026-07-08):
+- ✅ **Avatar spec patterns researched** (`research/research-avatar-spec-patterns.md`, 2026-07-08):
   Replika/C.AI (memory = attachment; anti-sycophancy + anti-dependency guardrails as
   pitchable differentiator), Wavelength (conversational onboarding → auditable suitability;
   swipeless curation = max 2-3 options), WhatsApp India (voice-note-first async model,

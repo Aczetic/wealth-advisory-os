@@ -1,0 +1,42 @@
+{
+	"$schema": "http://json-schema.org/draft-07/schema#", 
+	"$id": "https://github.com/juspay/lsp-lender-protocol-specification/blob/master/Core/schema/Version%200.0.1/transaction.json", 
+	"type": "object",
+	"required": [
+		"date",
+		"narration",
+		"txnRefNo",
+		"amount",
+		"type",
+		"closingBalance"
+	],
+	"properties": {
+		"date": { 
+			"type": "string"
+		},
+		"narration": {
+			"type": "string"
+		},
+		"txnRefNo": {
+			"type": "string"
+		},
+		"amount": { 
+			"type": "string"
+		},
+		"type": { 
+			"type": "string",
+			"enum": [
+				"DEPOSIT","WITHDRAWL"
+			]
+		},
+		"closingBalance": {
+			"type": "string"
+		},
+		"url":{
+			"type":"string"
+		},
+		"extensibleData":{
+			"$ref": "https://github.com/juspay/lsp-lender-protocol-specification/blob/master/Core/schema/Version%200.0.1/extensibleData.json"
+		}
+	}
+}

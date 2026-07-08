@@ -1,0 +1,118 @@
+{
+    "openapi":"3.2.0",
+    "info":{
+        "title":"KYC API",
+        "description":"TriggerKyc and KycStatus to initiate KYC process",
+        "version":"3.2"
+    },
+    "paths":{
+        "/v3/kyc/KycStatusRequest":{
+            "post":{
+                "description":"API is called by LSP to get the KYC status",
+                "requestBody":{
+                    "description":"Request to get kyc status",
+                    "content":{
+                        "application/json":{
+                            "schema":{
+                                "$ref":"https://github.com/juspay/lsp-lender-protocol-specification/blob/master/Offers/schema/Version%200.0.1/Kyc%20Status/KycStatusRequest.json"
+                            }
+                        }
+                    }
+                },
+                "responses":{
+                    "200":{
+                        "description":"Acknowledgement of Request Received",
+                        "content":{
+                            "application/json":{
+                                "schema":{
+                                    "$ref":"https://github.com/juspay/lsp-lender-protocol-specification/blob/master/Core/schema/Version%200.0.1/ack.json"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/v3/kyc/kycStatusResponse":{
+            "post":{
+                "description":"API is called by the lender to inform the status of the KYC process",
+                "requestBody":{
+                    "description":"Returns the kyc status",
+                    "content":{
+                        "application/json":{
+                            "schema":{
+                                "$ref":"https://github.com/juspay/lsp-lender-protocol-specification/blob/master/KYC/schema/Version%200.0.1/Kyc%20Status/KycStatusResponse.json"
+                            }
+                        }
+                    }
+                },
+                "responses":{
+                    "200":{
+                        "description":"Acknowledgement of Response Received",
+                        "content":{
+                            "application/json":{
+                                "schema":{
+                                    "$ref":"https://github.com/juspay/lsp-lender-protocol-specification/blob/master/Core/schema/Version%200.0.1/ack.json"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/v3/kyc/triggerKycRequest":{
+            "post":{
+                "description":"Lender is supposed to respond with the KYC status based on the data shared in Trigger KYC Request ",
+                "requestBody":{
+                    "description":"API is called to tigger kyc request",
+                    "content":{
+                        "application/json":{
+                            "schema":{
+                                "$ref":"https://github.com/juspay/lsp-lender-protocol-specification/blob/master/KYC/schema/Version%200.0.1/Trigger%20Kyc/TriggerKycRequest.json"
+                            }
+                        }
+                    }
+                },
+                "responses":{
+                    "200":{
+                        "description":"Acknowledgement of Request Received",
+                        "content":{
+                            "application/json":{
+                                "schema":{
+                                    "$ref":"https://github.com/juspay/lsp-lender-protocol-specification/blob/master/Core/schema/Version%200.0.1/ack.json"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+    "/v3/kyc/triggerKycResponse":{
+            "post":{
+                "description":"This API is called by the lender in response to trigger KYC requests",
+                "requestBody":{
+                    "description":"Response to trigger kyc request",
+                    "content":{
+                        "application/json":{
+                            "schema":{
+                                "$ref":"https://github.com/juspay/lsp-lender-protocol-specification/blob/master/KYC/schema/Version%200.0.1/Trigger%20Kyc/TriggerKycResponse.json"
+                            }
+                        }
+                    }
+                },
+                "responses":{
+                    "200":{
+                        "description":"Acknowledgement of Response Received",
+                        "content":{
+                            "application/json":{
+                                "schema":{
+                                    "$ref":"https://github.com/juspay/lsp-lender-protocol-specification/blob/master/Core/schema/Version%200.0.1/ack.json"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

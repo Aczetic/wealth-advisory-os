@@ -1,0 +1,30 @@
+{
+	"$schema": "http://json-schema.org/draft-07/schema#", 
+	"$id": "https://github.com/juspay/lsp-lender-protocol-specification/blob/master/Loan%20Acceptance/schema/Version%200.0.1/Verify%20Loan%20Acceptance/VerifyLoanApplicationResponse.json", 
+	"type": "object",
+	"required": [
+		"metadata",
+		"response",
+		"requestId",
+		"credBlock"
+	],
+	"properties": {
+		"metadata": {
+			"$ref": "https://github.com/juspay/lsp-lender-protocol-specification/blob/master/Core/schema/Version%200.0.1/metadata.json"
+		}
+,
+		"response": {
+			"$ref": "https://github.com/juspay/lsp-lender-protocol-specification/blob/master/Core/schema/Version%200.0.1/response.json"
+		}
+,
+		"requestId": { 
+			"type": "string"
+		},
+		"credBlock": {
+			"$ref": "https://github.com/juspay/lsp-lender-protocol-specification/blob/master/Core/schema/Version%200.0.1/credBlock.json"
+		}
+
+	}
+}
+
+ 

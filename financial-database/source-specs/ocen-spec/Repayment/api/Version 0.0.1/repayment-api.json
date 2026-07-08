@@ -1,0 +1,254 @@
+{
+    "openapi":"3.2.0",
+    "info":{
+        "title":" Repayment API",
+        "description":"API to consume for Repayment set and trigger repayment",
+        "version":"3.2"
+    },
+    "paths":{
+        
+        "/v3/repayment/setRepaymentPlanRequest":{
+            "post":{
+                "description":"Invoked by LSP requesting lender to set repayment plan",
+                "requestBody":{
+                    "description":"Set Choosen Repayment Plan in lender's system",
+                    "content":{
+                        "application/json":{
+                            "schema":{
+                                "$ref":"https://github.com/juspay/lsp-lender-protocol-specification/blob/master/Repayment/schema/Version%200.0.1/Set%20Repayment%20Plan/SetRepayementPlanRequest.json"
+                            }
+                        }
+                    }
+                },
+                "responses":{
+                    "200":{
+                        "description":"Acknowledgement of Request Received",
+                        "content":{
+                            "application/json":{
+                                "schema":{
+                                    "$ref":"https://github.com/juspay/lsp-lender-protocol-specification/blob/master/Core/schema/Version%200.0.1/ack.json"
+                                }
+                            }
+                        }
+                    }
+                }  
+            }
+        },
+        "/v3/repayment/setRepaymentPlanResponse":{
+            "post":{
+                "description":"Invoked by lender to inform lsp about chosenRepayment status",
+                "requestBody":{
+                    "description":"Set Repayment plan Status information to LSP",
+                    "content":{
+                        "application/json":{
+                            "schema":{
+                                "$ref":"https://github.com/juspay/lsp-lender-protocol-specification/blob/master/Repayment/schema/Version%200.0.1/Set%20Repayment%20Plan/SetRepaymentPlanResponse.json"
+                            }
+                        }
+                    }
+                },
+                "responses":{
+                    "200":{
+                        "description":"Acknowledgement of Response Received",
+                        "content":{
+                            "application/json":{
+                                "schema":{
+                                    "$ref":"https://github.com/juspay/lsp-lender-protocol-specification/blob/master/Core/schema/Version%200.0.1/ack.json"
+                                }
+                            }
+                        }
+                    }
+                } 
+            }
+        },
+        "/v3/repayment/setRepaymentPlanStatusRequest":{
+            "post":{
+                "description":"Invoked by LSP to fetch status of set repayment plan ",
+                "requestBody":{
+                    "description":"Get status of set repayment plan",
+                    "content":{
+                        "application/json":{
+                            "schema":{
+                                "$ref":"https://github.com/juspay/lsp-lender-protocol-specification/blob/master/Repayment/schema/Version%200.0.1/Set%20Repayment%20Plan%20Status/SetRepayementPlanStatusRequest.json"
+                            }
+                        }
+                    }
+                },
+                "responses":{
+                    "200":{
+                        "description":"Acknowledgement of Request Received",
+                        "content":{
+                            "application/json":{
+                                "schema":{
+                                    "$ref":"https://github.com/juspay/lsp-lender-protocol-specification/blob/master/Core/schema/Version%200.0.1/ack.json"
+                                }
+                            }
+                        }
+                    }
+                } 
+            }
+        },
+        "/v3/repayment/setRepaymentPlanStatusResponse":{
+            "post":{
+                "description":"Invoked by Lender to inform status of set Repayment plan",
+                "requestBody":{
+                    "description":"Set Repayment Plan status response",
+                    "content":{
+                        "application/json":{
+                            "schema":{
+                                "$ref":"https://github.com/juspay/lsp-lender-protocol-specification/blob/master/Repayment/schema/Version%200.0.1/Set%20Repayment%20Plan%20Status/SetRepaymentPlanStatusResponse.json"
+                            }
+                        }
+                    }
+                },
+                "responses":{
+                    "200":{
+                        "description":"Acknowledgement of Response Received",
+                        "content":{
+                            "application/json":{
+                                "schema":{
+                                    "$ref":"https://github.com/juspay/lsp-lender-protocol-specification/blob/master/Core/schema/Version%200.0.1/ack.json"
+                                }
+                            }
+                        }
+                    }
+                }
+                } 
+            },
+            "/v3/repayment/triggerRepaymentRequest":{
+                    "post":{
+                        "description":"Invoked by LSP to trigger repayment",
+                        "requestBody":{
+                            "description":"Request to lender to trigger a repayment",
+                            "content":{
+                                "application/json":{
+                                    "schema":{
+                                        "$ref":"https://github.com/juspay/lsp-lender-protocol-specification/blob/master/Repayment/schema/Version%200.0.1/Trigger%20Repayment/TriggerRepaymentRequest.json"
+                                    }
+                                }
+                            }
+                        },
+                        "responses":{
+                            "200":{
+                                "description":"Acknowledgement to Request Received",
+                                "content":{
+                                    "application/json":{
+                                        "schema":{
+                                            "$ref":"https://github.com/juspay/lsp-lender-protocol-specification/blob/master/Core/schema/Version%200.0.1/ack.json"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "/v3/repayment/triggerRepaymentResponse":{
+                    "post":{
+                        "description":"Invoked by Lender to send lender's payment page url",
+                        "requestBody":{
+                            "description":"Response to trigger repayment request",
+                            "content":{
+                                "application/json":{
+                                    "schema":{
+                                        "$ref":"https://github.com/juspay/lsp-lender-protocol-specification/blob/master/Repayment/schema/Version%200.0.1/Trigger%20Repayment/TriggerRepaymentResponse.json"
+                                    }
+                                }
+                            }
+                        },
+                        "responses":{
+                            "200":{
+                                "description":"Acknowledgement to Response Received",
+                                "content":{
+                                    "application/json":{
+                                        "schema":{
+                                            "$ref":"https://github.com/juspay/lsp-lender-protocol-specification/blob/master/Core/schema/Version%200.0.1/ack.json"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "/v3/repayment/triggerRepaymentStatusRequest":{
+                    "post":{
+                        "description":"Invoked by LSP to fetch repayment status",
+                        "requestBody":{
+                            "description":"Request to lender to check status of repayment",
+                            "content":{
+                                "application/json":{
+                                    "schema":{
+                                        "$ref":"https://github.com/juspay/lsp-lender-protocol-specification/blob/master/Repayment/schema/Version%200.0.1/Trigger%20Repayment%20Status/TriggerRepaymentStatusRequest.json"
+                                    }
+                                }
+                            }
+                        },
+                        "responses":{
+                            "200":{
+                                "description":"Acknowledgement to Request Received",
+                                "content":{
+                                    "application/json":{
+                                        "schema":{
+                                            "$ref":"https://github.com/juspay/lsp-lender-protocol-specification/blob/master/Core/schema/Version%200.0.1/ack.json"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "/v3/repayment/triggerRepaymentStatusResponse":{
+                    "post":{
+                        "description":"Invoked by Lender to return repayment status",
+                        "requestBody":{
+                            "description":"Response to trigger repayment status request",
+                            "content":{
+                                "application/json":{
+                                    "schema":{
+                                        "$ref":"https://github.com/juspay/lsp-lender-protocol-specification/blob/master/Repayment/schema/Version%200.0.1/Trigger%20Repayment%20Status/TriggerRepaymentStatusResponse.json"
+                                    }
+                                }
+                            }
+                        },
+                        "responses":{
+                            "200":{
+                                "description":"Acknowledgement to Response Received",
+                                "content":{
+                                    "application/json":{
+                                        "schema":{
+                                            "$ref":"https://github.com/juspay/lsp-lender-protocol-specification/blob/master/Core/schema/Version%200.0.1/ack.json"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "/v3/repayment/confirmRepayment":{
+                    "post":{
+                        "description":"Invoked by Lender to Confirm repayment ",
+                        "requestBody":{
+                            "description":"Request to lender to Confirm Repayment",
+                            "content":{
+                                "application/json":{
+                                    "schema":{
+                                        "$ref":"https://github.com/juspay/lsp-lender-protocol-specification/blob/master/Repayment/schema/Version%200.0.1/Confirm%20Repayment/ConfirmRepaymentRequest.json"
+                                    }
+                                }
+                            }
+                        },
+                        "responses":{
+                            "200":{
+                                "description":"Acknowledgement to Response Received",
+                                "content":{
+                                    "application/json":{
+                                        "schema":{
+                                            "$ref":"https://github.com/juspay/lsp-lender-protocol-specification/blob/master/Core/schema/Version%200.0.1/ack.json"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                } 
+    }
+}

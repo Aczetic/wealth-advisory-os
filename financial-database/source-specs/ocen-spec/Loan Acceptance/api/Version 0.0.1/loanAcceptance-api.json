@@ -1,0 +1,178 @@
+{
+    "openapi":"3.2.0",
+    "info":{
+        "title":"Loan Acceptance",
+        "description":"Loan Acceptance through OTP",
+        "version":"3.2"
+    },
+    "paths":{
+        "/v3/loan/loanAgreementRequest":{
+            "post":{
+                "description":"API is used by LSP to fetch the Loan Agreement for the offer chosen by the borrower",
+                "requestBody":{
+                    "description":" Loan agreement request ",
+                    "content":{
+                        "application/json":{
+                            "schema":{
+                                "$ref":"https://github.com/juspay/lsp-lender-protocol-specification/blob/master/Loan%20Acceptance/schema/Version%200.0.1/Loan%20Agreement/LoanAgreementmentRequest.json"
+                            }
+                        }
+                    }
+                },
+                "responses":{
+                    "200":{
+                        "description":"Acknowledgement to request received ",
+                        "content":{
+                            "application/json":{
+                                "schema":{
+                                "$ref":"https://github.com/juspay/lsp-lender-protocol-specification/blob/master/Core/schema/Version%200.0.1/ack.json"
+                                }
+                            }
+                        }
+
+                    }
+                }
+            }
+        },
+        "/v3/loan/loanAgreementResponse":{
+            "post":{
+                "description":"This API is used by Lender to send the Loan Agreement for the offer chosen by the borrower",
+                "requestBody":{
+                    "description":"Response of Loan Agreement",
+                    "content":{
+                        "application/json":{
+                            "schema":{
+                                "$ref":"https://github.com/juspay/lsp-lender-protocol-specification/blob/master/Loan%20Acceptance/schema/Version%200.0.1/Loan%20Agreement/LoanAgreementmentResponse.json"
+                            }
+                        }
+                    }
+                },
+                "responses":{
+                    "200":{
+                        "description":"Acknowledgement to response received ",
+                        "content":{
+                            "application/json":{
+                                "schema":{
+                                "$ref":"https://github.com/juspay/lsp-lender-protocol-specification/blob/master/Core/schema/Version%200.0.1/ack.json"
+                                }
+                            }
+                        }
+
+                    }
+                }
+            }
+        },
+        "/v3/loan/triggerLoanAcceptanceRequest":{
+            "post":{
+                "description":"Invoked by LSP to Trigger loan acceptance",
+                "requestBody":{
+                    "description":"Trigger Loan acceptance request ",
+                    "content":{
+                        "application/json":{
+                            "schema":{
+                                "$ref":"https://github.com/juspay/lsp-lender-protocol-specification/blob/master/Loan%20Acceptance/schema/Version%200.0.1/Trigger%20Loan%20Acceptance/TriggerLoanAcceptanceRequest.json"
+                            }
+                        }
+                    }
+                },
+                "responses":{
+                    "200":{
+                        "description":"Acknowledgement to request received ",
+                        "content":{
+                            "application/json":{
+                                "schema":{
+                                "$ref":"https://github.com/juspay/lsp-lender-protocol-specification/blob/master/Core/schema/Version%200.0.1/ack.json"
+                                }
+                            }
+                        }
+
+                    }
+                }
+            }
+        },
+        "/v3/loan/triggerLoanAcceptanceResponse":{
+            "post":{
+                "description":"Invoked by lender in response to trigger loan Acceptance Request",
+                "requestBody":{
+                    "description":"Response of Loan Acceptance with otpsessionKey",
+                    "content":{
+                        "application/json":{
+                            "schema":{
+                                "$ref":"https://github.com/juspay/lsp-lender-protocol-specification/blob/master/Loan%20Acceptance/schema/Version%200.0.1/Trigger%20Loan%20Acceptance/TriggerLoanAcceptanceResponse.json"
+                            }
+                        }
+                    }
+                },
+                "responses":{
+                    "200":{
+                        "description":"Acknowledgement to response received ",
+                        "content":{
+                            "application/json":{
+                                "schema":{
+                                "$ref":"https://github.com/juspay/lsp-lender-protocol-specification/blob/master/Core/schema/Version%200.0.1/ack.json"
+                                }
+                            }
+                        }
+
+                    }
+                }
+            }
+        },
+        "/v3/loan/verifyLoanAcceptanceRequest":{
+            "post":{
+                "description":"Invoked by LSP to verify loan acceptance OTP",
+                "requestBody":{
+                    "description":"Verify Loan acceptance request ",
+                    "content":{
+                        "application/json":{
+                            "schema":{
+                                "$ref":"https://github.com/juspay/lsp-lender-protocol-specification/blob/master/Loan%20Acceptance/schema/Version%200.0.1/Verify%20Loan%20Acceptance/VerifyLoanAcceptanceRequest.json"
+                            }
+                        }
+                    }
+                },
+                "responses":{
+                    "200":{
+                        "description":"Acknowledgement to request received ",
+                        "content":{
+                            "application/json":{
+                                "schema":{
+                                "$ref":"https://github.com/juspay/lsp-lender-protocol-specification/blob/master/Core/schema/Version%200.0.1/ack.json"
+                                }
+                            }
+                        }
+
+                    }
+                }
+            }
+        },
+        "/v3/loan/verifyLoanAcceptanceResponse":{
+            "post":{
+                "description":"Invoked by lender in response to verify loan Acceptance Request",
+                "requestBody":{
+                    "description":"Response of Loan Acceptance Verification",
+                    "content":{
+                        "application/json":{
+                            "schema":{
+                                "$ref":"https://github.com/juspay/lsp-lender-protocol-specification/blob/master/Loan%20Acceptance/schema/Version%200.0.1/Verify%20Loan%20Acceptance/VerifyLoanApplicationResponse.json"
+                            }
+                        }
+                    }
+                },
+                "responses":{
+                    "200":{
+                        "description":"Acknowledgement to response received ",
+                        "content":{
+                            "application/json":{
+                                "schema":{
+                                "$ref":"https://github.com/juspay/lsp-lender-protocol-specification/blob/master/Core/schema/Version%200.0.1/ack.json"
+                                }
+                            }
+                        }
+
+                    }
+                }
+            }
+        }
+    }
+}

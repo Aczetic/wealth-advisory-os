@@ -1,0 +1,47 @@
+{
+	"$schema": "http://json-schema.org/draft-07/schema#", 
+	"$id": "https://github.com/juspay/lsp-lender-protocol-specification/blob/master/Core/schema/Version%200.0.1/chargedetails.json", 
+	 
+	"type": "object",
+	"required": [
+		"chargeType",
+		"data"
+	],
+	"properties": {
+		"chargeType": { 
+			"type": "string",
+			"enum": ["FIXED_AMOUNT","RATE_BASED"]
+		},
+		"data": { 
+            "type": "object",
+			"properties": {
+				"rate": {
+					"type": "string",
+					"examples": [
+						"6"
+					]
+				},
+				"amount":{
+					"type":"number"
+				},
+				"applicableParameter": { 
+					"type": "string",
+					"enum": ["TOTAL_LOAN_AMOUNT","OUTSTANDING_PAYABLE_AMOUNT","EMI","REPAYMENT_PRINCIPAL"]
+				},
+				"description": {
+					"type": "string"
+				},
+				"url": { 
+					"type": "string"
+				}
+			}
+		}
+,
+		"url": { 
+			"type": "string"
+		},
+		"extensibleData":{
+			"$ref": "https://github.com/juspay/lsp-lender-protocol-specification/blob/master/Core/schema/Version%200.0.1/extensibleData.json"
+		}
+	}
+}

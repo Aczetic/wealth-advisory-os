@@ -1,0 +1,290 @@
+{
+    "openapi":"3.2.0",
+    "info":{
+        "title": "Grant Loan API",
+        "description": "API to create actual loan in lender's system, after monitoring consent",
+        "version":"3.2"
+    },
+    "paths":{
+        "/v3/loan/grantLoanRequest":{
+            "post":{
+                "description":"Invoked by LSP to Grant Loan",
+                "requestBody":{
+                    "description":"Request to lender to Grant Loan",
+                    "content":{
+                        "application/json":{
+                            "schema":{
+                                "$ref":"https://github.com/juspay/lsp-lender-protocol-specification/blob/master/Grant%20Loan/schema/Version%200.0.1/Grant%20Loan/GrantLoanRequest.json"
+                            }
+                        }
+                    }
+                },
+                "responses":{
+                    "200":{
+                    "description":"Acknowledgement to Grant Loan Request",
+                    "content":{
+                        "application/json":{
+                            "schema":{
+                                "$ref":"https://github.com/juspay/lsp-lender-protocol-specification/blob/master/Core/schema/Version%200.0.1/ack.json"
+                                } 
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/v3/loan/grantLoanResponse":{
+            "post":{
+                "description":"Invoked by Lender to informing status of loan",
+                "requestBody":{
+                    "description":"Response to LSP with loan statu",
+                    "content":{
+                        "application/json":{
+                            "schema":{
+                                "$ref":"https://github.com/juspay/lsp-lender-protocol-specification/blob/master/Grant%20Loan/schema/Version%200.0.1/Grant%20Loan/GrantLoanResponse.json"
+
+                            }
+                        }
+                    }
+                },
+                "responses":{
+                    "200":{
+                        "description":"Acknowledgement to Response from lender",
+                        "content":{
+                            "application/json":{
+                                "schema":{
+                                "$ref":"https://github.com/juspay/lsp-lender-protocol-specification/blob/master/Core/schema/Version%200.0.1/ack.json"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        
+        },
+        "/v3/loan/LoanSummaryRequest":{
+            "post":{
+                "description":"Invoked by LSP requesting loan summary",
+                "requestBody":{
+                    "description":"Request to lender for loan summary",
+                    "content":{
+                        "application/json":{
+                            "schema":{
+                                "$ref":"https://github.com/juspay/lsp-lender-protocol-specification/blob/master/Grant%20Loan/schema/Version%200.0.1/Loan%20Summary/LoanSummaryRequest.json"
+                            }
+                        }
+                    }
+                },
+                "responses":{
+                    "200":{
+                    "description":"Acknowledgement to  Loan summary Request",
+                    "content":{
+                        "application/json":{
+                            "schema":{
+                                "$ref":"https://github.com/juspay/lsp-lender-protocol-specification/blob/master/Core/schema/Version%200.0.1/ack.json"
+                                } 
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/v3/loan/loanSummaryResponse":{
+            "post":{
+                "description":"Invoked by Lender to informing loan summary request",
+                "requestBody":{
+                    "description":"Response to LSP with loan summary",
+                    "content":{
+                        "application/json":{
+                            "schema":{
+                                "$ref":"https://github.com/juspay/lsp-lender-protocol-specification/blob/master/Grant%20Loan/schema/Version%200.0.1/Loan%20Summary/LoanSummryResponse.json"
+
+                            }
+                        }
+                    }
+                },
+                "responses":{
+                    "200":{
+                        "description":"Acknowledgement to Response from lender",
+                        "content":{
+                            "application/json":{
+                                "schema":{
+                                "$ref":"https://github.com/juspay/lsp-lender-protocol-specification/blob/master/Core/schema/Version%200.0.1/ack.json"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        
+        },
+        "/v3/loan/getLoanRequest":{
+            "post":{
+                "description":"Invoked by LSP requesting details of a loan",
+                "requestBody":{
+                    "description":"Request to lender for loan details",
+                    "content":{
+                        "application/json":{
+                            "schema":{
+                                "$ref":"https://github.com/juspay/lsp-lender-protocol-specification/blob/master/Grant%20Loan/schema/Version%200.0.1/Get%20Loan/GetLoanRequest.json"
+                            }
+                        }
+                    }
+                },
+                "responses":{
+                    "200":{
+                    "description":"Acknowledgement to get loan Request",
+                    "content":{
+                        "application/json":{
+                            "schema":{
+                                "$ref":"https://github.com/juspay/lsp-lender-protocol-specification/blob/master/Core/schema/Version%200.0.1/ack.json"
+                                } 
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/v3/loan/getLoanResponse":{
+            "post":{
+                "description":"Invoked by Lender to inform loan details",
+                "requestBody":{
+                    "description":"Response to LSP with loan details",
+                    "content":{
+                        "application/json":{
+                            "schema":{
+                                "$ref":"https://github.com/juspay/lsp-lender-protocol-specification/blob/master/Grant%20Loan/schema/Version%200.0.1/Get%20Loan/GetLoanResponse.json"
+
+                            }
+                        }
+                    }
+                },
+                "responses":{
+                    "200":{
+                        "description":"Acknowledgement to Response from lender",
+                        "content":{
+                            "application/json":{
+                                "schema":{
+                                "$ref":"https://github.com/juspay/lsp-lender-protocol-specification/blob/master/Core/schema/Version%200.0.1/ack.json"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        
+        },
+        "/v3/loan/loanStatementRequest":{
+            "post":{
+                "description":"Invoked by LSP requesting loan statement",
+                "requestBody":{
+                    "description":"Request to lender for loan statement",
+                    "content":{
+                        "application/json":{
+                            "schema":{
+                                "$ref":"https://github.com/juspay/lsp-lender-protocol-specification/blob/master/Grant%20Loan/schema/Version%200.0.1/Loan%20Statement/LoanStatementRequest.json"
+                            }
+                        }
+                    }
+                },
+                "responses":{
+                    "200":{
+                    "description":"Acknowledgement to loan statement Request",
+                    "content":{
+                        "application/json":{
+                            "schema":{
+                                "$ref":"https://github.com/juspay/lsp-lender-protocol-specification/blob/master/Core/schema/Version%200.0.1/ack.json"
+                                } 
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/v3/loan/loanStatementResponse":{
+            "post":{
+                "description":"Invoked by Lender to inform loan statement",
+                "requestBody":{
+                    "description":"Response to LSP with loan statement",
+                    "content":{
+                        "application/json":{
+                            "schema":{
+                                "$ref":"https://github.com/juspay/lsp-lender-protocol-specification/blob/master/Grant%20Loan/schema/Version%200.0.1/Loan%20Statement/LoanStatementResponse.json"
+
+                            }
+                        }
+                    }
+                },
+                "responses":{
+                    "200":{
+                        "description":"Acknowledgement to Response from lender",
+                        "content":{
+                            "application/json":{
+                                "schema":{
+                                "$ref":"https://github.com/juspay/lsp-lender-protocol-specification/blob/master/Core/schema/Version%200.0.1/ack.json"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        
+        },
+        "/v3/loan/listLoansRequest":{
+            "post":{
+                "description":"Invoked by LSP requesting list of the loan provisioned",
+                "requestBody":{
+                    "description":"Request to lender for list of the loan provisioned",
+                    "content":{
+                        "application/json":{
+                            "schema":{
+                                "$ref":"https://github.com/juspay/lsp-lender-protocol-specification/blob/master/Grant%20Loan/schema/Version%200.0.1/List%20Loans/ListLoansRequest.json"
+                            }
+                        }
+                    }
+                },
+                "responses":{
+                    "200":{
+                    "description":"Acknowledgement to loan list Request",
+                    "content":{
+                        "application/json":{
+                            "schema":{
+                                "$ref":"https://github.com/juspay/lsp-lender-protocol-specification/blob/master/Core/schema/Version%200.0.1/ack.json"
+                                } 
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/v3/loan/listLoansResponse":{
+            "post":{
+                "description":"Invoked by Lender to inform the list of loans",
+                "requestBody":{
+                    "description":"Response to LSP with the list of loans",
+                    "content":{
+                        "application/json":{
+                            "schema":{
+                                "$ref":"https://github.com/juspay/lsp-lender-protocol-specification/blob/master/Grant%20Loan/schema/Version%200.0.1/List%20Loans/ListLoansResponse.json"
+
+                            }
+                        }
+                    }
+                },
+                "responses":{
+                    "200":{
+                        "description":"Acknowledgement to Response from lender",
+                        "content":{
+                            "application/json":{
+                                "schema":{
+                                "$ref":"https://github.com/juspay/lsp-lender-protocol-specification/blob/master/Core/schema/Version%200.0.1/ack.json"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        
+        }
+    }
+}

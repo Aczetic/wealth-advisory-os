@@ -1,0 +1,36 @@
+{
+	"$schema": "http://json-schema.org/draft-07/schema#", 
+	"$id": "https://github.com/juspay/lsp-lender-protocol-specification/blob/master/Core/schema/Version%200.0.1/lspinfo.json",  
+	"type": "object",
+	
+
+	"properties": {
+				"lspId": {
+					"type": "string",
+					"examples": [
+						"<AA can identify the LSP based on this>"
+					]
+				},
+				"version": { 
+					"type": "string",
+					"examples": [
+						"<version of LSP>"
+					]
+				},
+				"appName": {
+					"type": "string",
+					"examples": [
+						"<Package name of the app>"
+					]
+				},
+				"url": {
+					"type": "string",
+					"examples": [
+						"https://abc-bank.com"
+					]
+				},
+				"extensibleData":{
+					"$ref": "https://github.com/juspay/lsp-lender-protocol-specification/blob/master/Core/schema/Version%200.0.1/extensibleData.json"
+				}
+			}
+}

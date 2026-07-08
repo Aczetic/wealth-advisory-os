@@ -1,0 +1,21 @@
+{
+	"$schema": "http://json-schema.org/draft-07/schema#", 
+	"$id": "https://github.com/juspay/lsp-lender-protocol-specification/blob/master/Core/schema/Version%200.0.1/loanDetail.json", 
+	"type": "object",
+	"required": [
+		"loanId",
+		"terms"
+	],
+	"properties": {
+		"loanId": {
+			"type": "string",
+			"examples": [
+				"ajaxbhbxijdxioj9snjnx"
+			]
+		},
+		"terms": { 
+			"$ref": "https://github.com/juspay/lsp-lender-protocol-specification/blob/master/Core/schema/Version%200.0.1/loanterms.json"
+		}
+
+	}
+}

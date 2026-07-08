@@ -1,0 +1,35 @@
+{
+	"$schema": "http://json-schema.org/draft-07/schema#", 
+	"$id": "https://github.com/juspay/lsp-lender-protocol-specification/blob/master/Disbursement/schema/Version%200.0.1/Trigger%20Disbursement/TriggerDisbursementResponse.json", 
+	"type": "object",
+	"required": [
+		"metadata",
+		"response",
+		"requestId",
+		"payment"
+	],
+	"properties": {
+		"metadata": {
+			"$ref": "https://github.com/juspay/lsp-lender-protocol-specification/blob/master/Core/schema/Version%200.0.1/metadata.json"
+			
+		}
+,
+		"response": { 
+			"$ref": "https://github.com/juspay/lsp-lender-protocol-specification/blob/master/Core/schema/Version%200.0.1/response.json"
+			
+		}
+,
+		"requestId": {
+			"type": "string",
+			"examples": [
+				"e8cc6822bd4bbb4eb1b9e1b4996fbff8acb"
+			]
+		},
+		"payment": {
+			"$ref": "https://github.com/juspay/lsp-lender-protocol-specification/blob/master/Core/schema/Version%200.0.1/payment.json"
+		}
+
+	}
+}
+
+ 

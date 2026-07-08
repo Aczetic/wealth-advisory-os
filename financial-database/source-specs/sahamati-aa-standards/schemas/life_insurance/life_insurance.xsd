@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    xmlns:aa="http://api.rebit.org.in/FISchema/life_insurance" elementFormDefault="qualified"
+    targetNamespace="http://api.rebit.org.in/FISchema/life_insurance"
+    xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" vc:minVersion="1.1">
+
+    <xs:simpleType name="version">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="1.0.0"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="PolicyType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="TERM"/>
+            <xs:enumeration value="ENDOWMENT"/>
+            <xs:enumeration value="PARTICIPATING"/>
+            <xs:enumeration value="NON_PARTICIPATING"/>
+            <xs:enumeration value="PROTECTION"/>
+            <xs:enumeration value="ULIP"/>
+            <xs:enumeration value="ANNUITY"/>
+            <xs:enumeration value="RETIREMENT"/>
+            <xs:enumeration value="OTHER"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="PolicyPremiumFrequency">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="MONTHLY"/>
+            <xs:enumeration value="QUARTERLY"/>
+            <xs:enumeration value="HALF_YEARLY"/>
+            <xs:enumeration value="ANNUALLY"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="PolicyStatus">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="ACTIVE"/>
+            <xs:enumeration value="INACTIVE"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="PolicyLoanStatus">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="OPTED"/>
+            <xs:enumeration value="NOT_OPTED"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="PolicyAssignment">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="YES"/>
+            <xs:enumeration value="NO"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:element name="Account">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="aa:Profile" minOccurs="0" maxOccurs="1"/>
+                <xs:element ref="aa:Summary" minOccurs="0" maxOccurs="1"/>
+                <xs:element ref="aa:Transactions" minOccurs="0" maxOccurs="1"/>
+            </xs:sequence>
+            <xs:attribute name="type" use="required" type="xs:string" fixed="life_insurance"/>
+            <xs:attribute name="linkedAccRef" use="required" type="xs:string"/>
+            <xs:attribute name="version" use="required" type="aa:version"/>
+            <xs:attribute name="maskedPolicyNumber" use="required" type="xs:string">
+                <xs:annotation>
+                    <xs:documentation>A unique number that an insurance company uses to identify a
+                        policyholder.</xs:documentation>
+                </xs:annotation>
+            </xs:attribute>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="Profile">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="aa:Holders">
+                    <xs:annotation>
+                        <xs:documentation>Basic profile of the policyholders.</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+
+    <xs:element name="Holders">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="aa:Holder" maxOccurs="unbounded">
+                    <xs:annotation>
+                        <xs:documentation>Profile details of a specific
+                            policyholder.</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="Holder">
+        <xs:complexType>
+            <xs:attribute name="name" use="required" type="xs:string">
+                <xs:annotation>
+                    <xs:documentation>Name of the policyholder.</xs:documentation>
+                </xs:annotation>
+            </xs:attribute>
+        </xs:complexType>
+    </xs:element>
+
+
+
+    <xs:element name="Summary">
+        <xs:complexType>
+            <xs:attribute name="policyType" use="required" type="aa:PolicyType">
+                <xs:annotation>
+                    <xs:documentation> Type of the policy. </xs:documentation>
+                </xs:annotation>
+            </xs:attribute>
+            <xs:attribute name="policyStatus" use="required" type="aa:PolicyStatus">
+                <xs:annotation>
+                    <xs:documentation> Status of the policy whether "Active" or "Inactive".
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:attribute>
+            <xs:attribute name="sumAssured" use="required" type="xs:float">
+                <xs:annotation>
+                    <xs:documentation> Fixed amount that the insurer pays to the policyholder in
+                        case of an eventuality. </xs:documentation>
+                </xs:annotation>
+            </xs:attribute>
+            <xs:attribute name="tenureYears" use="required" type="xs:string">
+                <xs:annotation>
+                    <xs:documentation> The duration in years for which the policy provides insurance
+                        coverage. </xs:documentation>
+                </xs:annotation>
+            </xs:attribute>
+            <xs:attribute name="premiumPaymentYears" use="required" type="xs:positiveInteger">
+                <xs:annotation>
+                    <xs:documentation> Number of years till when premium is required to be paid.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:attribute>
+            <xs:attribute name="premiumAmount" use="required" type="xs:float">
+                <xs:annotation>
+                    <xs:documentation> The amount paid periodically to the insurer by the
+                        policyholder for covering the risk. </xs:documentation>
+                </xs:annotation>
+            </xs:attribute>
+            <xs:attribute name="premiumFrequency" use="required" type="aa:PolicyPremiumFrequency">
+                <xs:annotation>
+                    <xs:documentation> Frequency of premium to be paid whether monthly, quarterly,
+                        half-yearly or annually. </xs:documentation>
+                </xs:annotation>
+            </xs:attribute>
+            <xs:attribute name="policyLoanStatus" use="required" type="aa:PolicyLoanStatus">
+                <xs:annotation>
+                    <xs:documentation> Status whether loan is opted on the policy or not.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:attribute>
+            <xs:attribute name="currentValue" use="required" type="xs:float">
+                <xs:annotation>
+                    <xs:documentation> Current market value of the investment. </xs:documentation>
+                </xs:annotation>
+            </xs:attribute>
+            <xs:attribute name="assignment" use="required" type="aa:PolicyAssignment">
+                <xs:annotation>
+                    <xs:documentation> Whether the policy has been assigned or not.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:attribute>
+            <xs:attribute name="surrenderValue" use="required" type="xs:float">
+                <xs:annotation>
+                    <xs:documentation> Surrender value as on date. </xs:documentation>
+                </xs:annotation>
+            </xs:attribute>
+            <xs:attribute name="exclusions" use="required" type="xs:string">
+                <xs:annotation>
+                    <xs:documentation> Exclusions in policy, if any. </xs:documentation>
+                </xs:annotation>
+            </xs:attribute>
+
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="Transactions">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="aa:Transaction" maxOccurs="unbounded" minOccurs="0"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="Transaction"> </xs:element>
+</xs:schema>

@@ -31,16 +31,24 @@ decisions D1–D7, what's open). Read it at the start of each session; update it
 02-spec-decomposition-map.md    ← every open question by subsystem (with benchmarks)
 03-solution-spec.md             ← assembled product spec (v0.9)
 spec-input-kartik-methodology.md← the engine's required capabilities (binding)
+README-TEST.md                  ← how to run the PoC + what to try
 
-research-landscape-products.md  ← global + India competitors, the white space
-research-d4-bfsi-advice-posture.md ← compliance spine (distributor vs RIA)
-research-idbi-client.md         ← who IDBI's customer is + Emergency Liquidity Advisor
-research-rfp-2022-baseline.md   ← IDBI's own 2022 tender = our table stakes
-research-advisor-os.md          ← the RM-facing side (Morgan Stanley precedent)
-research-avatar-spec-patterns.md← memory/persona/voice patterns (Cleo, Wavelength, WhatsApp)
-research-failures-judge-lens.md ← why robo-1.0 died + how bank judges score
-research-gomobile-screens.md    ← IDBI app fleet + delivery mechanism
-source-rfp-2022-idbi-digital-bank.pdf ← IDBI's actual 114-page tender (primary source)
+research/                       ← all discovery research (8 files + primary source)
+  research-landscape-products.md     ← global + India competitors, the white space
+  research-d4-bfsi-advice-posture.md ← compliance spine (distributor vs RIA)
+  research-idbi-client.md            ← IDBI's customer + Emergency Liquidity Advisor
+  research-rfp-2022-baseline.md      ← IDBI's own 2022 tender = our table stakes
+  research-advisor-os.md             ← RM-facing side (Morgan Stanley precedent)
+  research-avatar-spec-patterns.md   ← memory/persona/voice (Cleo, Wavelength, WhatsApp)
+  research-failures-judge-lens.md    ← why robo-1.0 died + how bank judges score
+  research-gomobile-screens.md       ← IDBI app fleet + delivery mechanism
+  source-rfp-2022-idbi-digital-bank.pdf ← the actual 114-page tender (primary source)
+
+financial-database/             ← ⭐ every field on India's open-finance rails (Kartik-built)
+  field-inventory/MASTER_field_inventory.csv ← 1,731 fields: AA (1,318) + OCEN (299) + ULI (114)
+  docs/ULI-OCEN-AA-data-availability.md      ← who provides what, consent mechanics, formats
+  source-specs/                              ← vendored official specs (ReBIT/Sahamati XSD+samples, iSPIRT OCEN schemas)
+  scripts/rebuild_master.py                  ← regenerates the inventory from specs
 
 docs/ONBOARDING-AFRAZ.md        ← engineer's route in
 docs/ONBOARDING-JYOTI.md        ← logic/deck owner's route in
@@ -51,7 +59,6 @@ poc/                            ← runnable proof-of-concept (see README-TEST.m
   tests/run-tests.js            ← 36 golden test cases
   index.html / app.js / avatar.js / voice.js / llm.js   ← customer avatar app
   rm.html                       ← RM console (one engine, two faces)
-README-TEST.md                  ← how to run the PoC + what to try
 ```
 
 ---

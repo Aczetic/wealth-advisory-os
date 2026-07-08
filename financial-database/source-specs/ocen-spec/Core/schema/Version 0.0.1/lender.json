@@ -1,0 +1,63 @@
+{
+	"$schema": "http://json-schema.org/draft-07/schema#", 
+	"$id": "https://github.com/juspay/lsp-lender-protocol-specification/blob/master/Core/schema/Version%200.0.1/lender.json",
+	"type": "object",
+	"required": [
+		"primaryId",
+		"primaryIdType",
+		"name",
+		"category",
+		"contactDetails",
+		"documents"
+	],
+	"properties": {
+		"primaryId": {
+			"examples": [
+				"AWWPA7645M"
+			]
+		},
+		"primaryIdType": {
+			"type":"string",
+			"enum": [
+				"PAN","MOBILE","AADHAAR","FIU"
+			]
+		},
+		"additionalIdentifiers": { 
+			"type": "array",
+            "items": {
+                "$ref": "https://github.com/juspay/lsp-lender-protocol-specification/blob/master/Core/schema/Version%200.0.1/additionalidentifier.json"
+            }
+		},
+		"name": {
+			"type":"string",
+			"examples": [
+				"ABC Bank"
+			]
+		},
+		"category": { 
+			"type": "string",
+			"enum": [
+				"ORGANIZATION","INDIVIDUAL"
+			]
+		},
+		"contactDetails": {
+			"type": "array",
+			"items":{
+				"$ref": "https://github.com/juspay/lsp-lender-protocol-specification/blob/master/Core/schema/Version%200.0.1/contactdetails.json"
+			}
+
+		},
+		"documents": { 
+			"type": "array",
+			"items": {
+				"$ref":"https://github.com/juspay/lsp-lender-protocol-specification/blob/master/Core/schema/Version%200.0.1/document.json"
+			}
+		},
+		"url":{
+			"type":"string"
+		},
+		"extensibleData":{
+			"$ref": "https://github.com/juspay/lsp-lender-protocol-specification/blob/master/Core/schema/Version%200.0.1/extensibleData.json"
+		}
+	}
+}

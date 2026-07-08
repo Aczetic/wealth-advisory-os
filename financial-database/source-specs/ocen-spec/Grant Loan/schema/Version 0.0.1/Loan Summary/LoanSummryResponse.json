@@ -1,0 +1,119 @@
+{
+	"$schema": "http://json-schema.org/draft-07/schema#", 
+	"$id": "https://github.com/juspay/lsp-lender-protocol-specification/blob/master/Grant%20Loan/schema/Version%200.0.1/Loan%20Summary/LoanSummryResponse.json", 
+	"type": "object",
+	"required": [
+		"metadata",
+		"response",
+		"requestId",
+		"loanId",
+		"lenderAccount",
+		"loanStatus",
+		"createdDate",
+		"startDate",
+		"endDate",
+		"summary"
+	],
+	"properties": {
+		"metadata": {
+			"$ref": "https://github.com/juspay/lsp-lender-protocol-specification/blob/master/Core/schema/Version%200.0.1/metadata.json"
+		}
+,
+		"response": {
+			"$ref": "https://github.com/juspay/lsp-lender-protocol-specification/blob/master/Core/schema/Version%200.0.1/response.json"
+		}
+,
+		"requestId": {
+			"type": "string",
+			"examples": [
+				"e8cc6822bd4bbb4eb1b9e1b4996fbff8acb"
+			]
+		},
+		"loanId": { 
+			"type": "string",
+			"examples": [
+				"e8cc6822bd4bbb4eb1b9e1b4996fbff8acb"
+			]
+		},
+		"lenderAccount": {
+            "type":"object",
+            "required": [
+                "accountDataType",
+                "data"
+            ]
+         },
+		"loanStatus": {
+			"type": "string",
+			"enum": [
+				"GRANTED","DEFAULTED","COMPLETED","OVERDUE"
+			]
+		},
+		"createdDate": { 
+			"type": "string"
+		},
+		"startDate": { 
+			"type": "string"
+		},
+		"endDate": { 
+			"type": "string"
+		},
+		"summary": {
+			"type": "object",
+			"required": [
+				"nextRepayment",
+				"currentRepayment",
+				"principalPaid",
+				"interestPaid",
+				"penaltyPaid",
+				"principalPending",
+				"interestPending",
+				"amountDisbursed",
+				"amountRepaid",
+				"tenure",
+				"description"
+			],
+			"properties": {
+				"nextRepayment": { 
+					"$ref": "https://github.com/juspay/lsp-lender-protocol-specification/blob/master/Core/schema/Version%200.0.1/payment.json"
+				}
+,
+				"currentRepayment": { 
+					"$ref": "https://github.com/juspay/lsp-lender-protocol-specification/blob/master/Core/schema/Version%200.0.1/payment.json"
+				}
+,
+				"principalPaid": { 
+					"type": "string"
+				},
+				"interestPaid": {
+					"type": "string"
+				},
+				"penaltyPaid": {
+					"type": "string"
+				},
+				"principalPending": {
+					"type": "string"
+				},
+				"interestPending": {
+					"type": "string"
+				},
+				"amountDisbursed": { 
+					"type": "string"
+				},
+				"amountRepaid": {
+					"type": "string"
+				},
+				"tenure": { 
+					"$ref": "https://github.com/juspay/lsp-lender-protocol-specification/blob/master/Core/schema/Version%200.0.1/loantenure.json"
+				}
+,
+				"description": { 
+					"type": "string",
+					"examples": [
+						"short description for the loan"
+					]
+				}
+			}
+		}
+
+	}
+}

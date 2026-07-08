@@ -1,0 +1,427 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    xmlns:aa="http://api.rebit.org.in/FISchema/general_insurance" elementFormDefault="qualified"
+    targetNamespace="http://api.rebit.org.in/FISchema/general_insurance"
+    xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" vc:minVersion="1.1">
+
+    <xs:simpleType name="version">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="1.0.0"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="TransactionType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="PREMIUM_PAYMENT"/>
+            <xs:enumeration value="CLAIM"/>
+            <xs:enumeration value="REFUND"/>
+            <xs:enumeration value="TRANSFER_FEES"/>
+            <xs:enumeration value="ENDORSEMENT_PREMIUM"/>
+            <xs:enumeration value="OTHER"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="PolicyType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="INDEMNITY"/>
+            <xs:enumeration value="FIXED_BENEFIT"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="PolicyInsuranceType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="MOTOR"/>
+            <xs:enumeration value="HEALTH"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="PolicyPremiumFrequency">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="MONTHLY"/>
+            <xs:enumeration value="QUARTERLY"/>
+            <xs:enumeration value="HALF_YEARLY"/>
+            <xs:enumeration value="ANNUALLY"/>
+            <xs:enumeration value="ONE_TIME"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="PolicyStatus">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="ACTIVE"/>
+            <xs:enumeration value="LAPSED"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:element name="Account">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="aa:Profile" minOccurs="0" maxOccurs="1"/>
+                <xs:element ref="aa:Summary" minOccurs="0" maxOccurs="1"/>
+                <xs:element ref="aa:Transactions" minOccurs="0" maxOccurs="1"/>
+            </xs:sequence>
+            <xs:attribute name="type" use="required" type="xs:string" fixed="general_insurance"/>
+            <xs:attribute name="linkedAccRef" use="required" type="xs:string"/>
+            <xs:attribute name="version" use="required" type="aa:version"/>
+            <xs:attribute name="maskedPolicyNumber" use="required" type="xs:string">
+                <xs:annotation>
+                    <xs:documentation>A unique number that an insurance company uses to identify a
+                        policyholder.</xs:documentation>
+                </xs:annotation>
+            </xs:attribute>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="Profile">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="aa:Holders">
+                    <xs:annotation>
+                        <xs:documentation>Basic profile of the policyholders.</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="Holders">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="aa:Holder" minOccurs="1" maxOccurs="unbounded">
+                    <xs:annotation>
+                        <xs:documentation>Profile details of a specific
+                            policyholder.</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="Holder">
+        <xs:complexType>
+            <xs:attribute name="name" use="required" type="xs:string">
+                <xs:annotation>
+                    <xs:documentation>Name of the policyholder.</xs:documentation>
+                </xs:annotation>
+            </xs:attribute>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="Summary">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="aa:Covers" minOccurs="0" maxOccurs="1">
+                    <xs:annotation>
+                        <xs:documentation> An add-on or additional insurance coverage which a
+                            policyholder can add to his/her current base plan. </xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element ref="aa:Vehicles" minOccurs="0" maxOccurs="1">
+                    <xs:annotation>
+                        <xs:documentation> Vehicle details to be provided in case of motor insurance policy. </xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+            </xs:sequence>
+            <xs:attribute name="policyName" use="required" type="xs:string">
+                <xs:annotation>
+                    <xs:documentation> Name of the policy. </xs:documentation>
+                </xs:annotation>
+            </xs:attribute>
+            <xs:attribute name="policyNumber" use="required" type="xs:string">
+                <xs:annotation>
+                    <xs:documentation> Policy Number allotted or assigned. </xs:documentation>
+                </xs:annotation>
+            </xs:attribute>
+            <xs:attribute name="uinNumber" use="required" type="xs:string">
+                <xs:annotation>
+                    <xs:documentation> The Unique Identification Number allotted to this plan by the
+                        IRDAI. </xs:documentation>
+                </xs:annotation>
+            </xs:attribute>
+            <xs:attribute name="policyDescription" use="optional" type="xs:string">
+                <xs:annotation>
+                    <xs:documentation> Description of the policy. </xs:documentation>
+                </xs:annotation>
+            </xs:attribute>
+            <xs:attribute name="sumAssured" use="optional" type="xs:float">
+                <xs:annotation>
+                    <xs:documentation> Fixed amount that the insurer pays to the policyholder in
+                        case of an eventuality. </xs:documentation>
+                </xs:annotation>
+            </xs:attribute>
+            <xs:attribute name="sumInsured" use="optional" type="xs:float">
+                <xs:annotation>
+                    <xs:documentation> Based on the principle of indemnity, it provides a
+                        reimbursement/compensation to the damage/loss. </xs:documentation>
+                </xs:annotation>
+            </xs:attribute>
+            <xs:attribute name="tenureDays" use="optional" type="xs:string">
+                <xs:annotation>
+                    <xs:documentation> The duration in days for which the policy provides insurance
+                        coverage. </xs:documentation>
+                </xs:annotation>
+            </xs:attribute>
+            <xs:attribute name="tenureMonths" use="optional" type="xs:string">
+                <xs:annotation>
+                    <xs:documentation> The duration in months for which the policy provides
+                        insurance coverage. </xs:documentation>
+                </xs:annotation>
+            </xs:attribute>
+            <xs:attribute name="tenureYears" use="optional" type="xs:string">
+                <xs:annotation>
+                    <xs:documentation> The duration in years for which the policy provides insurance
+                        coverage. </xs:documentation>
+                </xs:annotation>
+            </xs:attribute>
+            <xs:attribute name="premiumAmount" use="required" type="xs:float">
+                <xs:annotation>
+                    <xs:documentation> The amount paid periodically to the insurer by the
+                        policyholder for covering the risk. </xs:documentation>
+                </xs:annotation>
+            </xs:attribute>
+            <xs:attribute name="policyStartDate" use="required" type="xs:date">
+                <xs:annotation>
+                    <xs:documentation> Start date of policy mentioned at the time of issuing.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:attribute>
+            <xs:attribute name="policyExpiryDate" use="required" type="xs:date">
+                <xs:annotation>
+                    <xs:documentation> Date of policy when it will get expired. </xs:documentation>
+                </xs:annotation>
+            </xs:attribute>
+            <xs:attribute name="policyType" use="required" type="aa:PolicyType">
+                <xs:annotation>
+                    <xs:documentation> Types of the policy are as follows: Fixed benefit policies
+                        are those that pay a fixed amount following a claim. Indemnity plans are
+                        those that provide reimbursement/compensation for the damage/loss.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:attribute>
+            <xs:attribute name="insuranceType" use="required" type="aa:PolicyInsuranceType">
+                <xs:annotation>
+                    <xs:documentation> Type of the insurance. </xs:documentation>
+                </xs:annotation>
+            </xs:attribute>
+            <xs:attribute name="premiumFrequency" use="required" type="aa:PolicyPremiumFrequency">
+                <xs:annotation>
+                    <xs:documentation> Frequency of premium to be paid whether monthly, quarterly,
+                        half yearly, annually or one time. </xs:documentation>
+                </xs:annotation>
+            </xs:attribute>
+            <xs:attribute name="premiumPaymentYears" use="optional" type="xs:positiveInteger">
+                <xs:annotation>
+                    <xs:documentation> Number of years till when premium is required to be paid.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:attribute>
+            <xs:attribute name="premiumPaymentMonths" use="optional" type="xs:positiveInteger">
+                <xs:annotation>
+                    <xs:documentation> Number of months till when premium is required to be paid.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:attribute>
+            <xs:attribute name="nextPremiumDueDate" use="optional" type="xs:date">
+                <xs:annotation>
+                    <xs:documentation> The date at which next premium amount is to be paid.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:attribute>
+            <xs:attribute name="policyStatus" use="required" type="aa:PolicyStatus">
+                <xs:annotation>
+                    <xs:documentation> Status of the policy whether Active or Lapsed.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:attribute>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="Covers">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="aa:Cover" minOccurs="1" maxOccurs="unbounded">
+                    <xs:annotation>
+                        <xs:documentation> Details of a specific insurance cover.
+                        </xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="Cover">
+        <xs:complexType>
+            <xs:attribute name="uinNumber" use="required" type="xs:string">
+                <xs:annotation>
+                    <xs:documentation> The Unique Identification Number allotted to the cover by the
+                        IRDAI. </xs:documentation>
+                </xs:annotation>
+            </xs:attribute>
+            <xs:attribute name="coverName" use="required" type="xs:string">
+                <xs:annotation>
+                    <xs:documentation> Name of the insurance cover. </xs:documentation>
+                </xs:annotation>
+            </xs:attribute>
+            <xs:attribute name="coverDescription" use="optional" type="xs:string">
+                <xs:annotation>
+                    <xs:documentation> Description of the insurance cover. </xs:documentation>
+                </xs:annotation>
+            </xs:attribute>
+            <xs:attribute name="sumAssured" use="optional" type="xs:float">
+                <xs:annotation>
+                    <xs:documentation> Fixed amount that the insurer pays to the policyholder in
+                        case of an eventuality. </xs:documentation>
+                </xs:annotation>
+            </xs:attribute>
+            <xs:attribute name="sumInsured" use="optional" type="xs:float">
+                <xs:annotation>
+                    <xs:documentation> Based on the principle of indemnity, it provides a
+                        reimbursement/compensation to the damage/loss. </xs:documentation>
+                </xs:annotation>
+            </xs:attribute>
+            <xs:attribute name="tenureYears" use="optional" type="xs:string">
+                <xs:annotation>
+                    <xs:documentation> The duration in years for which the policy provides insurance
+                        coverage. </xs:documentation>
+                </xs:annotation>
+            </xs:attribute>
+            <xs:attribute name="tenureMonths" use="optional" type="xs:string">
+                <xs:annotation>
+                    <xs:documentation> The duration in months for which the policy provides
+                        insurance coverage. </xs:documentation>
+                </xs:annotation>
+            </xs:attribute>
+            <xs:attribute name="premiumAmount" use="required" type="xs:float">
+                <xs:annotation>
+                    <xs:documentation> The amount paid periodically to the insurer by the
+                        policyholder for covering the risk. </xs:documentation>
+                </xs:annotation>
+            </xs:attribute>
+            <xs:attribute name="coverStartDate" use="required" type="xs:date">
+                <xs:annotation>
+                    <xs:documentation> Start date of policy mentioned at the time of issuing.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:attribute>
+            <xs:attribute name="coverEndDate" use="required" type="xs:date">
+                <xs:annotation>
+                    <xs:documentation> Date of policy when it will get expired. </xs:documentation>
+                </xs:annotation>
+            </xs:attribute>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="Vehicles">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="aa:Vehicle" minOccurs="1" maxOccurs="unbounded">
+                    <xs:annotation>
+                        <xs:documentation> Details of a specific vehicle to be provided in case of motor insurance policy. </xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="Vehicle">
+        <xs:complexType>
+            <xs:attribute name="registrationNumber" use="optional" type="xs:string">
+                <xs:annotation>
+                    <xs:documentation> Registration number of the vehicle. </xs:documentation>
+                </xs:annotation>
+            </xs:attribute>
+            <xs:attribute name="make" use="required" type="xs:string">
+                <xs:annotation>
+                    <xs:documentation> Make of the vehicle. </xs:documentation>
+                </xs:annotation>
+            </xs:attribute>
+            <xs:attribute name="model" use="required" type="xs:string">
+                <xs:annotation>
+                    <xs:documentation> Vehicle Model. </xs:documentation>
+                </xs:annotation>
+            </xs:attribute>
+            <xs:attribute name="mfgYear" use="required" type="xs:string">
+                <xs:annotation>
+                    <xs:documentation> Manufacturing year of the vehicle. </xs:documentation>
+                </xs:annotation>
+            </xs:attribute>
+            <xs:attribute name="rtoLocation" use="optional" type="xs:string">
+                <xs:annotation>
+                    <xs:documentation> RTO Registration Location. </xs:documentation>
+                </xs:annotation>
+            </xs:attribute>
+            <xs:attribute name="ncbPercentage" use="required" type="xs:string">
+                <xs:annotation>
+                    <xs:documentation> Current NCB percentage. </xs:documentation>
+                </xs:annotation>
+            </xs:attribute>
+            <xs:attribute name="hypothecation" use="required" type="xs:boolean">
+                <xs:annotation>
+                    <xs:documentation> Whether a loan is availed to purchase the vehicle.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:attribute>
+            <xs:attribute name="financerName" use="optional" type="xs:string">
+                <xs:annotation>
+                    <xs:documentation> Financial institution from which vehicle loan is availed.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:attribute>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="Transactions">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="aa:Transaction" minOccurs="0" maxOccurs="unbounded">
+                    <xs:annotation>
+                        <xs:documentation> Details of the specific transaction. </xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+            </xs:sequence>
+            <xs:attribute name="startDate" use="required" type="xs:date">
+                <xs:annotation>
+                    <xs:documentation> The date from which the Financial Information is requested.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:attribute>
+            <xs:attribute name="endDate" use="required" type="xs:date">
+                <xs:annotation>
+                    <xs:documentation> The date till which the Financial Information is requested.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:attribute>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="Transaction">
+        <xs:complexType>
+            <xs:attribute name="txnId" use="required" type="xs:string">
+                <xs:annotation>
+                    <xs:documentation> Transaction ID. </xs:documentation>
+                </xs:annotation>
+            </xs:attribute>
+            <xs:attribute name="txnDate" use="required" type="xs:date">
+                <xs:annotation>
+                    <xs:documentation> Transaction date time stamp. </xs:documentation>
+                </xs:annotation>
+            </xs:attribute>
+            <xs:attribute name="narration" use="optional" type="xs:string">
+                <xs:annotation>
+                    <xs:documentation> Additional details/remarks about transaction.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:attribute>
+            <xs:attribute name="type" use="optional" type="aa:TransactionType">
+                <xs:annotation>
+                    <xs:documentation> Transaction type. </xs:documentation>
+                </xs:annotation>
+            </xs:attribute>
+            <xs:attribute name="amount" use="required" type="xs:float">
+                <xs:annotation>
+                    <xs:documentation> Transaction amount. </xs:documentation>
+                </xs:annotation>
+            </xs:attribute>
+        </xs:complexType>
+    </xs:element>
+
+</xs:schema>

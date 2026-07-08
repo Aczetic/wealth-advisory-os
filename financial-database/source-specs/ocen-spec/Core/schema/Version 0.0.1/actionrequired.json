@@ -1,0 +1,35 @@
+{
+	"$schema": "http://json-schema.org/draft-07/schema#", 
+	"$id": "https://github.com/juspay/lsp-lender-protocol-specification/blob/master/Core/schema/Version%200.0.1/actionrequired.json",  
+	"type": "object",
+	"required": [
+		"actionType",
+		"description",
+		"reference"
+	],
+	"properties": {
+		"actionType": { 
+			"type": "string",
+			"enum": [
+				"ADD_DOCUMENT","RESUBMIT_DOCUMENT","OTHER"
+			]
+		},
+		"description": { 
+			"type": "string",
+			"examples": [
+				"DL number not visible"
+			]
+		},
+		"reference": { 
+			"$ref": "https://github.com/juspay/lsp-lender-protocol-specification/blob/master/Core/schema/Version%200.0.1/reference.json"
+		},
+		"url":{
+			"type":"string"
+		},
+		"extensibleData":{
+			"$ref": "https://github.com/juspay/lsp-lender-protocol-specification/blob/master/Core/schema/Version%200.0.1/extensibleData.json"
+		}
+
+	}
+}
+ 

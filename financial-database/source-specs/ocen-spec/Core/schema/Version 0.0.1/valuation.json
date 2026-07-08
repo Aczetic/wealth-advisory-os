@@ -1,0 +1,37 @@
+{
+	"$schema": "http://json-schema.org/draft-07/schema#", 
+	"$id": "https://github.com/juspay/lsp-lender-protocol-specification/blob/master/Core/schema/Version%200.0.1/valuation.json",  
+	"type": "object",
+	"properties": {
+		"value": {
+			"type": "string",
+			"examples": [
+				"20000"
+			]
+		},
+		"currency": { 
+			"type": "string",
+			"examples": [
+				"INR"
+			]
+		},
+		"date": { 
+			"type": "string"
+		},
+		"source": { 
+			"type": "string",
+			"enum": [
+				"GSTN","OTHERS"
+			]
+		},
+		"description":{
+			"type":"string"
+		},
+		"url":{
+			"type":"string"
+		},
+		"extensibleData":{
+			"$ref": "https://github.com/juspay/lsp-lender-protocol-specification/blob/master/Core/schema/Version%200.0.1/extensibleData.json"
+		}
+	}
+}

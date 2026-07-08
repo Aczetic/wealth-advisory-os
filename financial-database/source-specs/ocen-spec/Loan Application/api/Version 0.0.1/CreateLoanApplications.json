@@ -1,0 +1,64 @@
+{
+    "openapi":"3.2.0",
+    "info":{
+        "title":"Bulk Loan Application API",
+        "description":"API  to create Bulk Loan Application in lender's system",
+        "version":"3.2"
+    },
+    "paths":{
+        "/v3/loanApplication/createLoanApplicationsRequest":{
+            "post":{
+                "description":"Create Bulk loan appication",
+                "requestBody":{
+                    "description":"Request by LSP to lender to create bulk loan Application",
+                    "content":{
+                        "application/json":{
+                            "schema":{
+                                "$ref":"https://github.com/juspay/lsp-lender-protocol-specification/blob/master/Loan%20Application/schema/Version%200.0.1/Create%20Loan%20Applications/CreateLoanApplicationsRequest.json"
+                            }
+                        }
+                    }
+                },
+                "responses":{
+                    "200":{
+                        "description":"Acknowledgement of Request Received",
+                        "content":{
+                            "application/json":{
+                                "schema":{
+                                    "$ref":"https://github.com/juspay/lsp-lender-protocol-specification/blob/master/Core/schema/Version%200.0.1/ack.json"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/v3/loanApplication/createLoanApplicationsResponse":{
+            "post":{
+                "description":"Response to create bulk loan application",
+                "requestBody":{
+                    "description":"Response by lender to LSP for create bulk loan application request",
+                    "content":{
+                        "application/json":{
+                            "schema":{
+                                "$ref":"https://github.com/juspay/lsp-lender-protocol-specification/blob/master/Loan%20Application/schema/Version%200.0.1/Create%20Loan%20Applications/CreateLoanApplicationsResponse.json"
+                            }
+                        }
+                    }
+                },
+                "responses":{
+                    "200":{
+                        "description":"Acknowledgement of Response Received",
+                        "content":{
+                            "application/json":{
+                                "schema":{
+                                    "$ref":"https://github.com/juspay/lsp-lender-protocol-specification/blob/master/Core/schema/Version%200.0.1/ack.json"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,118 @@
+{
+    "openapi":"3.2.0",
+    "info":{
+        "title":"Dispute API",
+        "description":"API for raise dispute and get dispute status",
+        "version":"3.2"
+    },
+    "paths":{
+        "/v3/loan/dispute/raiseDisputeRequest":{
+            "post":{
+                "description":"Invoked by LSP to raise dispute",
+                "requestBody":{
+                    "description":"Request to raise dispute",
+                    "content":{
+                        "application/json":{
+                            "schema":{
+                                "$ref":"https://github.com/juspay/lsp-lender-protocol-specification/blob/master/Dispute%20Management/schema/Version%200.0.1/Raise%20Dispute/RaiseDisputeRequest.json"
+                            }
+                        }
+                    }
+                },
+                "responses":{
+                    "200":{
+                        "description":"Acknowledgement of Request Received",
+                        "content":{
+                            "application/json":{
+                                "schema":{
+                                    "$ref":"https://github.com/juspay/lsp-lender-protocol-specification/blob/master/Core/schema/Version%200.0.1/ack.json"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        " /v3/loan/dispute/raiseDisputeResponse":{
+            "post":{
+                "description":"Invoked by lender once Dispute is raised",
+                "requestBody":{
+                    "description":"Returns the dispute details",
+                    "content":{
+                        "application/json":{
+                            "schema":{
+                                "$ref":"https://github.com/juspay/lsp-lender-protocol-specification/blob/master/Dispute%20Management/schema/Version%200.0.1/Raise%20Dispute/RaiseDisputeResponse.json"
+                            }
+                        }
+                    }
+                },
+                "responses":{
+                    "200":{
+                        "description":"Acknowledgement of Response Received",
+                        "content":{
+                            "application/json":{
+                                "schema":{
+                                    "$ref":"https://github.com/juspay/lsp-lender-protocol-specification/blob/master/Core/schema/Version%200.0.1/ack.json"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/v3/loan/dispute/disputeStatusRequest":{
+            "post":{
+                "description":"Invoked by LSP to fetch dispute status",
+                "requestBody":{
+                    "description":"Request to fetch dispute status",
+                    "content":{
+                        "application/json":{
+                            "schema":{
+                                "$ref":"https://github.com/juspay/lsp-lender-protocol-specification/blob/master/Dispute%20Management/schema/Version%200.0.1/Dispute%20Status/DisputeStatusRequest.json"
+                            }
+                        }
+                    }
+                },
+                "responses":{
+                    "200":{
+                        "description":"Acknowledgement of Request Received",
+                        "content":{
+                            "application/json":{
+                                "schema":{
+                                    "$ref":"https://github.com/juspay/lsp-lender-protocol-specification/blob/master/Core/schema/Version%200.0.1/ack.json"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/v3/loan/dispute/disputeStatusResponse":{
+            "post":{
+                "description":"Invoked by lender informing LSP about status of dispute",
+                "requestBody":{
+                    "description":"Returns the dispute status",
+                    "content":{
+                        "application/json":{
+                            "schema":{
+                                "$ref":"https://github.com/juspay/lsp-lender-protocol-specification/blob/master/Dispute%20Management/schema/Version%200.0.1/Dispute%20Status/DisputeStatusResponse.json"
+                            }
+                        }
+                    }
+                },
+                "responses":{
+                    "200":{
+                        "description":"Acknowledgement of Response Received",
+                        "content":{
+                            "application/json":{
+                                "schema":{
+                                    "$ref":"https://github.com/juspay/lsp-lender-protocol-specification/blob/master/Core/schema/Version%200.0.1/ack.json"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

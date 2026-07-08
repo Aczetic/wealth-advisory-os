@@ -12,7 +12,7 @@ code and the binding constraints fast.
 3. **`poc/engine.js`** — the deterministic advisory engine (the moat). Client Graph, 7
    capabilities, action taxonomy, glide paths, full audit trail. This logic ports 1:1 to
    production; the PoC's browser-JS wrapper does not.
-4. **`research-rfp-2022-baseline.md`** + `source-rfp-2022-idbi-digital-bank.pdf` §8 — IDBI's
+4. **`research/research-rfp-2022-baseline.md`** + `research/source-rfp-2022-idbi-digital-bank.pdf` §8 — IDBI's
    own mandated stack & constraints (below).
 5. **`docs/MEMORY-ARCHITECTURE.md`** — the Customer Graph you'll be persisting.
 
@@ -40,12 +40,12 @@ code and the binding constraints fast.
 - **D7 — delivery: hybrid, channel-agnostic** — thin native micro-SDK (mic / TTS / avatar
   canvas / auth bridge) + **server-driven conversational UI** so we ship without waiting on
   bank app-release cycles. GO Mobile+ = reference integration; must also drop into the new
-  digital app (per 2022 RFP) and WhatsApp later. See `research-gomobile-screens.md` addendum.
+  digital app (per 2022 RFP) and WhatsApp later. See `research/research-gomobile-screens.md` addendum.
 - **Voice (your call to finalize):** production TTS/STT bake-off — **Sarvam AI, Bhashini,
   Google/Azure Indic**, ElevenLabs. Hindi first, Hinglish code-switching, architecture ready
   for 15 languages (RFP line). Interaction model = **voice-note-first async** (India: voice =
   22% of WhatsApp comms), which relaxes live-latency needs — see
-  `research-avatar-spec-patterns.md`. PoC uses browser Web Speech API (keyless placeholder).
+  `research/research-avatar-spec-patterns.md`. PoC uses browser Web Speech API (keyless placeholder).
 
 ## Where you plug in
 

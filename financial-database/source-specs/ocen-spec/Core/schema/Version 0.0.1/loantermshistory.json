@@ -1,0 +1,23 @@
+{
+	"$schema": "http://json-schema.org/draft-07/schema#", 
+	"$id": "https://github.com/juspay/lsp-lender-protocol-specification/blob/master/Core/schema/Version%200.0.1/loantersmhistory.json",  
+	"type": "object",
+	"required": [
+		"interest",
+		"tenure",
+		"effectiveDate"
+	],
+	"properties": {
+		"interest": {
+			"type": "string"
+		},
+		"tenure": { 
+			"$ref": "https://github.com/juspay/lsp-lender-protocol-specification/blob/master/Core/schema/Version%200.0.1/loantenure.json"
+		}
+,
+		"effectiveDate": { 
+			"type": "string"
+		}
+	}
+}
+

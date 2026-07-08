@@ -1,0 +1,30 @@
+{
+	"$schema": "http://json-schema.org/draft-07/schema#", 
+	"$id": "https://github.com/juspay/lsp-lender-protocol-specification/blob/master/Loan%20Acceptance/schema/Version%200.0.1/Loan%20Agreement/LoanAgreementmentRequest.json",  
+	"type": "object",
+	"required": [
+		"metadata",
+		"requestId",
+		"loanApplicationIds"
+		
+	],
+	"properties": {
+		"metadata": {
+			"$ref": "https://github.com/juspay/lsp-lender-protocol-specification/blob/master/Core/schema/Version%200.0.1/metadata.json"
+		}
+,
+		"requestId": { 
+			"type": "string"
+		},
+		"loanApplicationIds": {
+			"type": "array",
+			"items":{ 
+				"type": "string"
+			}
+		}
+		
+
+	}
+}
+
+ 

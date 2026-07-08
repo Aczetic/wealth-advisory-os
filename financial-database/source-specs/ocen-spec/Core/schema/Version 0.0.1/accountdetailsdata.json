@@ -1,0 +1,37 @@
+{
+	"$schema": "http://json-schema.org/draft-07/schema#", 
+	"$id": "https://github.com/juspay/lsp-lender-protocol-specification/blob/master/Core/schema/Version%200.0.1/accountdetailsdata.json",  
+	"type": "object",
+	"properties": {
+		"accountType": { 
+			"type": "string",
+			"enum": [
+				"CURRENT","SAVING","OVERDRAFT"
+			]
+		},
+		"accountIFSC": { 
+			"type": "string",
+			"examples": [
+				"ICK000856"
+			]
+		},
+		"accountNumber": {
+			"type": "string",
+			"examples": [
+				"11250789101486249090"
+			]
+		},
+		"vpa": {
+			"type": "string",
+			"examples": [
+				""
+			]
+		},
+		"maskedAccountNumber": {
+			"type": "string",
+			"examples": [
+				"XXXXXXXXX9090"
+			]
+		}
+	}
+}

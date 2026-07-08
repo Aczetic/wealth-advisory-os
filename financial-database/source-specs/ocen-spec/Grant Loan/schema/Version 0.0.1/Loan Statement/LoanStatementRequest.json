@@ -1,0 +1,30 @@
+{
+	"$schema": "http://json-schema.org/draft-07/schema#", 
+	"$id": "https://github.com/juspay/lsp-lender-protocol-specification/blob/master/Grant%20Loan/schema/Version%200.0.1/Loan%20Statement/LoanStatementRequest.json", 
+	"type": "object",
+	"required": [
+		"metadata",
+		"requestId",
+		"loanId"
+	],
+	"properties": {
+		"metadata": {
+			"$ref": "https://github.com/juspay/lsp-lender-protocol-specification/blob/master/Core/schema/Version%200.0.1/metadata.json"
+		}
+,
+		"requestId": { 
+			"type": "string"
+		},
+		"loanId": { 
+			"type": "string"
+		},
+		"startDate": {
+			"type": "string"
+		},
+		"endDate": { 
+			"type": "string"
+		}
+	}
+}
+
+ 

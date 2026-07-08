@@ -1,0 +1,120 @@
+{
+    "openapi":"3.2.0",
+    "info":{
+        "title":"Consent API",
+        "description":"API used as trigger for lender to get consent from AA",
+        "version":"3.2"
+    },
+    "paths":{
+        "/v3/consent/consentHandleRequest":{
+            "post":{
+                "description":"Create consent handle with Account Aggregator",
+                "requestBody":{
+                    "description":"Request by LSP to lender to get consent handle with Account Aggregator",
+                    "content":{
+                        "application/json":{
+                            "schema":{
+                                "$ref":"https://github.com/juspay/lsp-lender-protocol-specification/blob/master/Consent/schema/Version%200.0.1/Consent%20Handle/ConsentHandleRequest.json"
+                            }
+                        }
+                    }
+                },
+                "responses":{
+                    "200":{
+                        "description":"Acknowledgement by Lender to LSP for Consent Handle Request",
+                             "content":{
+                                "application/json":{
+                                    "schema":{
+                                        "$ref":"https://github.com/juspay/lsp-lender-protocol-specification/blob/master/Core/schema/Version%200.0.1/ack.json"
+                                    }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/v3/consent/consentHandleResponse":{
+            "post":{
+                "description":"Invoked by lender to send consent handle created in Account Aggregator",
+                "requestBody":{
+                    "description":"Consent Handle Response",
+                    "content":{
+                        "application/json":{
+                            "schema":{
+                                "$ref":"https://github.com/juspay/lsp-lender-protocol-specification/blob/master/Consent/schema/Version%200.0.1/Consent%20Handle/ConsentHandleResponse.json"
+                                
+                            }
+                        }
+                    }
+                },
+                "responses":{
+                    "200":{
+                        "description":"Acknowledgement to consent Hanlde Response",
+                        "content":{
+                            "application/json":{
+                                "schema":{
+                                    "$ref":"https://github.com/juspay/lsp-lender-protocol-specification/blob/master/Core/schema/Version%200.0.1/ack.json"
+
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        " /v3/consent/consentStatusRequest":{
+            "post":{
+                "description":"Invoked by LSP to get consent handle status from lender",
+                "requestBody":{
+                    "description":"Consent Status Request",
+                    "content":{
+                        "application/json":{
+                            "schema":{
+                                "$ref":"https://github.com/juspay/lsp-lender-protocol-specification/blob/master/Consent/schema/Version%200.0.1/Consent%20Status/ConsentStatusRequest.json"
+                            }
+                        }
+                    }
+                },
+                "responses":{
+                    "200":{
+                        "description":"Acknowledgement to consent status request",
+                        "content":{
+                            "application/json":{
+                                "schema":{
+                                    "$ref":"https://github.com/juspay/lsp-lender-protocol-specification/blob/master/Core/schema/Version%200.0.1/ack.json"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/v3/consent/consentStatusResponse":{
+            "post":{
+                "description":"Invoked by lender to send consent status to LSP",
+                "requestBody":{
+                    "description":"Consent Status Response",
+                    "content":{
+                        "application/json":{
+                            "schema":{
+                                "$ref":"https://github.com/juspay/lsp-lender-protocol-specification/blob/master/Consent/schema/Version%200.0.1/Consent%20Status/ConsentStatusResponse.json"
+                            }
+                        }
+                    }
+                },
+                "responses":{
+                    "200":{
+                        "description": "Acknowledgement to consent status response",
+                        "content":{
+                            "application/json":{
+                                "schema":{
+                                    "$ref":"https://github.com/juspay/lsp-lender-protocol-specification/blob/master/Core/schema/Version%200.0.1/ack.json"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+} 

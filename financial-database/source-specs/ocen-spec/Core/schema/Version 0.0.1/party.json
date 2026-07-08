@@ -1,0 +1,71 @@
+{
+	"$schema": "http://json-schema.org/draft-07/schema#", 
+	"$id": "https://github.com/juspay/lsp-lender-protocol-specification/blob/master/Core/schema/Version%200.0.1/party.json",  
+	"type": "object",
+	"required": [
+		"primaryId",
+		"primaryIdType",
+		"name",
+		"category",
+		"relationshipWithCollateral",
+		"contactDetails",
+		"documents"
+	],
+	"properties": {
+		"primaryId": { 
+			"type": "string",
+			"examples": [
+				"<PAN NO.>"
+			]
+		},
+		"primaryIdType": { 
+			"type": "string",
+			"enum": [
+				"PAN","MOBILE","AADHAAR","FIU"
+			]
+		},
+		"description":{
+			"type":"string"
+		},
+		"additionalIdentifiers": { 
+			"type": "array",
+			"items":{ 
+				"$ref": "https://github.com/juspay/lsp-lender-protocol-specification/blob/master/Core/schema/Version%200.0.1/additionalidentifier.json"
+			}
+
+		},
+		"name": {
+			"type": "string"
+		},
+		"category": { 
+			"type": "string",
+			"enum": [
+				"INDIVIDUAL","ORGANIZATION"
+			]
+		},
+		"relationshipWithCollateral": {
+			"type": "string"
+		},
+		"contactDetails": {
+			"type":"array",
+			"items": {
+            "$ref": "https://github.com/juspay/lsp-lender-protocol-specification/blob/master/Core/schema/Version%200.0.1/contactdetails.json"
+			}
+		},
+		"documents": {  
+			"type": "array",
+			"items":{
+                "$ref": "https://github.com/juspay/lsp-lender-protocol-specification/blob/master/Core/schema/Version%200.0.1/document.json"    
+            }
+				},
+				
+				"url":{
+					"type":"string"
+				},
+				"extensibleData":{
+					"$ref": "https://github.com/juspay/lsp-lender-protocol-specification/blob/master/Core/schema/Version%200.0.1/extensibleData.json"
+				}
+			}
+
+		
+}

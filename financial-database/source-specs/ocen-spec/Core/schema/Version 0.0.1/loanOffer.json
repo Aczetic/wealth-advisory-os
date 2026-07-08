@@ -1,0 +1,36 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#", 
+	"$id": "https://github.com/juspay/lsp-lender-protocol-specification/blob/master/Core/schema/Version%200.0.1/loanOffer.json", 
+	"type": "object",
+	"required": [
+        "loanApplicationId",
+        "loanApplicationStatus"
+    ],
+    "properties": {
+        "loanApplicationId":{
+            "type":"string"
+        },
+        "rejectionDetails":{
+            "type":"array",
+            "items": {
+                "$ref": "https://github.com/juspay/lsp-lender-protocol-specification/blob/master/Core/schema/Version%200.0.1/rejectiondetail.json"
+            }
+        },
+        "actionRequired":{
+            "type":"array",
+            "items": {
+                "$ref": "https://github.com/juspay/lsp-lender-protocol-specification/blob/master/Core/schema/Version%200.0.1/actionrequired.json"
+            }
+        },
+        "offers":{
+            "type":"array",
+            "items": {
+                "$ref": "https://github.com/juspay/lsp-lender-protocol-specification/blob/master/Core/schema/Version%200.0.1/offer.json"
+            }
+        },
+        "loanApplicationStatus":{
+            "type":"string",
+            "enum": ["PROCESSING","OFFERED","OFFER_ACCEPTED","GRANTED","REJECTED","ACTION REQUIRED"]
+        }
+    }
+}

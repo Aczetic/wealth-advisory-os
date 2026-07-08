@@ -1,0 +1,38 @@
+{
+    "openapi":"3.2.0",
+    "info":{
+        "title":"Heartbeat API",
+        "description":"This API is invoked by both Lender and LSP to check the status of the other system",
+        "version":"3.2"
+    },
+    "paths":{
+        "/v3/heartbeat":{
+            "post":{
+                "description":"Invoked to check status of other systems",
+                "requestBody":{
+                    "description":"Request to heartbeat API",
+                    "content":{
+                        "application/json":{
+                            "schema":{
+                                "$ref":"https://github.com/juspay/lsp-lender-protocol-specification/blob/master/Meta%20APIs/schema/Version%200.0.1/Heartbeat/Heartbeat.json"
+                            }
+                        }
+                    }
+                },
+                "responses":{
+                    "200":{
+                        "description":"Acknowledgement of Request Received",
+                        "content":{
+                            "application/json":{
+                                "schema":{
+                                    "$ref":"https://github.com/juspay/lsp-lender-protocol-specification/blob/master/Core/schema/Version%200.0.1/ack.json"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+    
