@@ -1,6 +1,6 @@
 # Kartik's Methodology Input (2026-07-08 night) — CORE ENGINE REQUIREMENTS
 
-Source: Kartik (PM + CA) directly. This IS the subsystem-B design input. Engine and
+Source: Kartik directly. This IS the subsystem-B design input. Engine and
 onboarding/engagement/advisory/allocation must be planned around this. Binding.
 
 ## 1. Capability set (advisory engine must do all of these)

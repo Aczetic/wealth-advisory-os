@@ -190,5 +190,5 @@ This tells the committee we understand how a bank actually buys and ships softwa
 5. Diagrams for S5/S7 with Afraz (twin → engine → two faces; architecture on the RFP stack).
 6. Assemble on the template last; polish once, per minimum-necessary-change.
 
-Open dependency: methodology numbers are pending Kartik's CA review — any slide showing
+Open dependency: methodology numbers are pending Kartik's review — any slide showing
 glide paths or thresholds must say "illustrative" until that sign-off.

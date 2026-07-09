@@ -99,7 +99,7 @@ artifact?" before writing it, and propose those steps proactively.
 - [x] **Working PoC built & verified** (`poc/`) — avatar app + deterministic engine +
       RM console; 36/36 golden tests passing; all flows click-verified in browser.
       Run: `cd poc && node server.js`. Guide: `README-TEST.md`.
-- [x] **v0.9 solution spec** (`03-solution-spec.md`) — methodology marked ⚠️CA pending Kartik.
+- [x] **v0.9 solution spec** (`03-solution-spec.md`) — methodology marked ⚠️Kartik (pending review).
 - [x] **GitHub repo (private)** created + pushed: iamkartik4793/arthsakhi-idbi-wealth.
 - [x] **Team onboarding docs** — `docs/ONBOARDING-AFRAZ.md`, `docs/ONBOARDING-JYOTI.md`.
 - [x] **Memory architecture / AI-native twin** (`docs/MEMORY-ARCHITECTURE.md`, D8) — framework
@@ -111,7 +111,7 @@ artifact?" before writing it, and propose those steps proactively.
    form fields into `01-challenge-brief.md`. (Only hard blocker.)
 2. **Add Afraz & Jyoti as GitHub collaborators** and share the repo + their onboarding docs.
 3. **Jyoti brainstorm: memory** — run `docs/MEMORY-ARCHITECTURE.md` §7 agenda with Kartik.
-4. **Kartik CA-review** the ⚠️CA methodology numbers in `03-solution-spec.md` /
+4. **Kartik: review** the ⚠️Kartik methodology numbers in `03-solution-spec.md` /
    `poc/engine.js` (glide matrix, gate thresholds, suitability scoring, return/tax assumptions).
 5. Confirm open decisions: **D6** (Advisor OS scope — rec: option b, already built),
    **D7** (delivery — rec: hybrid), **D8** (twin framework).

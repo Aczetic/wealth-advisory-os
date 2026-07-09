@@ -71,7 +71,7 @@
 ## Track D — How real wealth management works (NON-AI domain brainstorm)
 
 > Deliberately AI-free. Before we automate advice, we model what *good human* wealth
-> advisory actually is. Kartik (PM + CA) leads this. This becomes the "product logic" the
+> advisory actually is. Kartik leads this. This becomes the "product logic" the
 > agent later executes.
 
 Topics to brainstorm:
@@ -83,7 +83,7 @@ Topics to brainstorm:
 - **Rebalancing & review cadence** — when/why you revisit, drift thresholds.
 - **Life-event triggers** — marriage, child, home, job change, retirement.
 - **Behavioral coaching** — stopping panic-selling, encouraging consistency (the real value).
-- **Tax planning** — the CA angle: 80C, LTCG/STCG, harvesting, product wrappers.
+- **Tax planning** — the tax angle: 80C, LTCG/STCG, harvesting, product wrappers.
 - *Output:* a "wealth advisory playbook" the agent is grounded in.
 
 ---

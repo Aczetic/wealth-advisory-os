@@ -2,7 +2,7 @@
 
 v0.9 · 2026-07-09 · Assembled from all research files + Kartik's methodology input.
 Working PoC exists in `poc/` (see `README-TEST.md`). Methodology numbers = **DRAFT,
-pending Kartik CA review** (marked ⚠️CA).
+pending Kartik review** (marked ⚠️Kartik).
 
 ## 1. One-liner
 
@@ -68,12 +68,12 @@ pattern), tax-harvesting lists across book. Benchmarks: Morgan Stanley 98% adopt
 - **Action taxonomy:** Buy · Sell · Redeem · Transfer · Rebalance · Harvest Loss ·
   **Prepay Loan** (PREPAY-1.0 post-tax comparison incl. 24b) ✅ PoC.
 - **Glide paths** (GLIDE-1.0, Zerodha-Lifecycle-inspired): allocation = f(risk bucket,
-  years-to-goal), linear de-risk inside 10y, capital-protection ≤1y. ⚠️CA review the
+  years-to-goal), linear de-risk inside 10y, capital-protection ≤1y. ⚠️Kartik review the
   matrix. ✅ PoC
-- **Financial-health gate** (GATE-1.0): emergency fund (6mo ⚠️CA) → insurance (12x income
-  ⚠️CA) → then investing. ✅ PoC
+- **Financial-health gate** (GATE-1.0): emergency fund (6mo ⚠️Kartik) → insurance (12x income
+  ⚠️Kartik) → then investing. ✅ PoC
 - **Suitability** (SUIT-1.0): 6-question conversational assessment → 4 buckets;
-  behavioral risk-capacity overlay from txn data = phase 2. ⚠️CA review scoring.
+  behavioral risk-capacity overlay from txn data = phase 2. ⚠️Kartik review scoring.
 - **Audit:** every recommendation = {action, amount, instrument, reason, ruleId+version,
   goalId, taxNote} ✅ PoC, visible debug panel. Rules registry with versions ✅.
 - **Golden tests:** 36 cases, `poc/tests/run-tests.js` ✅ — the production-readiness proof.
@@ -124,6 +124,6 @@ Scale (AA, 15 languages, WhatsApp channel, meeting copilot, RIA-SIDD optional).
 
 ## 12. Open items
 
-⚠️CA review: glide matrix, gate thresholds, suitability scoring, return/inflation
+⚠️Kartik review: glide matrix, gate thresholds, suitability scoring, return/inflation
 assumptions, tax rules. D6 scope = option (b) implemented — confirm. D7 confirm.
 Submission form fields still needed (registration deadline 2026-07-09!).

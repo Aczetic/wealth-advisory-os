@@ -1,7 +1,7 @@
 # Welcome Afraz 👋 — technical architecture, stack, integration
 
 You own: **technical architecture, tech stack (LLM/TTS/STT), UI, and integrations.**
-Kartik (PM+CA) owns product/finance; Jyoti owns logic/deck/RM-view. This gets you to the
+Kartik owns product/finance; Jyoti owns logic/deck/RM-view. This gets you to the
 code and the binding constraints fast.
 
 ## Read/run first (≈30 min)

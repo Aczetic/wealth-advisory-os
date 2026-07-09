@@ -13,7 +13,7 @@ if a subsystem has no benchmark identified yet, that's the first work item for i
 | Subsystem | Best-in-world benchmark |
 |---|---|
 | A. Integration/delivery | Hana Bank OneQ (avatar in bank app); server-driven UI patterns (Airbnb/Swiggy) |
-| B. Advisory methodology | PortfolioPilot (engine+explainer split); Vanguard/Wealthfront glide paths; Scripbox India methodology; Kartik's CA tax overlay |
+| B. Advisory methodology | PortfolioPilot (engine+explainer split); Vanguard/Wealthfront glide paths; Scripbox India methodology; Kartik's tax overlay |
 | C. Data & integration | Fold/Setu (Indian txn categorization); Sahamati AA rails; INDmoney (aggregation UX) |
 | D. Avatar persona/memory | Cleo 3.0 (voice+memory+personality); UneeQ deployment playbooks; Replika (memory), with guardrails |
 | E. Language/speech | Sarvam AI / Bhashini (Indic); NH Bank (110-language avatar) |
@@ -43,7 +43,7 @@ on-prem DC/DR, their recommended tech stack). Every subsystem must cover its RFP
 - ✅ Posture: deterministic engine, suitability-gated, distributor universe (D4)
 - 🔬 **Which allocation framework**: study how Scripbox/HDFC/PortfolioPilot/robo-1.0
   actually construct model portfolios; strategic vs goal-horizon glide paths
-- ✏️ **Our methodology stack** (Kartik's CA judgment central):
+- ✏️ **Our methodology stack** (Kartik's judgment central):
   1. Financial-health gate: emergency fund (X months?) → insurance gap → then investing
   2. Risk capacity (data-derived: income stability, dependents, liabilities) vs risk
      tolerance (questionnaire) — how combined, which overrides

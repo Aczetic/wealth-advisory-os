@@ -4,7 +4,7 @@ You're driving: **the deck/story, the advisory intelligence (how a great wealth 
 actually works), the persona + memory *rules*, and the AI→RM escalation *policy*.** The
 engineering *build* — the smart-layer, memory infrastructure, and the RM console — sits with
 Afraz; you give him the spec, he builds it. This doc gets you fully context-loaded, then
-points you at exactly where you plug in. Kartik (PM+CA) owns product/finance/tax; you + Kartik
+points you at exactly where you plug in. Kartik owns product/finance/tax; you + Kartik
 own the story and the finance intelligence.
 
 > **Scope note (re-lane):** your strength is finance + narrative, not plumbing — so stay on
@@ -26,7 +26,7 @@ own the story and the finance intelligence.
 7. **`research/research-advisor-os.md`** — the RM-facing side (Morgan Stanley precedent). This is
    your RM-view brief.
 8. **`research/research-failures-judge-lens.md`** — why robo-1.0 died + what bank judges score on.
-9. **`03-solution-spec.md`** — the assembled product spec (methodology marked ⚠️CA = pending
+9. **`03-solution-spec.md`** — the assembled product spec (methodology marked ⚠️Kartik = pending
    Kartik review).
 10. **`docs/MEMORY-ARCHITECTURE.md`** — the AI-native twin. **This is your brainstorm
     starter with Kartik** (see its §7 agenda).
@@ -94,7 +94,7 @@ show "one twin, right advice for NRI vs GenZ vs pensioner."
 - **Advisory playbook (your biggest lever)** — how a *great human* wealth manager actually
   works, AI aside: discovery, risk profiling, asset allocation, product suitability, when to
   rebalance, behavioural coaching, tax. This grounds everything else. Your CFA + equity-research
-  lane. Draft it; Kartik CA-reviews.
+  lane. Draft it; Kartik reviews.
 - **Persona + memory *rules*** — the domain logic: persona → treatment, and what the twin
   remembers/forgets and why (you've already drafted this well — finish it). *Rules only*; the
   memory infrastructure/schema is Afraz's build. Co-input to `docs/MEMORY-ARCHITECTURE.md`.
