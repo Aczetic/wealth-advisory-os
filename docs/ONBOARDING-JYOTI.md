@@ -133,6 +133,15 @@ show "one twin, right advice for NRI vs GenZ vs pensioner."
    (deliverable 1) — so writing these two stories *tests* your playbook end-to-end.
    (`ui/wealth-companion-mock.html` shows the target look/feel of a single beat.)
 
+   **These are LIVE-DEMO profiles, not just stories.** Each persona = a complete, realistic
+   financial profile — identity, income, monthly spends, holdings (FD / MF / post-office),
+   liabilities, family/dependents, goals — that loads into the engine, so on stage you can
+   actually *talk to Asha as this customer* and she produces real recommendations. That live
+   run is what proves well-rounded capability (far stronger than slides for a bank panel).
+   The storyline is the script; the profile is what makes it run. Ground the numbers in real
+   fields (`financial-database/field-inventory/MASTER_field_inventory.csv`) so the data is
+   defensible, and shape the profile to the engine's Client Graph (`03-solution-spec.md` §5).
+
 **One rule — send to Kartik before final:** anything tax (NRI/DTAA/regime) — draft it, he confirms.
 
 ## House rules (please keep)

@@ -37,6 +37,12 @@ For each, lay it out as a **timeline of moments** — at each moment show what's
 life, what Asha does and says, and what the RM sees/does. Show Asha *remembering* earlier moments,
 and show *when the RM steps in*. That's what makes the demo land.
 
+Important: these get built as **real, complete customer profiles loaded into the product** — so
+the demo is *live* (I actually talk to Asha as this person on stage and she responds for real),
+not a slideshow. So make each persona's numbers realistic and complete: income, monthly spends,
+what they hold (FD/MF/post-office), any loans, family/dependents, goals. The story is the script;
+the profile is what makes it run live — and a live run is what truly shows our capability.
+
 **One rule:** anything tax (NRI/DTAA, regimes, etc.) — draft it, but send to me to confirm
 before it's final.
 
