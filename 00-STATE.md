@@ -107,17 +107,28 @@ artifact?" before writing it, and propose those steps proactively.
 - [x] **Memory architecture / AI-native twin** (`docs/MEMORY-ARCHITECTURE.md`, D8) — framework
       + 5 layers + 3 indexes + third-order gaps + AA/ULI/OCEN mapping; brainstorm-ready.
 
-## Next action (do this one thing, completely)
+## Next action (one sequence — hackathon and startup are the SAME build; IDBI = customer #1)
 
-1. **Kartik: register on Hack2skill — DEADLINE 2026-07-13 (extended)** and capture submission
-   form fields into `01-challenge-brief.md`. (Only hard blocker.)
-2. ~~Add Afraz & Jyoti as GitHub collaborators~~ ✅ invites sent 2026-07-09 (pending acceptance).
-3. **Jyoti brainstorm: memory** — run `docs/MEMORY-ARCHITECTURE.md` §7 agenda with Kartik.
-4. **Kartik: review** the ⚠️Kartik methodology numbers in `03-solution-spec.md` /
-   `poc/engine.js` (glide matrix, gate thresholds, suitability scoring, return/tax assumptions).
-5. Confirm open decisions: **D6** (Advisor OS scope — rec: option b, already built),
-   **D7** (delivery — rec: hybrid), **D8** (twin framework).
-6. Then: `05-deck-outline.md` → deck (Jyoti), only after methodology is CA-signed.
+**Now → 2026-07-13 (hackathon-critical):**
+1. **Kartik: register on Hack2skill — DEADLINE 2026-07-13.** Capture form fields into
+   `01-challenge-brief.md`. Only item that can kill everything. Do first.
+2. **Kartik: send Jyoti her brief** (`docs/jyoti-focus-brief.md`) + nudge Afraz & Jyoti to
+   accept repo invites (sent 2026-07-09). Their work runs parallel from then on.
+3. **Kartik: methodology sign-off** — the ⚠️Kartik numbers in `03-solution-spec.md` /
+   `poc/engine.js`. The real bottleneck: blocks deck AND Jyoti's live-demo profiles.
+
+**Right after (MVP week — Claude executes, Kartik reviews):**
+4. **Seed the 2 demo personas into the engine** (from Jyoti's profiles as they land) +
+   **mock bank-API layer** (get_balance / place_MF_order / initiate_loan_application) so the
+   demo closes the thread per D11. PoC → demo-able MVP.
+5. **Host the MVP** (Vercel/GitHub Pages) → doubles as S13 "final product link" + the
+   startup's first demo link.
+6. **Deck** (Jyoti, after step 3): `05-deck-outline.md` → official template. Then 3-min video.
+
+**After 2026-07-13 (startup assets — not hackathon blockers, don't touch before):**
+7. **Name** (D9 open — gates the website + public repo). Then **website** (1 page + hosted
+   demo link is enough for v1). Then **RM CRM v2** (grow PoC RM console per D10/D11).
+8. Confirm D6 (rec: b — already built) / D7 (rec: hybrid) / D8 — 15-min calls, batch them.
 
 ## Repo layout (reorganized 2026-07-09; see README.md for the full annotated map)
 

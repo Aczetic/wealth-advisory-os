@@ -84,27 +84,46 @@ show "one twin, right advice for NRI vs GenZ vs pensioner."
 
 ## Your deliverables — just these three (go deep, ignore the rest)
 
-1. **Advisory playbook (your biggest lever)** — how a *great human* wealth manager actually
-   works, AI aside: discovery, risk profiling, asset allocation, product suitability, when to
-   rebalance, behavioural coaching. Your CFA + equity-research lane. This grounds everything.
-   Draft it; Kartik reviews.
+1. **Playbook library (your biggest lever)** — scope expanded per **D10/D11 in `00-STATE.md`**
+   (2026-07-10): the product is an **Advisory OS banks embed in their own apps**, and it must
+   **close the thread** — a conversation ends in a *completed action*, never in "go check that
+   menu." So the playbook isn't only "how a great wealth manager works" anymore. Five families:
 
-   **⚠️ Critical — write it as a *procedure the agent runs*, not an essay.** The agent will
-   execute this playbook step-by-step, in conversation. So every advisory situation must break
-   into discrete **steps** and the **to-&-fro** (what it asks, how the customer might answer,
-   how it branches). Think flowchart / SOP, not textbook chapter. Use this shape per situation:
+   | # | Family | Covers | Example situations |
+   |---|---|---|---|
+   | 1 | **Advisory craft** (the original core — start here) | discovery, risk profiling, goal planning, asset allocation, product suitability, rebalancing, behavioural coaching | "should I invest more?"; market-crash hand-holding; SIP step-up |
+   | 2 | **Execute the advice** | what happens after the customer says **yes** — confirmation, order placement, failure branches, post-trade follow-up | MF lumpsum/SIP end-to-end; FD booking; liquidity-waterfall execution |
+   | 3 | **Banking context** | asks where advisory meets everyday banking — answer, then add the advisory hook | "show my balance" (→ idle-cash moment); "I need a loan" (→ cheapest-*suitable*-credit path: LAMF/LAFD before personal loan); CIBIL guidance (score → improvement plan → monitoring) |
+   | 4 | **Proactive reach-outs & cross-sell** (bank-initiated — this is the bank's revenue case) | data-triggered moments where *the engine opens* the conversation | FD maturing; salary bump; idle balance ≥ threshold; SIP lapsed; goal off-track |
+   | 5 | **RM collaboration** | when/why AI hands to human, what context transfers, RM's next-best-action | out-of-universe ask; vulnerable customer; high-value moment; customer asks for a human |
+
+   **⚠️ Critical — write every playbook as a *procedure the agent runs*, not an essay.** The
+   agent executes it step-by-step in conversation. Break each situation into discrete **steps**
+   and the **to-&-fro** (what it asks, how the customer might answer, how it branches).
+   Flowchart / SOP, not textbook chapter. The template, expanded for close-the-thread:
 
    | Part | What goes here |
    |---|---|
-   | **Trigger** | when this playbook fires (idle balance detected; customer asks "should I invest more?") |
+   | **Trigger** | when this playbook fires — a customer utterance ("should I invest more?") OR a data signal (idle balance; FD matures in 15 days). Family-4 triggers are always data signals |
    | **Gather** | what it needs first — split *known from data* vs *must-ask*; the exact question(s) to ask |
    | **Branches** | for each likely customer answer → the next step (this is the to-&-fro) |
    | **Rule** | the decision logic — if X and Y → recommend Z (thresholds, glide, suitability gate) |
    | **Recommend** | the output + the one-line *why* (this feeds "Why I'm suggesting this") |
-   | **Escalate** | the condition that hands to a human |
+   | **Execute** | the close-the-thread step: confirm intent → action happens (order placed, application filed) → **failure branches** (payment fails, cut-off missed, eligibility declined) → completion message. Treat the mechanics as a black box that succeeds or fails — the API contract is Kartik/Afraz's side, not yours |
+   | **Record** | what gets written to memory/twin after this interaction + the one-line audit entry |
+   | **Follow-up** | what Asha proactively says/checks later (T+1: "order allotted"; T+30: "first SIP debited — here's how it went"). These follow-ups are exactly the memory-payoff beats your storylines need |
+   | **Escalate** | the condition that hands to the RM + what context transfers with it |
+
+   **Family-4 extras** — each reach-out also needs **Guardrails**: eligibility check, suppression
+   rules (frequency cap, quiet hours, back-off after a decline), and channel. And one posture
+   rule that is our moat: **a cross-sell only fires if the suitability engine would recommend it
+   anyway** — the bank gets cross-sell volume *because* the customer can trust that Asha never
+   pushes. Never write a reach-out that a good human advisor wouldn't initiate.
 
    Rule of thumb: if a step can't be written as "agent does / agent asks / customer answers /
    agent branches," it's too vague — sharpen it until it can. That's what makes it runnable.
+   Depth order if time runs short: family 1 fully, then 2 and 4 (they're the demo + business
+   case), then 3, then 5.
 2. **Finish the persona** — complete the persona → treatment logic and the memory *rules* that
    go with it (you've already drafted this well in `docs/brainstorm-prep-jyoti.md` — just close
    it out). Co-input to `docs/MEMORY-ARCHITECTURE.md`.
@@ -128,8 +147,10 @@ show "one twin, right advice for NRI vs GenZ vs pensioner."
    | Beat (when) | Life trigger | Customer | Asha (AI) — the advisory moment | RM — what they see/do |
 
    Make sure each storyline shows: Asha's **memory paying off** (callbacks to earlier beats),
-   the **RM handoffs** (when/why the human steps in, what context transfers), and how the
-   **twin updates** each time. Every advisory moment should map to a step in your playbook
+   the **RM handoffs** (when/why the human steps in, what context transfers), how the
+   **twin updates** each time, **at least one completed transaction** (advice → yes → executed
+   → follow-up beat later), and **at least one bank-initiated reach-out** (family-4 playbook)
+   that lands as helpful, not spammy. Every advisory moment should map to a step in your playbook
    (deliverable 1) — so writing these two stories *tests* your playbook end-to-end.
    (`ui/wealth-companion-mock.html` shows the target look/feel of a single beat.)
 
