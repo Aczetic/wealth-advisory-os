@@ -1,28 +1,29 @@
 # Focus brief — Jyoti (send-ready)
 
-Jyoti — quick refocus so you're not spread thin.
+Jyoti — keeping your focus really crisp. Just **three things**. Go deep on these, ignore
+everything else.
 
-Your prep sheet (the personas, the memory rules, the AI→RM logic) was genuinely excellent —
-that's exactly your zone. So I want you *fully* on that, and *off* the engineering plumbing
-(Afraz has that covered).
+**1. Advisory playbook** — how a great wealth manager actually works, AI completely aside:
+discovery, risk profiling, asset allocation, product suitability, when to rebalance,
+behavioural coaching. Just the real craft. This grounds our whole product. (Your CFA +
+equity-research lane — nobody better for it.)
 
-**Please go deep on just three things:**
+**2. Finish the persona** — close out the persona → treatment logic and the memory rules you
+already started. You're most of the way there — just finish it clean.
 
-1. **The advisory playbook** — how a great wealth manager actually works, AI completely aside:
-   discovery, risk profiling, asset allocation, product suitability, when to rebalance,
-   behavioural coaching. Just the real craft. This grounds our whole product. (Your CFA +
-   equity-research lane — nobody better for it.)
+**3. 3–4 varied AI demo walkthroughs** — short conversation scripts that show off Asha's range.
+Pick *different* customers and situations so the demo shows breadth, e.g.:
+- an FD-family's first-ever SIP,
+- a salaried customer's refinance + goal moment,
+- a pensioner's income plan with a safeguard,
+- an NRI tax question that escalates to a human,
+- a panic-sell we talk down.
 
-2. **Finish the persona + memory *rules*** you already started — the "what we know about each
-   customer and how we treat them" logic. You're 80% there.
+Each script = what the customer says, what Asha replies, and which cards show up. This is what
+makes the demo sing.
 
-3. **The deck / story.**
-
-**Park these — they're Afraz's to build, you just tell him what's needed:** the RM console
-screen, the memory database/infra, the technical AI wiring.
-
-**One rule:** anything tax (NRI/DTAA, regimes, etc.) — draft it, but send it to me to confirm
+**One rule:** anything tax (NRI/DTAA, regimes, etc.) — draft it, but send to me to confirm
 before it's final.
 
-That's it. Go deep on 1–3, ignore the rest. You're one of our strongest — I just want your
-firepower pointed at the right target.
+That's the whole scope — these three, nothing else. You're one of our strongest; I just want
+your firepower on the right target.

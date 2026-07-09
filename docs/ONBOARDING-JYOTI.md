@@ -1,15 +1,14 @@
 # Welcome Jyoti 👋 — get up to speed, then own the intelligence + deck
 
-You're driving: **the deck/story, the advisory intelligence (how a great wealth manager
-actually works), the persona + memory *rules*, and the AI→RM escalation *policy*.** The
-engineering *build* — the smart-layer, memory infrastructure, and the RM console — sits with
-Afraz; you give him the spec, he builds it. This doc gets you fully context-loaded, then
-points you at exactly where you plug in. Kartik owns product/finance/tax; you + Kartik
-own the story and the finance intelligence.
+You're driving **three things**: the **advisory playbook** (how a great wealth manager
+actually works), **finishing the persona** work, and **3–4 varied AI demo walkthroughs** that
+showcase what Asha can do. That's the whole scope — go deep on these, ignore everything else.
+This doc gets you context-loaded, then points you at exactly where you plug in. Kartik owns
+product/finance/tax; you + Kartik own the finance intelligence and the story.
 
-> **Scope note (re-lane):** your strength is finance + narrative, not plumbing — so stay on
-> the *domain* side (what advice, what to remember, when to escalate) and hand the *build*
-> side to Afraz. RM view = you define what an RM needs to see; Afraz builds the screen.
+> **Scope note:** your strength is finance + narrative — stay entirely on that. The engineering
+> build (smart-layer, memory infrastructure, RM console) simply isn't your concern; don't spend
+> a minute on it.
 
 ## Read in this order (≈45 min, all in this repo)
 
@@ -83,29 +82,24 @@ Residency + life-stage live in the twin's **L1 identity layer** (`MEMORY-ARCHITE
 and *drive* the engine. Your job: formalize the persona → treatment rules so the deck can
 show "one twin, right advice for NRI vs GenZ vs pensioner."
 
-## Your deliverables & where to start
+## Your deliverables — just these three (go deep, ignore the rest)
 
-- **Deck** — your primary deliverable, on the official IDBI template. Everything you need
-  is in `deck/`: the template (`IDBI-submission-template.pptx`), your direction brief
-  (`DECK-DIRECTION-JYOTI.md` — style rules, differentiator table, flagship demo moment,
-  business-case framing, roadmap format), and the slide-by-asset mapping in
-  `01-challenge-brief.md`. All deck copy follows `docs/WRITING-STYLE.md` (binding).
-  Still: internalize the research first so the deck has no fluff (Kartik's rule).
-- **Advisory playbook (your biggest lever)** — how a *great human* wealth manager actually
-  works, AI aside: discovery, risk profiling, asset allocation, product suitability, when to
-  rebalance, behavioural coaching, tax. This grounds everything else. Your CFA + equity-research
-  lane. Draft it; Kartik reviews.
-- **Persona + memory *rules*** — the domain logic: persona → treatment, and what the twin
-  remembers/forgets and why (you've already drafted this well — finish it). *Rules only*; the
-  memory infrastructure/schema is Afraz's build. Co-input to `docs/MEMORY-ARCHITECTURE.md`.
-- **AI→RM escalation *policy*** — *when* AI hands to a human and *what context transfers*
-  (the compliance + lead-gen feature; D4 in `00-STATE.md`). You define the policy; Afraz wires it.
-- **Deck / story** — your primary deliverable (see below).
+1. **Advisory playbook (your biggest lever)** — how a *great human* wealth manager actually
+   works, AI aside: discovery, risk profiling, asset allocation, product suitability, when to
+   rebalance, behavioural coaching. Just the real craft. This grounds everything. Your CFA +
+   equity-research lane. Draft it; Kartik reviews.
+2. **Finish the persona** — complete the persona → treatment logic and the memory *rules* that
+   go with it (you've already drafted this well in `docs/brainstorm-prep-jyoti.md` — just close
+   it out). Co-input to `docs/MEMORY-ARCHITECTURE.md`.
+3. **3–4 varied AI demo walkthroughs** — short conversation scripts that showcase Asha's range.
+   Pick different customers + situations so the demo shows breadth, e.g.: an FD-family's first
+   SIP, a salaried refinance moment, a pensioner income plan with a safeguard, an NRI tax
+   question that escalates to a human, a panic-sell talked down. Each script = what the customer
+   says, what Asha replies, and which cards appear. (These become the raw material for the deck
+   later — but for now, the walkthroughs are the deliverable. `ui/wealth-companion-mock.html`
+   shows the target feel of one such walkthrough.)
 
-**Hand to Afraz (you spec, he builds):** the smart-layer / LLM wiring (`poc/engine.js`,
-`app.js`), the memory infrastructure, and the **RM console** (`poc/rm.html`) — for RM view you
-define *what an RM needs to see* (`research/research-advisor-os.md` is your brief), he builds the screen.
-**Send to Kartik before final:** anything tax (NRI/DTAA/regime) — draft it, he confirms.
+**One rule — send to Kartik before final:** anything tax (NRI/DTAA/regime) — draft it, he confirms.
 
 ## House rules (please keep)
 - **`00-STATE.md` is the source of truth** — read it at the start of every session, update it
