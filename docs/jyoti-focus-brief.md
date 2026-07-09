@@ -19,16 +19,23 @@ equity-research lane — nobody better for it.)
 **2. Finish the persona** — close out the persona → treatment logic and the memory rules you
 already started. You're most of the way there — just finish it clean.
 
-**3. 3–4 varied AI demo walkthroughs** — short conversation scripts that show off Asha's range.
-Pick *different* customers and situations so the demo shows breadth, e.g.:
-- an FD-family's first-ever SIP,
-- a salaried customer's refinance + goal moment,
-- a pensioner's income plan with a safeguard,
-- an NRI tax question that escalates to a human,
-- a panic-sell we talk down.
+**3. Two detailed storylines (the demo spine)** — not short clips. **Two deep, long storylines**
+that follow one customer over months/years, so the demo shows the relationship *compounding* —
+Asha remembering, life changing, advice evolving. Immersive and realistic (think a saga, not a
+snippet). Each runs across **all three: Customer ⟷ Asha (AI) ⟷ RM.**
 
-Each script = what the customer says, what Asha replies, and which cards show up. This is what
-makes the demo sing.
+The two customers (locked):
+- **A — a young woman in a metro, first finance job.** Earns X, spends Y; wants to study abroad.
+  Starts investing small → over time needs a study-abroad plan (family money + education loan)
+  and a **loan-against-mutual-fund** moment (cross-sell); her investing evolves along the way.
+  Multi-month.
+- **B — a ~45yr government officer in a rural area.** Planning ages 48→60: child's marriage,
+  then retirement. Money's all in **FD + post office** today; the story is the savings
+  conversation and slowly moving to a real goal-based plan. Multi-year.
+
+For each, lay it out as a **timeline of moments** — at each moment show what's happening in her/his
+life, what Asha does and says, and what the RM sees/does. Show Asha *remembering* earlier moments,
+and show *when the RM steps in*. That's what makes the demo land.
 
 **One rule:** anything tax (NRI/DTAA, regimes, etc.) — draft it, but send to me to confirm
 before it's final.

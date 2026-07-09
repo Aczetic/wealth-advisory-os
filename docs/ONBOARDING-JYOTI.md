@@ -108,13 +108,30 @@ show "one twin, right advice for NRI vs GenZ vs pensioner."
 2. **Finish the persona** — complete the persona → treatment logic and the memory *rules* that
    go with it (you've already drafted this well in `docs/brainstorm-prep-jyoti.md` — just close
    it out). Co-input to `docs/MEMORY-ARCHITECTURE.md`.
-3. **3–4 varied AI demo walkthroughs** — short conversation scripts that showcase Asha's range.
-   Pick different customers + situations so the demo shows breadth, e.g.: an FD-family's first
-   SIP, a salaried refinance moment, a pensioner income plan with a safeguard, an NRI tax
-   question that escalates to a human, a panic-sell talked down. Each script = what the customer
-   says, what Asha replies, and which cards appear. (These become the raw material for the deck
-   later — but for now, the walkthroughs are the deliverable. `ui/wealth-companion-mock.html`
-   shows the target feel of one such walkthrough.)
+3. **Two detailed storylines (the demo spine)** — NOT short one-off scripts. **Two deep,
+   longitudinal narratives** that follow one customer over months/years, showing how the
+   relationship — and Asha's memory — *compounds*. Immersive and realistic: a saga, not a
+   snippet. Each runs across **three perspectives that interact: Customer ⟷ Asha (AI) ⟷ RM.**
+
+   The two customers (locked):
+   - **A — young metro professional, first finance job** (name TBD). Earns X, spends Y;
+     aspiration: study abroad. Starts investing small; over time the goal firms up → needs a
+     study-abroad plan (family contribution + an education loan) and a **loan-against-mutual-fund**
+     moment (cross-sell). Investing evolves as the plan firms. Multi-month arc.
+   - **B — ~45, government officer, rural** (name TBD). Planning the 48→60 window: child's
+     marriage, then retirement. Money today sits in **FD + post office**; the arc is the savings
+     conversation + gradual migration to a goal-based plan. Multi-year arc.
+
+   Structure each as a **timeline of beats** (T0 → +1mo → +3mo → life events…). At each beat,
+   show the three lanes:
+
+   | Beat (when) | Life trigger | Customer | Asha (AI) — the advisory moment | RM — what they see/do |
+
+   Make sure each storyline shows: Asha's **memory paying off** (callbacks to earlier beats),
+   the **RM handoffs** (when/why the human steps in, what context transfers), and how the
+   **twin updates** each time. Every advisory moment should map to a step in your playbook
+   (deliverable 1) — so writing these two stories *tests* your playbook end-to-end.
+   (`ui/wealth-companion-mock.html` shows the target look/feel of a single beat.)
 
 **One rule — send to Kartik before final:** anything tax (NRI/DTAA/regime) — draft it, he confirms.
 
