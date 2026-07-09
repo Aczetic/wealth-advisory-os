@@ -8,6 +8,14 @@ discovery, risk profiling, asset allocation, product suitability, when to rebala
 behavioural coaching. Just the real craft. This grounds our whole product. (Your CFA +
 equity-research lane — nobody better for it.)
 
+> Important on format: write it as a **procedure the agent can run**, not an essay — because
+> the AI executes it step-by-step in conversation. For each situation, break it into **steps
+> and the back-and-forth**: what triggers it → what it checks / asks → how the customer might
+> answer → how it branches → the decision rule → the recommendation + one-line *why* → when it
+> hands to a human. Think flowchart/SOP, not textbook. (Template's in your onboarding doc.)
+> Litmus test: if a step can't be written as "agent does / asks → customer answers → agent
+> branches," it's too vague — sharpen it.
+
 **2. Finish the persona** — close out the persona → treatment logic and the memory rules you
 already started. You're most of the way there — just finish it clean.
 

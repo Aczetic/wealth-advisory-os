@@ -86,8 +86,25 @@ show "one twin, right advice for NRI vs GenZ vs pensioner."
 
 1. **Advisory playbook (your biggest lever)** — how a *great human* wealth manager actually
    works, AI aside: discovery, risk profiling, asset allocation, product suitability, when to
-   rebalance, behavioural coaching. Just the real craft. This grounds everything. Your CFA +
-   equity-research lane. Draft it; Kartik reviews.
+   rebalance, behavioural coaching. Your CFA + equity-research lane. This grounds everything.
+   Draft it; Kartik reviews.
+
+   **⚠️ Critical — write it as a *procedure the agent runs*, not an essay.** The agent will
+   execute this playbook step-by-step, in conversation. So every advisory situation must break
+   into discrete **steps** and the **to-&-fro** (what it asks, how the customer might answer,
+   how it branches). Think flowchart / SOP, not textbook chapter. Use this shape per situation:
+
+   | Part | What goes here |
+   |---|---|
+   | **Trigger** | when this playbook fires (idle balance detected; customer asks "should I invest more?") |
+   | **Gather** | what it needs first — split *known from data* vs *must-ask*; the exact question(s) to ask |
+   | **Branches** | for each likely customer answer → the next step (this is the to-&-fro) |
+   | **Rule** | the decision logic — if X and Y → recommend Z (thresholds, glide, suitability gate) |
+   | **Recommend** | the output + the one-line *why* (this feeds "Why I'm suggesting this") |
+   | **Escalate** | the condition that hands to a human |
+
+   Rule of thumb: if a step can't be written as "agent does / agent asks / customer answers /
+   agent branches," it's too vague — sharpen it until it can. That's what makes it runnable.
 2. **Finish the persona** — complete the persona → treatment logic and the memory *rules* that
    go with it (you've already drafted this well in `docs/brainstorm-prep-jyoti.md` — just close
    it out). Co-input to `docs/MEMORY-ARCHITECTURE.md`.
