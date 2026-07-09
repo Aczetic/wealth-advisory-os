@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>IDBI Wealth Companion — Converse</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+  body { margin: 0; }
+  a, a:hover { color: #cfe6f5; text-decoration: none; }
+  .convo::-webkit-scrollbar, .cardrow::-webkit-scrollbar { display: none; }
+
+  @keyframes breathe { 0%,100%{ transform:scale(1);} 50%{ transform:scale(1.05);} }
+  @keyframes cloud1 { 0%{transform:translate(-12%,10%) scale(1.3);} 50%{transform:translate(22%,-8%) scale(1.5);} 100%{transform:translate(-12%,10%) scale(1.3);} }
+  @keyframes ring { 0%{transform:scale(1);opacity:.55;} 100%{transform:scale(1.8);opacity:0;} }
+  @keyframes fadeUp { from{opacity:0; transform:translateY(8px);} to{opacity:1; transform:translateY(0);} }
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  .bubble-ai { max-width:82%; margin:0 0 12px; padding:13px 16px; border-radius:20px 20px 20px 6px; background:rgba(6,32,50,0.5); border:1px solid rgba(255,255,255,0.05); color:#e7eef4; font-size:14.5px; line-height:1.5; }
+  .bubble-user { max-width:80%; padding:12px 16px; border-radius:20px 20px 6px 20px; background:rgba(255,255,255,0.13); border:1px solid rgba(255,255,255,0.14); color:#f2f7fb; font-size:14.5px; line-height:1.5; }
+
+  /* entrance: applied at load for static turns, applied by JS for choreographed ones.
+     the animation ends at opacity:1 (fill:both) so it overrides the inline opacity:0 start. */
+  .hidden-until-reveal { opacity:0; }
+  .fade-in { animation:fadeUp .5s ease both; }
+
+  /* ---- Working strip (machinery, NOT a bubble) ---- */
+  .worknote { margin:2px 0 14px; border-radius:14px; background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08); overflow:hidden; animation:fadeUp .5s ease both; }
+  .worknote-head { display:flex; align-items:center; gap:11px; padding:12px 14px; cursor:pointer; user-select:none; }
+  .worknote-title { flex:1; color:#9fb6c6; font-size:13.5px; font-weight:500; letter-spacing:0.1px; }
+  .chev { flex:0 0 auto; transition:transform .3s ease; color:#7f97a8; }
+  .worknote.open .chev { transform:rotate(180deg); }
+  .worknote-body { max-height:0; opacity:0; transition:max-height .4s ease, opacity .3s ease; }
+  .worknote.open .worknote-body { max-height:260px; opacity:1; }
+  .worknote-inner { padding:2px 14px 14px; border-top:1px solid rgba(255,255,255,0.06); }
+  .step { display:flex; align-items:center; gap:11px; padding:7px 0; }
+  .step-text { color:#8fabbf; font-size:13px; line-height:1.3; transition:color .3s ease; }
+
+  .tick { width:18px; height:18px; border-radius:50%; flex:0 0 auto; display:grid; place-items:center; }
+  .tick.pending { border:1.5px solid rgba(255,255,255,0.16); }
+  .tick.active  { border:1.5px solid rgba(255,255,255,0.16); border-top-color:#7fdcc4; animation:spin .7s linear infinite; }
+  .tick.done    { background:#7fdcc4; }
+  .tick.done svg { display:block; }
+  .tick:not(.done) svg { display:none; }
+
+  input[type=range]{ -webkit-appearance:none; appearance:none; background:transparent; }
+  input[type=range]::-webkit-slider-runnable-track{ height:5px; border-radius:99px; background:linear-gradient(90deg, #7fdcc4 0%, #7fdcc4 var(--pct,33%), rgba(255,255,255,0.18) var(--pct,33%), rgba(255,255,255,0.18) 100%); }
+  input[type=range]::-webkit-slider-thumb{ -webkit-appearance:none; appearance:none; width:32px; height:32px; margin-top:-14px; border-radius:50%; cursor:pointer; background:radial-gradient(circle at 36% 30%, #ffffff, #dbeeff 55%, #a9cfe8 120%); box-shadow:0 0 0 6px rgba(255,255,255,0.1), 0 5px 14px rgba(0,0,0,0.35); }
+  input[type=range]::-moz-range-track{ height:5px; border-radius:99px; background:rgba(255,255,255,0.18); }
+  input[type=range]::-moz-range-progress{ height:5px; border-radius:99px; background:#7fdcc4; }
+  input[type=range]::-moz-range-thumb{ width:32px; height:32px; border:none; border-radius:50%; background:radial-gradient(circle at 36% 30%, #ffffff, #dbeeff 55%, #a9cfe8 120%); box-shadow:0 0 0 6px rgba(255,255,255,0.1), 0 5px 14px rgba(0,0,0,0.35); }
+</style>
+</head>
+<body>
+<div style="min-height:100vh; width:100%; display:flex; align-items:center; justify-content:center; background:#04121c; padding:32px; font-family:'Instrument Sans', system-ui, sans-serif;">
+
+  <!-- PHONE -->
+  <div style="position:relative; width:392px; height:844px; border-radius:52px; background:#050d14; padding:12px; box-shadow:0 40px 90px -30px rgba(0,0,0,0.85), 0 0 0 1px rgba(255,255,255,0.04);">
+    <div id="screen" style="position:relative; width:100%; height:100%; border-radius:42px; overflow:hidden; background:linear-gradient(168deg, #12547d 0%, #0d436a 46%, #082f4a 100%);">
+      <div style="position:absolute; inset:0; background:radial-gradient(90% 55% at 50% -8%, rgba(120,190,235,0.28), transparent 60%); pointer-events:none;"></div>
+
+      <!-- STATUS BAR -->
+      <div style="position:relative; z-index:5; display:flex; align-items:center; justify-content:space-between; padding:16px 26px 6px; color:#eef4f8; font-size:14px; font-weight:600; font-family:'Space Grotesk',sans-serif;">
+        <span>9:41</span>
+        <div style="display:flex; align-items:center; gap:6px; opacity:0.92;">
+          <svg width="17" height="12" viewBox="0 0 17 12" fill="none"><rect x="0" y="7" width="3" height="5" rx="1" fill="#eef4f8"/><rect x="4.5" y="4.5" width="3" height="7.5" rx="1" fill="#eef4f8"/><rect x="9" y="2" width="3" height="10" rx="1" fill="#eef4f8"/><rect x="13.5" y="0" width="3" height="12" rx="1" fill="#eef4f8" opacity="0.4"/></svg>
+          <svg width="16" height="12" viewBox="0 0 16 12" fill="none"><path d="M8 2.2c2 0 3.9.8 5.3 2.1l1.1-1.2A9.4 9.4 0 0 0 8 .5 9.4 9.4 0 0 0 1.6 3.1l1.1 1.2A7.4 7.4 0 0 1 8 2.2Z" fill="#eef4f8"/><path d="M8 5.6c1.1 0 2.1.4 2.9 1.2l1.1-1.2A6 6 0 0 0 8 3.8a6 6 0 0 0-4 1.8l1.1 1.2A4.2 4.2 0 0 1 8 5.6Z" fill="#eef4f8"/><circle cx="8" cy="9.6" r="1.7" fill="#eef4f8"/></svg>
+          <svg width="26" height="13" viewBox="0 0 26 13" fill="none"><rect x="0.5" y="0.5" width="22" height="12" rx="3.5" stroke="#eef4f8" opacity="0.5"/><rect x="2" y="2" width="17" height="9" rx="2" fill="#eef4f8"/><rect x="24" y="4" width="1.5" height="5" rx="0.75" fill="#eef4f8" opacity="0.5"/></svg>
+        </div>
+      </div>
+
+      <!-- HEADER -->
+      <div style="position:relative; z-index:5; display:flex; align-items:center; padding:8px 20px 16px;">
+        <div style="width:36px; height:36px; display:flex; align-items:center; justify-content:center;">
+          <svg width="10" height="18" viewBox="0 0 10 18" fill="none"><path d="M9 1 1.5 9 9 17" stroke="#bcd4e3" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div style="flex:1; display:flex; flex-direction:column; align-items:center; gap:9px; margin-left:-36px; padding-left:36px;">
+          <!-- advisor avatar -->
+          <div style="position:relative; width:66px; height:66px;">
+            <div id="rings" style="display:none;">
+              <div style="position:absolute; inset:-7px; border-radius:50%; border:1.5px solid rgba(190,225,245,0.55); animation:ring 2.6s ease-out infinite;"></div>
+              <div style="position:absolute; inset:-7px; border-radius:50%; border:1.5px solid rgba(127,220,196,0.45); animation:ring 2.6s ease-out infinite 1.3s;"></div>
+            </div>
+            <div id="avatar" style="position:absolute; inset:0; border-radius:50%; overflow:hidden; border:1.5px solid rgba(255,255,255,0.22); box-shadow:0 6px 18px -5px rgba(0,0,0,0.5); animation:breathe 4.5s ease-in-out infinite; background:radial-gradient(circle at 38% 30%, #cfe6f5, #7fb4d8 55%, #3f7ba6 120%); display:flex; align-items:flex-end; justify-content:center;">
+              <svg width="52" height="52" viewBox="0 0 52 52" fill="none" style="opacity:0.85;"><circle cx="26" cy="20" r="9" fill="#0e3a58"/><path d="M9 50c0-10 8-16 17-16s17 6 17 16" fill="#0e3a58"/></svg>
+            </div>
+          </div>
+          <div style="display:flex; flex-direction:column; align-items:center; gap:3px;">
+            <span style="color:#f2f7fb; font-size:15px; font-weight:600; font-family:'Space Grotesk',sans-serif; letter-spacing:0.2px;">Your AI Wealth Companion</span>
+            <span style="display:flex; align-items:center; gap:5px; color:#9fd8cc; font-size:11.5px; font-weight:500;"><span style="width:6px; height:6px; border-radius:50%; background:#7fdcc4; box-shadow:0 0 8px #7fdcc4;"></span><span id="statusLabel">Online</span></span>
+          </div>
+        </div>
+        <div style="width:36px;"></div>
+      </div>
+
+      <!-- CONVERSATION -->
+      <div class="convo" style="position:absolute; top:172px; bottom:96px; left:0; right:0; overflow-y:auto; padding:6px 18px 24px; scrollbar-width:none;">
+
+        <div class="bubble-ai fade-in">Morning, Anil. I had a look at your accounts over the weekend — a few small things, nothing urgent. Let's start with your home loan.</div>
+
+        <!-- WORKING STRIP -->
+        <div class="worknote" id="worknote">
+          <div class="worknote-head" id="worknoteHead">
+            <div class="tick pending" id="worknoteIcon">
+              <svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2.5 6.2 5 8.7 9.5 3.5" stroke="#082f4a" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <span class="worknote-title" id="worknoteTitle">Reviewing your home loan…</span>
+            <svg class="chev" width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div class="worknote-body"><div class="worknote-inner" id="worknoteSteps"></div></div>
+        </div>
+
+        <div class="bubble-ai hidden-until-reveal" id="insightBubble">You're paying a little more interest than you need to. Refinancing could save around <b style="color:#7fdcc4;">₹3.2 lakh</b> over what's left. I found two more things too — swipe through.</div>
+
+        <!-- CARD CAROUSEL -->
+        <div class="cardrow hidden-until-reveal" id="cardRow" style="display:flex; gap:14px; overflow-x:auto; scroll-snap-type:x mandatory; margin:4px -18px 8px; padding:6px 18px 14px; scrollbar-width:none;">
+
+          <!-- Home loan -->
+          <div style="flex:0 0 266px; scroll-snap-align:center; border-radius:24px; padding:26px 24px; background:linear-gradient(158deg, rgba(10,38,60,0.85), rgba(7,28,45,0.72)); border:1px solid rgba(255,255,255,0.08);">
+            <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:18px;">
+              <span style="color:#a9c4d6; font-size:12px; font-weight:500; letter-spacing:0.4px; text-transform:uppercase;">Home Loan</span>
+              <span style="width:7px;height:7px;border-radius:50%;background:#f3c26a;box-shadow:0 0 8px #f3c26a;"></span>
+            </div>
+            <div style="display:flex; gap:26px; margin-bottom:20px;">
+              <div><div style="color:#8fabbf; font-size:12px; margin-bottom:4px;">Rate</div><div style="color:#f2f7fb; font-size:26px; font-weight:600; font-family:'Space Grotesk',sans-serif;">9.15%</div></div>
+              <div><div style="color:#8fabbf; font-size:12px; margin-bottom:4px;">You could save</div><div style="color:#7fdcc4; font-size:26px; font-weight:700; font-family:'Space Grotesk',sans-serif;">₹3.2L</div></div>
+            </div>
+            <button style="width:100%; padding:13px; border-radius:13px; border:1px solid rgba(255,255,255,0.16); cursor:pointer; background:rgba(255,255,255,0.12); color:#f2f7fb; font-size:14px; font-weight:600; font-family:'Instrument Sans',sans-serif;">See refinance options</button>
+          </div>
+
+          <!-- Goal: Priya's college -->
+          <div style="flex:0 0 266px; scroll-snap-align:center; border-radius:24px; padding:26px 24px; background:linear-gradient(158deg, rgba(10,38,60,0.85), rgba(7,28,45,0.72)); border:1px solid rgba(255,255,255,0.08);">
+            <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:18px;">
+              <span style="color:#a9c4d6; font-size:12px; font-weight:500; letter-spacing:0.4px; text-transform:uppercase;">Goal · Priya's College</span>
+              <span style="width:7px;height:7px;border-radius:50%;background:#f3c26a;box-shadow:0 0 8px #f3c26a;"></span>
+            </div>
+            <div style="display:flex; justify-content:space-between; margin-bottom:14px;">
+              <div><div style="color:#8fabbf; font-size:12px; margin-bottom:4px;">Saved</div><div style="color:#f2f7fb; font-size:24px; font-weight:600; font-family:'Space Grotesk',sans-serif;">₹1.1L</div></div>
+              <div style="text-align:right;"><div style="color:#8fabbf; font-size:12px; margin-bottom:4px;">Goal</div><div style="color:#f2f7fb; font-size:24px; font-weight:600; font-family:'Space Grotesk',sans-serif;">₹4L</div></div>
+            </div>
+            <div style="height:8px; border-radius:99px; background:rgba(255,255,255,0.1); overflow:hidden; margin-bottom:12px;"><div style="width:27%; height:100%; border-radius:99px; background:linear-gradient(90deg,#7fdcc4,#bfe3f2);"></div></div>
+            <div style="color:#a9c4d6; font-size:12.5px;">A little behind · needs <span style="color:#f2f7fb; font-weight:600;">~₹2,000</span> more a month</div>
+          </div>
+
+          <!-- Gold -->
+          <div style="flex:0 0 266px; scroll-snap-align:center; border-radius:24px; padding:26px 24px; background:linear-gradient(158deg, rgba(10,38,60,0.85), rgba(7,28,45,0.72)); border:1px solid rgba(255,255,255,0.08);">
+            <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:18px;">
+              <span style="color:#a9c4d6; font-size:12px; font-weight:500; letter-spacing:0.4px; text-transform:uppercase;">Gold Holdings</span>
+              <span style="width:7px;height:7px;border-radius:50%;background:#f3c26a;box-shadow:0 0 8px #f3c26a;"></span>
+            </div>
+            <div style="display:flex; gap:26px; margin-bottom:16px;">
+              <div><div style="color:#8fabbf; font-size:12px; margin-bottom:4px;">Current</div><div style="color:#f2f7fb; font-size:24px; font-weight:600; font-family:'Space Grotesk',sans-serif;">₹2.3L</div></div>
+              <div><div style="color:#8fabbf; font-size:12px; margin-bottom:4px;">Allocation</div><div style="color:#f2f7fb; font-size:24px; font-weight:700; font-family:'Space Grotesk',sans-serif;">18%</div></div>
+            </div>
+            <div style="padding:10px 12px; border-radius:11px; background:rgba(255,255,255,0.06); color:#a9c4d6; font-size:12.5px;">Most families keep <span style="color:#f2f7fb; font-weight:600;">5–10%</span> · you're a little heavy</div>
+          </div>
+
+        </div>
+
+        <div class="bubble-ai hidden-until-reveal" id="connectBubble">Here's the nice part: the EMI you'd free up by refinancing is almost exactly the top-up Priya's fund needs. You wouldn't feel it.</div>
+
+        <div style="display:flex; justify-content:flex-end; margin:16px 0 12px;">
+          <div class="bubble-user fade-in">What if I put in a little more every month?</div>
+        </div>
+
+        <div class="bubble-ai fade-in">Good instinct. Don't overthink it — just slide it around and I'll show you where you'd land.</div>
+
+        <!-- INTERACTIVE INVEST CARD -->
+        <div style="border-radius:24px; padding:26px 24px 24px; background:linear-gradient(158deg, rgba(12,46,62,0.92), rgba(8,30,47,0.8)); border:1px solid rgba(127,220,196,0.42); margin-bottom:14px;">
+          <div style="display:flex; align-items:baseline; justify-content:space-between; margin-bottom:22px;">
+            <span style="color:#c3d6e3; font-size:14px; font-weight:500;">If I invest</span>
+            <span style="color:#f2f7fb; font-size:26px; font-weight:700; font-family:'Space Grotesk',sans-serif;"><span id="monthlyLabel">₹20,000</span><span style="font-size:13px; font-weight:500; color:#9fb6c6;">/mo</span></span>
+          </div>
+
+          <input id="slider" type="range" min="5000" max="50000" step="1000" value="20000" style="width:100%; height:32px; margin:0 0 22px; --pct:33%;">
+
+          <div id="termPills" style="display:flex; gap:8px; margin-bottom:22px;"></div>
+
+          <div style="height:1px; background:rgba(255,255,255,0.1); margin-bottom:16px;"></div>
+
+          <div style="display:flex; align-items:flex-end; justify-content:space-between;">
+            <span style="color:#9fb6c6; font-size:13.5px; max-width:110px; line-height:1.35;">It would grow to</span>
+            <div style="text-align:right;">
+              <div id="worthLabel" style="color:#f2f7fb; font-size:34px; font-weight:700; font-family:'Space Grotesk',sans-serif; line-height:1;">₹43.8L</div>
+              <div id="deltaPill" style="display:inline-block; margin-top:8px; padding:5px 11px; border-radius:99px; font-size:12.5px; font-weight:600;"></div>
+            </div>
+          </div>
+          <div style="color:#6f8a9c; font-size:11px; margin-top:14px;">Illustrative · assumes ~11% p.a. Not a guarantee.</div>
+        </div>
+
+        <div class="bubble-ai fade-in" id="closeBubble">At <span id="closeAmt">₹20,000</span>/mo, you'd reach about <span id="closeWorth">₹43.8L</span> in 10 years — well past Priya's ₹4L goal. Want me to set up a monthly SIP?</div>
+
+      </div>
+
+      <!-- VOICE LAYER (live only) -->
+      <div id="voiceLayer" style="display:none;">
+        <div style="position:absolute; bottom:0; left:0; right:0; height:170px; z-index:6; pointer-events:none; background:radial-gradient(78% 130% at 50% 118%, rgba(94,169,235,0.22), rgba(122,138,247,0.12) 45%, transparent 72%); animation:fadeUp .5s ease both;"></div>
+        <div style="position:absolute; bottom:78px; left:0; right:0; height:150px; z-index:7; pointer-events:none; animation:fadeUp .5s ease both;">
+          <svg viewBox="0 0 360 150" preserveAspectRatio="none" width="100%" height="100%" style="display:block;">
+            <defs>
+              <linearGradient id="waveHue" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0" stop-color="#4fc3ff"/><stop offset="0.32" stop-color="#7f9cf7"/><stop offset="0.58" stop-color="#9a8bf7"/><stop offset="0.82" stop-color="#5ad0c4"/><stop offset="1" stop-color="#7fdcc4"/>
+              </linearGradient>
+            </defs>
+            <path data-wave-fill2 fill="url(#waveHue)" opacity="0.14" style="filter:blur(7px);" d="M0,122 L360,122 L360,150 L0,150 Z"></path>
+            <path data-wave-fill fill="url(#waveHue)" opacity="0.24" style="filter:blur(3px);" d="M0,122 L360,122 L360,150 L0,150 Z"></path>
+          </svg>
+        </div>
+      </div>
+
+      <!-- COMPOSER (chat) -->
+      <div id="composerChat" style="position:absolute; bottom:0; left:0; right:0; z-index:8; padding:12px 16px 22px; background:linear-gradient(180deg, rgba(8,47,74,0), #082f4a 34%);">
+        <div style="display:flex; align-items:center; gap:11px; padding:8px 8px 8px 16px; border-radius:28px; background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.1);">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" style="flex:0 0 auto;"><path d="M10 4v12M4 10h12" stroke="#bcd4e3" stroke-width="1.9" stroke-linecap="round"/></svg>
+          <span style="flex:1; color:#84a0b3; font-size:15px;">Ask me anything…</span>
+          <div style="display:flex; align-items:center; justify-content:center; width:30px; height:30px; border-radius:50%; border:1.6px solid rgba(255,255,255,0.28); color:#cfe0eb; font-size:15px; font-weight:600; font-family:'Space Grotesk',sans-serif;">₹</div>
+          <svg width="21" height="21" viewBox="0 0 24 24" fill="none" style="flex:0 0 auto;"><rect x="9" y="2.5" width="6" height="12" rx="3" stroke="#cfe0eb" stroke-width="1.8"/><path d="M5 11a7 7 0 0 0 14 0M12 18.5v3" stroke="#cfe0eb" stroke-width="1.8" stroke-linecap="round"/></svg>
+          <button id="enterLive" style="flex:0 0 auto; width:42px; height:42px; border:none; border-radius:50%; cursor:pointer; padding:0; overflow:hidden; box-shadow:0 5px 14px -3px rgba(90,170,220,0.6); position:relative; background:radial-gradient(circle at 36% 30%, #ffffff, #d3ebff 28%, #64aede 66%, #2a739f 100%);">
+            <div style="position:absolute; width:70%; height:70%; left:6%; top:22%; border-radius:50%; background:radial-gradient(circle, rgba(255,255,255,0.9), rgba(255,255,255,0) 65%); filter:blur(4px); animation:cloud1 9s ease-in-out infinite;"></div>
+          </button>
+        </div>
+      </div>
+
+      <!-- COMPOSER (voice) -->
+      <div id="composerVoice" style="display:none; position:absolute; bottom:0; left:0; right:0; z-index:8; padding:12px 16px 22px;">
+        <div style="display:flex; align-items:center; gap:12px;">
+          <div style="flex:1; display:flex; align-items:center; gap:11px; padding:12px 16px; border-radius:26px; background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.1);">
+            <svg width="19" height="19" viewBox="0 0 20 20" fill="none"><path d="M10 4v12M4 10h12" stroke="#bcd4e3" stroke-width="1.9" stroke-linecap="round"/></svg>
+            <span style="flex:1; color:#84a0b3; font-size:15px;">Type instead…</span>
+          </div>
+          <div style="width:50px; height:50px; border-radius:50%; background:rgba(255,255,255,0.1); display:flex; align-items:center; justify-content:center;">
+            <svg width="21" height="21" viewBox="0 0 24 24" fill="none"><rect x="9" y="2.5" width="6" height="12" rx="3" fill="#eaf3f9"/><path d="M5 11a7 7 0 0 0 14 0M12 18.5v3" stroke="#eaf3f9" stroke-width="1.9" stroke-linecap="round"/></svg>
+          </div>
+          <button id="exitLive" style="width:50px; height:50px; border:none; cursor:pointer; border-radius:50%; background:#f2f7fb; display:flex; align-items:center; justify-content:center;">
+            <svg width="19" height="19" viewBox="0 0 24 24" fill="none"><path d="M6 6l12 12M18 6 6 18" stroke="#12547d" stroke-width="2.1" stroke-linecap="round"/></svg>
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  'use strict';
+
+  /* ---------- Invest simulator ---------- */
+  var monthly = 20000, years = 10;
+  var slider = document.getElementById('slider');
+  var termPills = document.getElementById('termPills');
+  var YEAR_OPTS = [5, 10, 15];
+
+  function fv(P, y){ var i = 0.11/12, n = y*12; return P * ((Math.pow(1+i, n) - 1)/i) * (1+i); }
+  function fmt(v){ return v >= 1e7 ? '₹' + (v/1e7).toFixed(2) + 'Cr' : '₹' + (v/1e5).toFixed(1) + 'L'; }
+
+  function renderPills(){
+    termPills.innerHTML = '';
+    YEAR_OPTS.forEach(function(y){
+      var b = document.createElement('button');
+      b.textContent = y + ' yrs';
+      var base = 'flex:1; padding:11px 0; border-radius:12px; border:none; cursor:pointer; font-size:13.5px; font-weight:600; font-family:\'Instrument Sans\',sans-serif; transition:all .2s;';
+      b.setAttribute('style', base + (y === years
+        ? 'background:rgba(255,255,255,0.9); color:#12547d;'
+        : 'background:rgba(255,255,255,0.07); color:#a9c4d6;'));
+      b.onclick = function(){ years = y; update(); };
+      termPills.appendChild(b);
+    });
+  }
+
+  function update(){
+    var worth = fv(monthly, years);
+    var diff = worth - fv(15000, years);
+    var up = diff >= 0;
+    document.getElementById('monthlyLabel').textContent = '₹' + monthly.toLocaleString('en-IN');
+    slider.style.setProperty('--pct', Math.round((monthly - 5000)/45000*100) + '%');
+    document.getElementById('worthLabel').textContent = fmt(worth);
+    var pill = document.getElementById('deltaPill');
+    pill.textContent = (up ? '↑ ' : '↓ ') + fmt(Math.abs(diff)) + ' vs ₹15k/mo';
+    pill.style.background = up ? 'rgba(127,220,196,0.9)' : 'rgba(243,194,106,0.85)';
+    pill.style.color = up ? '#0f4a3b' : '#5a2e2e';
+    document.getElementById('closeAmt').textContent = '₹' + monthly.toLocaleString('en-IN');
+    document.getElementById('closeWorth').textContent = fmt(worth);
+    renderPills();
+  }
+  slider.addEventListener('input', function(e){ monthly = +e.target.value; update(); });
+  renderPills(); update();
+
+  /* ---------- Voice mode ---------- */
+  var live = false;
+  document.getElementById('enterLive').onclick = function(){ setLive(true); };
+  document.getElementById('exitLive').onclick  = function(){ setLive(false); };
+  function setLive(v){
+    live = v;
+    document.getElementById('rings').style.display = v ? 'block' : 'none';
+    document.getElementById('voiceLayer').style.display = v ? 'block' : 'none';
+    document.getElementById('composerChat').style.display = v ? 'none' : 'block';
+    document.getElementById('composerVoice').style.display = v ? 'block' : 'none';
+    document.getElementById('statusLabel').textContent = v ? 'Listening…' : 'Online';
+  }
+
+  var fill = document.querySelector('[data-wave-fill]');
+  var fill2 = document.querySelector('[data-wave-fill2]');
+  function build(amp, ph, base){
+    var d = '';
+    for (var x = 0; x <= 360; x += 6){
+      var s = Math.sin(x*0.035 + wt*2.2 + ph)*0.6 + Math.sin(x*0.075 + wt*1.35 + ph*1.5)*0.4;
+      var y = base - amp*s;
+      d += (x === 0 ? 'M' : 'L') + x + ',' + y.toFixed(1) + ' ';
+    }
+    return d + 'L360,150 L0,150 Z';
+  }
+  var wt = 0;
+  function loop(){
+    wt += 0.016;
+    if (live && fill){
+      var env = Math.max(0.05, Math.sin(wt*0.9)*0.5 + 0.4);
+      var A = 4 + env*62;
+      fill.setAttribute('d', build(A, 0, 122));
+      if (fill2) fill2.setAttribute('d', build(A*1.2 + 6, 2.1, 125));
+    }
+    requestAnimationFrame(loop);
+  }
+  requestAnimationFrame(loop);
+
+  /* ---------- Working strip (ticking checklist) ---------- */
+  var STEPS = [
+    'Pulling your home loan',
+    'Rate 9.15% · 14 yrs left',
+    'Checking IDBI’s refinance rates',
+    'Comparing with what you pay now',
+    'Estimating what you’d save'
+  ];
+  var note = document.getElementById('worknote');
+  var noteHead = document.getElementById('worknoteHead');
+  var noteTitle = document.getElementById('worknoteTitle');
+  var noteIcon = document.getElementById('worknoteIcon');
+  var stepsWrap = document.getElementById('worknoteSteps');
+  var CHECK = '<svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2.5 6.2 5 8.7 9.5 3.5" stroke="#082f4a" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+
+  var rows = STEPS.map(function(text){
+    var row = document.createElement('div'); row.className = 'step';
+    var t = document.createElement('div'); t.className = 'tick pending'; t.innerHTML = CHECK;
+    var s = document.createElement('div'); s.className = 'step-text'; s.textContent = text;
+    row.appendChild(t); row.appendChild(s); stepsWrap.appendChild(row);
+    return t;
+  });
+
+  var done = false;
+  noteHead.onclick = function(){ if (done) note.classList.toggle('open'); };
+
+  function playSteps(){
+    note.classList.add('open');
+    noteIcon.className = 'tick active';
+    var i = 0;
+    (function next(){
+      if (i < rows.length){
+        rows[i].className = 'tick active';
+        setTimeout(function(){
+          rows[i].className = 'tick done';
+          i++; next();
+        }, 620);
+      } else {
+        setTimeout(function(){
+          noteIcon.className = 'tick done';
+          noteTitle.textContent = 'Why I’m suggesting this';
+          note.classList.remove('open');
+          done = true;
+          reveal('insightBubble', 250);
+          reveal('cardRow', 650);
+          reveal('connectBubble', 1050);
+        }, 450);
+      }
+    })();
+  }
+  function reveal(id, delay){
+    setTimeout(function(){ document.getElementById(id).classList.add('fade-in'); }, delay);
+  }
+  // kick off shortly after load, after the greeting reads
+  setTimeout(playSteps, 900);
+})();
+</script>
+</body>
+</html>

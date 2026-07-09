@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+  body { margin: 0; }
+  a, a:hover { color: #cfe6f5; text-decoration: none; }
+  .convo::-webkit-scrollbar, .cardrow::-webkit-scrollbar { display: none; }
+  @keyframes breathe { 0%,100%{ transform:scale(1);} 50%{ transform:scale(1.05);} }
+  @keyframes cloud1 { 0%{transform:translate(-12%,10%) scale(1.3);} 50%{transform:translate(22%,-8%) scale(1.5);} 100%{transform:translate(-12%,10%) scale(1.3);} }
+  @keyframes cloud2 { 0%{transform:translate(18%,-12%) scale(1.4);} 50%{transform:translate(-14%,14%) scale(1.2);} 100%{transform:translate(18%,-12%) scale(1.4);} }
+  @keyframes ring { 0%{transform:scale(1);opacity:.55;} 100%{transform:scale(1.8);opacity:0;} }
+  @keyframes aurora { 0%{transform:translate(0,10%) scale(1);} 50%{transform:translate(6%,-6%) scale(1.25);} 100%{transform:translate(0,10%) scale(1);} }
+  @keyframes auroraB { 0%{transform:translate(0,12%) scale(1.1);} 50%{transform:translate(-8%,-4%) scale(0.85);} 100%{transform:translate(0,12%) scale(1.1);} }
+  @keyframes fadeUp { from{opacity:0; transform:translateY(8px);} to{opacity:1; transform:translateY(0);} }
+  input[type=range]{ -webkit-appearance:none; appearance:none; background:transparent; }
+  input[type=range]::-webkit-slider-runnable-track{ height:5px; border-radius:99px; background:linear-gradient(90deg, #7fdcc4 0%, #7fdcc4 var(--pct,40%), rgba(255,255,255,0.18) var(--pct,40%), rgba(255,255,255,0.18) 100%); }
+  input[type=range]::-webkit-slider-thumb{ -webkit-appearance:none; appearance:none; width:32px; height:32px; margin-top:-14px; border-radius:50%; cursor:pointer; background:radial-gradient(circle at 36% 30%, #ffffff, #dbeeff 55%, #a9cfe8 120%); box-shadow:0 0 0 6px rgba(255,255,255,0.1), 0 5px 14px rgba(0,0,0,0.35); }
+</style>
+</helmet>
+<div style="min-height:100vh; width:100%; display:flex; align-items:center; justify-content:center; background:#04121c; padding:32px; font-family:'Instrument Sans', system-ui, sans-serif;">
+
+  <!-- PHONE -->
+  <div style="position:relative; width:392px; height:844px; border-radius:52px; background:#050d14; padding:12px; box-shadow:0 40px 90px -30px rgba(0,0,0,0.85), 0 0 0 1px rgba(255,255,255,0.04);">
+    <div style="position:relative; width:100%; height:100%; border-radius:42px; overflow:hidden; background:linear-gradient(168deg, #12547d 0%, #0d436a 46%, #082f4a 100%);">
+      <div style="position:absolute; inset:0; background:radial-gradient(90% 55% at 50% -8%, rgba(120,190,235,0.28), transparent 60%); pointer-events:none;"></div>
+
+      <!-- STATUS BAR -->
+      <div style="position:relative; z-index:5; display:flex; align-items:center; justify-content:space-between; padding:16px 26px 6px; color:#eef4f8; font-size:14px; font-weight:600; font-family:'Space Grotesk',sans-serif;">
+        <span>9:41</span>
+        <div style="display:flex; align-items:center; gap:6px; opacity:0.92;">
+          <svg width="17" height="12" viewBox="0 0 17 12" fill="none"><rect x="0" y="7" width="3" height="5" rx="1" fill="#eef4f8"/><rect x="4.5" y="4.5" width="3" height="7.5" rx="1" fill="#eef4f8"/><rect x="9" y="2" width="3" height="10" rx="1" fill="#eef4f8"/><rect x="13.5" y="0" width="3" height="12" rx="1" fill="#eef4f8" opacity="0.4"/></svg>
+          <svg width="16" height="12" viewBox="0 0 16 12" fill="none"><path d="M8 2.2c2 0 3.9.8 5.3 2.1l1.1-1.2A9.4 9.4 0 0 0 8 .5 9.4 9.4 0 0 0 1.6 3.1l1.1 1.2A7.4 7.4 0 0 1 8 2.2Z" fill="#eef4f8"/><path d="M8 5.6c1.1 0 2.1.4 2.9 1.2l1.1-1.2A6 6 0 0 0 8 3.8a6 6 0 0 0-4 1.8l1.1 1.2A4.2 4.2 0 0 1 8 5.6Z" fill="#eef4f8"/><circle cx="8" cy="9.6" r="1.7" fill="#eef4f8"/></svg>
+          <svg width="26" height="13" viewBox="0 0 26 13" fill="none"><rect x="0.5" y="0.5" width="22" height="12" rx="3.5" stroke="#eef4f8" opacity="0.5"/><rect x="2" y="2" width="17" height="9" rx="2" fill="#eef4f8"/><rect x="24" y="4" width="1.5" height="5" rx="0.75" fill="#eef4f8" opacity="0.5"/></svg>
+        </div>
+      </div>
+
+      <!-- HEADER -->
+      <div style="position:relative; z-index:5; display:flex; align-items:center; padding:8px 20px 16px;">
+        <div style="width:36px; height:36px; display:flex; align-items:center; justify-content:center;">
+          <svg width="10" height="18" viewBox="0 0 10 18" fill="none"><path d="M9 1 1.5 9 9 17" stroke="#bcd4e3" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div style="flex:1; display:flex; flex-direction:column; align-items:center; gap:9px; margin-left:-36px; padding-left:36px;">
+          <!-- advisor avatar -->
+          <div style="position:relative; width:66px; height:66px;">
+            <sc-if value="{{ live }}" hint-placeholder-val="{{ false }}">
+              <div style="position:absolute; inset:-7px; border-radius:50%; border:1.5px solid rgba(190,225,245,0.55); animation:ring 2.6s ease-out infinite;"></div>
+              <div style="position:absolute; inset:-7px; border-radius:50%; border:1.5px solid rgba(127,220,196,0.45); animation:ring 2.6s ease-out infinite 1.3s;"></div>
+            </sc-if>
+            <div style="position:absolute; inset:0; border-radius:50%; overflow:hidden; border:1.5px solid rgba(255,255,255,0.22); box-shadow:0 6px 18px -5px rgba(0,0,0,0.5);">
+              <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="advisor" shape="circle" fit="cover" placeholder="Advisor" style="width:100%; height:100%;" hint-size="66px,66px"></x-import>
+            </div>
+          </div>
+          <div style="display:flex; flex-direction:column; align-items:center; gap:3px;">
+            <span style="color:#f2f7fb; font-size:15px; font-weight:600; font-family:'Space Grotesk',sans-serif; letter-spacing:0.2px;">Your AI Wealth Manager</span>
+            <span style="display:flex; align-items:center; gap:5px; color:#9fd8cc; font-size:11.5px; font-weight:500;"><span style="width:6px; height:6px; border-radius:50%; background:#7fdcc4; box-shadow:0 0 8px #7fdcc4;"></span>{{ statusLabel }}</span>
+          </div>
+        </div>
+        <div style="width:36px;"></div>
+      </div>
+
+      <!-- CONVERSATION -->
+      <div class="convo" style="position:absolute; top:172px; bottom:96px; left:0; right:0; overflow-y:auto; padding:6px 18px 24px; scrollbar-width:none;">
+
+        <div style="max-width:82%; margin:0 0 12px; padding:13px 16px; border-radius:20px 20px 20px 6px; background:rgba(6,32,50,0.5); border:1px solid rgba(255,255,255,0.05); color:#e7eef4; font-size:14.5px; line-height:1.5; animation:fadeUp .5s ease both;">
+          Morning, Aditya. I looked over your accounts — a few things worth a moment. Let's start with your home loan.
+        </div>
+
+        <div style="max-width:82%; margin:0 0 12px; padding:13px 16px; border-radius:20px 20px 20px 6px; background:rgba(6,32,50,0.5); border:1px solid rgba(255,255,255,0.05); color:#e7eef4; font-size:14.5px; line-height:1.5; animation:fadeUp .5s ease both;">
+          You're paying more interest than you need to. Here's what I found — swipe to see all three.
+        </div>
+
+        <!-- CARD CAROUSEL -->
+        <div class="cardrow" style="display:flex; gap:14px; overflow-x:auto; scroll-snap-type:x mandatory; margin:4px -18px 8px; padding:6px 18px 14px; scrollbar-width:none;">
+
+          <!-- Refinance -->
+          <div style="flex:0 0 266px; scroll-snap-align:center; border-radius:24px; padding:26px 24px; background:linear-gradient(158deg, rgba(10,38,60,0.85), rgba(7,28,45,0.72)); border:1px solid rgba(255,255,255,0.08);">
+            <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:18px;">
+              <span style="color:#a9c4d6; font-size:12px; font-weight:500; letter-spacing:0.4px; text-transform:uppercase;">Home Loan</span>
+              <span style="width:7px;height:7px;border-radius:50%;background:#f3c26a;box-shadow:0 0 8px #f3c26a;"></span>
+            </div>
+            <div style="display:flex; gap:26px; margin-bottom:20px;">
+              <div><div style="color:#8fabbf; font-size:12px; margin-bottom:4px;">Rate</div><div style="color:#f2f7fb; font-size:26px; font-weight:600; font-family:'Space Grotesk',sans-serif;">9.15%</div></div>
+              <div><div style="color:#8fabbf; font-size:12px; margin-bottom:4px;">You could save</div><div style="color:#7fdcc4; font-size:26px; font-weight:700; font-family:'Space Grotesk',sans-serif;">₹3.2L</div></div>
+            </div>
+            <button style="width:100%; padding:13px; border-radius:13px; border:1px solid rgba(255,255,255,0.16); cursor:pointer; background:rgba(255,255,255,0.12); color:#f2f7fb; font-size:14px; font-weight:600; font-family:'Instrument Sans',sans-serif;">Explore refinance</button>
+          </div>
+
+          <!-- Goal -->
+          <div style="flex:0 0 266px; scroll-snap-align:center; border-radius:24px; padding:26px 24px; background:linear-gradient(158deg, rgba(10,38,60,0.85), rgba(7,28,45,0.72)); border:1px solid rgba(255,255,255,0.08);">
+            <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:18px;">
+              <span style="color:#a9c4d6; font-size:12px; font-weight:500; letter-spacing:0.4px; text-transform:uppercase;">Goal · Europe Trip</span>
+            </div>
+            <div style="display:flex; justify-content:space-between; margin-bottom:14px;">
+              <div><div style="color:#8fabbf; font-size:12px; margin-bottom:4px;">Saved</div><div style="color:#f2f7fb; font-size:24px; font-weight:600; font-family:'Space Grotesk',sans-serif;">₹1.1L</div></div>
+              <div style="text-align:right;"><div style="color:#8fabbf; font-size:12px; margin-bottom:4px;">Goal</div><div style="color:#f2f7fb; font-size:24px; font-weight:600; font-family:'Space Grotesk',sans-serif;">₹4L</div></div>
+            </div>
+            <div style="height:8px; border-radius:99px; background:rgba(255,255,255,0.1); overflow:hidden; margin-bottom:12px;"><div style="width:27%; height:100%; border-radius:99px; background:linear-gradient(90deg,#7fdcc4,#bfe3f2);"></div></div>
+            <div style="color:#8fabbf; font-size:12.5px;">On track · ETA <span style="color:#d5e4ee;">Feb 2028</span></div>
+          </div>
+
+          <!-- Gold -->
+          <div style="flex:0 0 266px; scroll-snap-align:center; border-radius:24px; padding:26px 24px; background:linear-gradient(158deg, rgba(10,38,60,0.85), rgba(7,28,45,0.72)); border:1px solid rgba(255,255,255,0.08);">
+            <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:18px;">
+              <span style="color:#a9c4d6; font-size:12px; font-weight:500; letter-spacing:0.4px; text-transform:uppercase;">Gold Holdings</span>
+              <span style="width:7px;height:7px;border-radius:50%;background:#f3c26a;box-shadow:0 0 8px #f3c26a;"></span>
+            </div>
+            <div style="display:flex; gap:26px; margin-bottom:16px;">
+              <div><div style="color:#8fabbf; font-size:12px; margin-bottom:4px;">Current</div><div style="color:#f2f7fb; font-size:24px; font-weight:600; font-family:'Space Grotesk',sans-serif;">₹2.3L</div></div>
+              <div><div style="color:#8fabbf; font-size:12px; margin-bottom:4px;">Allocation</div><div style="color:#f2f7fb; font-size:24px; font-weight:700; font-family:'Space Grotesk',sans-serif;">12%</div></div>
+            </div>
+            <div style="padding:10px 12px; border-radius:11px; background:rgba(255,255,255,0.06); color:#a9c4d6; font-size:12.5px;">Suggested range <span style="color:#f2f7fb; font-weight:600;">5–10%</span> · slightly overweight</div>
+          </div>
+
+        </div>
+
+        <div style="display:flex; justify-content:flex-end; margin:16px 0 12px;">
+          <div style="max-width:80%; padding:12px 16px; border-radius:20px 20px 6px 20px; background:rgba(255,255,255,0.13); border:1px solid rgba(255,255,255,0.14); color:#f2f7fb; font-size:14.5px; line-height:1.5;">
+            What if I invest a little more every month?
+          </div>
+        </div>
+
+        <div style="max-width:82%; margin:0 0 12px; padding:13px 16px; border-radius:20px 20px 20px 6px; background:rgba(6,32,50,0.5); border:1px solid rgba(255,255,255,0.05); color:#e7eef4; font-size:14.5px; line-height:1.5;">
+          Good instinct. Slide it around — I'll show you where you'd land.
+        </div>
+
+        <!-- INTERACTIVE INVEST CARD -->
+        <div style="border-radius:24px; padding:26px 24px 24px; background:linear-gradient(158deg, rgba(12,46,62,0.92), rgba(8,30,47,0.8)); border:1px solid rgba(127,220,196,0.42);">
+          <div style="display:flex; align-items:baseline; justify-content:space-between; margin-bottom:22px;">
+            <span style="color:#c3d6e3; font-size:14px; font-weight:500;">If I invest</span>
+            <span style="color:#f2f7fb; font-size:26px; font-weight:700; font-family:'Space Grotesk',sans-serif;">{{ monthlyLabel }}<span style="font-size:13px; font-weight:500; color:#9fb6c6;">/mo</span></span>
+          </div>
+
+          <input type="range" min="5000" max="50000" step="1000" value="{{ monthly }}" oninput="{{ onMonthly }}" style="width:100%; height:32px; margin:0 0 22px; --pct:{{ pct }};">
+
+          <div style="display:flex; gap:8px; margin-bottom:22px;">
+            <sc-for list="{{ yearOpts }}" as="y" hint-placeholder-count="3">
+              <button onclick="{{ y.pick }}" style="{{ y.style }}">{{ y.label }}</button>
+            </sc-for>
+          </div>
+
+          <div style="height:1px; background:rgba(255,255,255,0.1); margin-bottom:16px;"></div>
+
+          <div style="display:flex; align-items:flex-end; justify-content:space-between;">
+            <span style="color:#9fb6c6; font-size:13.5px; max-width:110px; line-height:1.35;">It would grow to</span>
+            <div style="text-align:right;">
+              <div style="color:#f2f7fb; font-size:34px; font-weight:700; font-family:'Space Grotesk',sans-serif; line-height:1;">{{ worthLabel }}</div>
+              <div style="display:inline-block; margin-top:8px; padding:5px 11px; border-radius:99px; background:{{ deltaBg }}; color:{{ deltaColor }}; font-size:12.5px; font-weight:600;">{{ deltaLabel }}</div>
+            </div>
+          </div>
+          <div style="color:#6f8a9c; font-size:11px; margin-top:14px;">Illustrative · assumes ~11% p.a. Not a guarantee.</div>
+        </div>
+
+      </div>
+
+      <!-- RADIATING AURORA (live only) -->
+      <sc-if value="{{ live }}" hint-placeholder-val="{{ false }}">
+        <!-- soft base wash -->
+        <div style="position:absolute; bottom:0; left:0; right:0; height:170px; z-index:6; pointer-events:none; background:radial-gradient(78% 130% at 50% 118%, rgba(94,169,235,0.22), rgba(122,138,247,0.12) 45%, transparent 72%); animation:fadeUp .5s ease both;"></div>
+        <!-- voice-reactive light wave -->
+        <div style="position:absolute; bottom:78px; left:0; right:0; height:150px; z-index:7; pointer-events:none; animation:fadeUp .5s ease both;">
+          <svg viewBox="0 0 360 150" preserveAspectRatio="none" width="100%" height="100%" style="display:block;">
+            <defs>
+              <linearGradient id="waveHue" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0" stop-color="#4fc3ff"/>
+                <stop offset="0.32" stop-color="#7f9cf7"/>
+                <stop offset="0.58" stop-color="#9a8bf7"/>
+                <stop offset="0.82" stop-color="#5ad0c4"/>
+                <stop offset="1" stop-color="#7fdcc4"/>
+              </linearGradient>
+            </defs>
+            <path data-wave-fill2 fill="url(#waveHue)" opacity="0.14" style="filter:blur(7px);" d="M0,122 L360,122 L360,150 L0,150 Z"></path>
+            <path data-wave-fill fill="url(#waveHue)" opacity="0.24" style="filter:blur(3px);" d="M0,122 L360,122 L360,150 L0,150 Z"></path>
+          </svg>
+        </div>
+      </sc-if>
+
+      <!-- COMPOSER (chat) -->
+      <sc-if value="{{ notLive }}" hint-placeholder-val="{{ true }}">
+        <div style="position:absolute; bottom:0; left:0; right:0; z-index:8; padding:12px 16px 22px; background:linear-gradient(180deg, rgba(8,47,74,0), #082f4a 34%);">
+          <div style="display:flex; align-items:center; gap:11px; padding:8px 8px 8px 16px; border-radius:28px; background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.1);">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" style="flex:0 0 auto;"><path d="M10 4v12M4 10h12" stroke="#bcd4e3" stroke-width="1.9" stroke-linecap="round"/></svg>
+            <span style="flex:1; color:#84a0b3; font-size:15px;">Ask me anything…</span>
+            <div style="display:flex; align-items:center; justify-content:center; width:30px; height:30px; border-radius:50%; border:1.6px solid rgba(255,255,255,0.28); color:#cfe0eb; font-size:15px; font-weight:600; font-family:'Space Grotesk',sans-serif;">₹</div>
+            <svg width="21" height="21" viewBox="0 0 24 24" fill="none" style="flex:0 0 auto;"><rect x="9" y="2.5" width="6" height="12" rx="3" stroke="#cfe0eb" stroke-width="1.8"/><path d="M5 11a7 7 0 0 0 14 0M12 18.5v3" stroke="#cfe0eb" stroke-width="1.8" stroke-linecap="round"/></svg>
+            <button onclick="{{ enterLive }}" style="flex:0 0 auto; width:42px; height:42px; border:none; border-radius:50%; cursor:pointer; padding:0; overflow:hidden; box-shadow:0 5px 14px -3px rgba(90,170,220,0.6); position:relative; background:radial-gradient(circle at 36% 30%, #ffffff, #d3ebff 28%, #64aede 66%, #2a739f 100%);">
+              <div style="position:absolute; width:70%; height:70%; left:6%; top:22%; border-radius:50%; background:radial-gradient(circle, rgba(255,255,255,0.9), rgba(255,255,255,0) 65%); filter:blur(4px); animation:cloud1 9s ease-in-out infinite;"></div>
+            </button>
+          </div>
+        </div>
+      </sc-if>
+
+      <!-- COMPOSER (voice) -->
+      <sc-if value="{{ live }}" hint-placeholder-val="{{ false }}">
+        <div style="position:absolute; bottom:0; left:0; right:0; z-index:8; padding:12px 16px 22px;">
+          <div style="display:flex; align-items:center; gap:12px;">
+            <div style="flex:1; display:flex; align-items:center; gap:11px; padding:12px 16px; border-radius:26px; background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.1);">
+              <svg width="19" height="19" viewBox="0 0 20 20" fill="none"><path d="M10 4v12M4 10h12" stroke="#bcd4e3" stroke-width="1.9" stroke-linecap="round"/></svg>
+              <span style="flex:1; color:#84a0b3; font-size:15px;">Type instead…</span>
+            </div>
+            <div style="width:50px; height:50px; border-radius:50%; background:rgba(255,255,255,0.1); display:flex; align-items:center; justify-content:center;">
+              <svg width="21" height="21" viewBox="0 0 24 24" fill="none"><rect x="9" y="2.5" width="6" height="12" rx="3" fill="#eaf3f9"/><path d="M5 11a7 7 0 0 0 14 0M12 18.5v3" stroke="#eaf3f9" stroke-width="1.9" stroke-linecap="round"/></svg>
+            </div>
+            <button onclick="{{ exitLive }}" style="width:50px; height:50px; border:none; cursor:pointer; border-radius:50%; background:#f2f7fb; display:flex; align-items:center; justify-content:center;">
+              <svg width="19" height="19" viewBox="0 0 24 24" fill="none"><path d="M6 6l12 12M18 6 6 18" stroke="#12547d" stroke-width="2.1" stroke-linecap="round"/></svg>
+            </button>
+          </div>
+        </div>
+      </sc-if>
+
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:456,&quot;height&quot;:908}}">
+class Component extends DCLogic {
+  state = { monthly: 20000, years: 10, live: false };
+
+  componentDidMount() {
+    const loop = () => {
+      const t = performance.now() / 1000;
+      const fill = document.querySelector('[data-wave-fill]');
+      if (fill && this.state.live) {
+        const fill2 = document.querySelector('[data-wave-fill2]');
+        // speech envelope: swells while speaking, dips in pauses (near-flat)
+        const env = Math.max(0.05, Math.sin(t * 0.9) * 0.5 + 0.5 - 0.1);
+        const build = (amp, ph, base, close) => {
+          let d = '';
+          for (let x = 0; x <= 360; x += 6) {
+            const s = Math.sin(x * 0.035 + t * 2.2 + ph) * 0.6 + Math.sin(x * 0.075 + t * 1.35 + ph * 1.5) * 0.4;
+            const y = base - amp * s;
+            d += (x === 0 ? 'M' : 'L') + x + ',' + y.toFixed(1) + ' ';
+          }
+          if (close) d += 'L360,150 L0,150 Z';
+          return d;
+        };
+        const A = 4 + env * 62;
+        fill.setAttribute('d', build(A, 0, 122, true));
+        if (fill2) fill2.setAttribute('d', build(A * 1.2 + 6, 2.1, 125, true));
+      }
+      this._raf = requestAnimationFrame(loop);
+    };
+    this._raf = requestAnimationFrame(loop);
+  }
+  componentWillUnmount() { cancelAnimationFrame(this._raf); }
+
+  fv(P, years) {
+    const i = 0.11 / 12, n = years * 12;
+    return P * ((Math.pow(1 + i, n) - 1) / i) * (1 + i);
+  }
+  fmt(v) {
+    if (v >= 1e7) return '₹' + (v / 1e7).toFixed(2) + 'Cr';
+    return '₹' + (v / 1e5).toFixed(1) + 'L';
+  }
+
+  renderVals() {
+    const { monthly, years, live } = this.state;
+    const worth = this.fv(monthly, years);
+    const diff = worth - this.fv(15000, years);
+    const up = diff >= 0;
+    const deltaLabel = (up ? '↑ ' : '↓ ') + this.fmt(Math.abs(diff)) + ' vs ₹15k/mo';
+    const deltaColor = up ? '#0f4a3b' : '#5a2e2e';
+    const deltaBg = up ? 'rgba(127,220,196,0.9)' : 'rgba(243,194,106,0.85)';
+    const pillBase = 'flex:1; padding:11px 0; border-radius:12px; border:none; cursor:pointer; font-size:13.5px; font-weight:600; font-family:\'Instrument Sans\',sans-serif; transition:all .2s;';
+    const yearOpts = [5, 10, 15].map(y => ({
+      label: y + ' yrs',
+      pick: () => this.setState({ years: y }),
+      style: pillBase + (y === years
+        ? 'background:rgba(255,255,255,0.9); color:#12547d;'
+        : 'background:rgba(255,255,255,0.07); color:#a9c4d6;')
+    }));
+
+    return {
+      monthly,
+      monthlyLabel: '₹' + monthly.toLocaleString('en-IN'),
+      pct: Math.round((monthly - 5000) / 45000 * 100) + '%',
+      onMonthly: (e) => this.setState({ monthly: +e.target.value }),
+      yearOpts,
+      worthLabel: this.fmt(worth),
+      deltaLabel, deltaColor, deltaBg,
+      live,
+      notLive: !live,
+      statusLabel: live ? 'Listening…' : 'Online',
+      enterLive: () => this.setState({ live: true }),
+      exitLive: () => this.setState({ live: false }),
+    };
+  }
+}
+</script>
+</body>
+</html>

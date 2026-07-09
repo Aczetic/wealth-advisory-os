@@ -57,6 +57,15 @@ docs/ONBOARDING-AFRAZ.md        ← engineer's route in
 docs/ONBOARDING-JYOTI.md        ← logic/deck owner's route in
 docs/MEMORY-ARCHITECTURE.md     ← the AI-native financial twin (memory + relationship graph)
 
+architecture/                   ← technical architecture brainstorm (agentic stack + plumbing)
+  01-agentic-architecture.md    ← the stack layer-by-layer; non-obvious bets; V0→V2 ladder
+  02-feature-list.md            ← full feature surface by track (incl. the AI↔Customer↔RM triad)
+
+ui/                             ← design refs + prototypes for the Converse screen
+  design-brief.md               ← context: product, audience, the feeling to aim for
+  design_handoff_wealth_companion/ ← hi-fi design handoff (tokens, animations, SIP calc)
+  wealth-companion-mock.html    ← interactive mock (working-notes strip + live invest sim + voice)
+
 poc/                            ← runnable proof-of-concept (see README-TEST.md)
   engine.js                     ← deterministic advisory engine (the moat)
   tests/run-tests.js            ← 36 golden test cases
