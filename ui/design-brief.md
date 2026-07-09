@@ -5,7 +5,7 @@ Context only. This tells you what the product is and who it's for — not what t
 ## The product, in one line
 An AI wealth-advisory companion — shown as a friendly avatar — that lives inside IDBI Bank's
 mobile app and helps everyday customers make sense of their money by talking to it.
-(Working name "Asha / ArthSakhi" — treat as placeholder.)
+(Avatar working name "Asha"; product name TBD — "Advisory OS" is a placeholder.)
 
 ## Who it's for
 - IDBI's mass-retail customers, heavily tier-2 / tier-3 India. Many are first-time or nervous

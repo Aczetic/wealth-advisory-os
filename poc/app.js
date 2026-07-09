@@ -1,10 +1,10 @@
-/* ArthSakhi PoC — conversation app (scripted flow machine + engine calls).
+/* Advisory OS PoC — conversation app (scripted flow machine + engine calls).
    Architecture: avatar/LLM layer explains; engine.js decides. Every number
    on screen came from a deterministic engine call logged to the audit panel. */
 'use strict';
 
 /* ---------------- state ---------------- */
-const SAVE_KEY = 'arthsakhi-graph-v1';
+const SAVE_KEY = 'advisory-os-graph-v1';
 let graph = load() || Engine.createGraph(PERSONA_ROHAN);
 function save(){ localStorage.setItem(SAVE_KEY, JSON.stringify(graph)); renderAudit(); }
 function load(){ try { return JSON.parse(localStorage.getItem(SAVE_KEY)); } catch { return null; } }

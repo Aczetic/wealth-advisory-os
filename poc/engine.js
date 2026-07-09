@@ -1,5 +1,5 @@
 /* ================================================================
-   ArthSakhi PoC — Deterministic Advisory Engine
+   Advisory OS PoC — Deterministic Advisory Engine
    Implements spec-input-kartik-methodology.md (BINDING):
    Client Graph · 7 capabilities · action taxonomy · glide paths ·
    Persistent Investment Intelligence event loop.

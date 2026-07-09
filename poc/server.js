@@ -12,4 +12,4 @@ http.createServer((req, res) => {
     res.writeHead(200, { 'Content-Type': MIME[path.extname(file)] || 'text/plain' });
     res.end(data);
   });
-}).listen(PORT, () => console.log('ArthSakhi PoC → http://localhost:' + PORT));
+}).listen(PORT, () => console.log('Advisory OS PoC → http://localhost:' + PORT));

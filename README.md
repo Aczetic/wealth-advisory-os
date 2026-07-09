@@ -1,7 +1,7 @@
-# ArthSakhi — AI Digital Wealth Advisory for IDBI (IDBI Innovate 2026, Track 01)
+# Advisory OS (name TBD) — AI Digital Wealth Advisory for IDBI (IDBI Innovate 2026, Track 01)
 
-*Naming final (Jyoti, 2026-07-08): product = **ArthSakhi**, avatar = **Asha** (D9 in
-`00-STATE.md`).*
+*Naming OPEN (D9 reopened by Kartik 2026-07-10): product name TBD — "Advisory OS" is a
+placeholder. Avatar = **Asha** (retained for now). See `00-STATE.md`.*
 
 An **avatar-led, engine-driven wealth advisory module** that embeds into IDBI's mobile
 app. The bank's own transaction data becomes a **standing investment strategy per

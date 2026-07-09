@@ -5,11 +5,11 @@ template (`deck/IDBI-submission-template.pptx`). Slide-by-slide asset mapping is
 `01-challenge-brief.md`. This note covers style, structure, differentiators, business
 case, and roadmap — the judgment calls, not the mechanics.
 
-## 0. Naming — you own it
+## 0. Naming — reopened (2026-07-10)
 
-**"ArthSakhi" and the avatar name "Asha" are working names only. Kartik has given you
-naming authority for the startup, the product, and the avatar.** Suggested checks before
-locking a name: meaningful in Hindi + acceptable in English; easy to say for a tier-2/3
+**Kartik rejected "ArthSakhi"; it has been wiped from the repo. The product is referred
+to as "Advisory OS" (placeholder) until a new name is locked. Avatar name "Asha" is
+retained for now.** Suggested checks before locking a name: meaningful in Hindi + acceptable in English; easy to say for a tier-2/3
 customer; no obvious trademark/domain conflict (quick MCA/Trademark + domain search);
 survives the writing-style test (credible on a PSU bank slide, not startup-cute); the
 avatar's name should sound like a person customers would trust with money. Once chosen,

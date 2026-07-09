@@ -27,7 +27,7 @@ Full challenge facts: see `01-challenge-brief.md`.
 
 ## Repo (collaboration)
 
-- GitHub (**private**): https://github.com/iamkartik4793/arthsakhi-idbi-wealth
+- GitHub (**private**): https://github.com/iamkartik4793/wealth-advisory-os
 - `git clone` then read `README.md` → routes each teammate to their onboarding doc.
 - Add Afraz & Jyoti as collaborators: repo Settings → Collaborators (or
   `gh repo edit --add-collaborator <user>`).
@@ -44,7 +44,7 @@ Full challenge facts: see `01-challenge-brief.md`.
 
 ## Hard deadlines
 
-- **2026-07-09: registration + application deadline on Hack2skill** ← URGENT, register first
+- **2026-07-13: registration + application deadline on Hack2skill** (extended from 07-09) ← URGENT, register first
 - 2026-08-21: event ends. Staged: idea submission → shortlist → sandbox build (APIs, synthetic data, cloud, mentors) → PoC.
 
 ## Decision log
@@ -59,7 +59,9 @@ Full challenge facts: see `01-challenge-brief.md`.
 | D6 | Advisor OS (RM-facing side, "one engine two faces"): how much in PoC scope? (a) roadmap-only, (b) avatar + one RM surface demoed [recommended], (c) full both sides | ⏳ Open — see `research/research-advisor-os.md` |
 | D7 | Delivery mechanism: **hybrid, channel-agnostic** (native micro-SDK for mic/TTS/avatar canvas + server-driven conversational UI); GO Mobile+ = reference integration for PoC, but module must embed in any IDBI channel (new digital app per 2022 RFP, WhatsApp later) — see screens file + addendum | ⏳ Recommended — awaiting Kartik |
 | D8 | Unifying architecture = **AI-native financial twin**: one Customer Graph (memory graph + relationship graph), 5 typed layers, 3 retrieval indexes (time/event/topic), consent-scoped. Extends the engine's Client Graph. Design in `docs/MEMORY-ARCHITECTURE.md` | 🔄 Framework set by Kartik; brainstorm with Jyoti pending — Jyoti's prep in `docs/brainstorm-prep-jyoti.md` (items 1, 2, 4 complete) |
-| D9 | **Naming final (Jyoti, 2026-07-08): product = "ArthSakhi", avatar = "Asha"** — working names confirmed as final after clash-checking ~20 alternatives (Samridhi/Setu/Mitra/Sarthi/Saathi compounds all taken by existing financial firms; ArthSakhi clean, no company found). `arthsakhi.in` unregistered as of 2026-07-08 — register before repo goes public. No rename pass needed. | ✅ Decided |
+| D9 | ~~Naming final: "ArthSakhi"/"Asha"~~ **REVERSED by Kartik 2026-07-10: name rejected, wiped from repo.** Product referred to as **"Advisory OS" (placeholder)** until a real name is chosen. Avatar name "Asha" retained for now. Prior clash-check research (Samridhi/Setu/Mitra/Sarthi/Saathi compounds taken) still useful for the next naming round. | 🔄 Reopened |
+| D10 | **Startup, not just hackathon (Kartik, 2026-07-10)**: build a legit business — positioning = **"AI OS for Wealth Advisory"** (bank-agnostic engine; IDBI = first deployment, not the ceiling). Deliverables beyond registration: (a) demo-able MVP, (b) website, (c) RM CRM view. Hackathon submission becomes proof-of-traction, not the end goal. | ✅ Decided |
+| D11 | **Vision: close the thread (Kartik, 2026-07-10).** The Advisory OS is embedded by banks/wealth managers into their own apps. Inside a bank app it goes beyond advice to **execution and full banking context**: invest in MF end-to-end, show bank balance, apply for loans, CIBIL guidance — one conversational surface that finishes the job, never dead-ends. For the bank, the same engine powers **cross-selling and proactive reach-outs** (RM CRM side). Advice → action → bank revenue is the loop. | ✅ Decided |
 
 ## Done
 
@@ -100,16 +102,16 @@ artifact?" before writing it, and propose those steps proactively.
       RM console; 36/36 golden tests passing; all flows click-verified in browser.
       Run: `cd poc && node server.js`. Guide: `README-TEST.md`.
 - [x] **v0.9 solution spec** (`03-solution-spec.md`) — methodology marked ⚠️Kartik (pending review).
-- [x] **GitHub repo (private)** created + pushed: iamkartik4793/arthsakhi-idbi-wealth.
+- [x] **GitHub repo (private)** created + pushed: iamkartik4793/wealth-advisory-os (renamed 2026-07-10).
 - [x] **Team onboarding docs** — `docs/ONBOARDING-AFRAZ.md`, `docs/ONBOARDING-JYOTI.md`.
 - [x] **Memory architecture / AI-native twin** (`docs/MEMORY-ARCHITECTURE.md`, D8) — framework
       + 5 layers + 3 indexes + third-order gaps + AA/ULI/OCEN mapping; brainstorm-ready.
 
 ## Next action (do this one thing, completely)
 
-1. **Kartik: register on Hack2skill — DEADLINE TODAY 2026-07-09** and capture submission
+1. **Kartik: register on Hack2skill — DEADLINE 2026-07-13 (extended)** and capture submission
    form fields into `01-challenge-brief.md`. (Only hard blocker.)
-2. **Add Afraz & Jyoti as GitHub collaborators** and share the repo + their onboarding docs.
+2. ~~Add Afraz & Jyoti as GitHub collaborators~~ ✅ invites sent 2026-07-09 (pending acceptance).
 3. **Jyoti brainstorm: memory** — run `docs/MEMORY-ARCHITECTURE.md` §7 agenda with Kartik.
 4. **Kartik: review** the ⚠️Kartik methodology numbers in `03-solution-spec.md` /
    `poc/engine.js` (glide matrix, gate thresholds, suitability scoring, return/tax assumptions).
@@ -134,8 +136,8 @@ artifact?" before writing it, and propose those steps proactively.
   `DECK-DIRECTION-JYOTI.md` (style, differentiator table, flagship demo moment,
   business-case framing, Phase|Focus|Outcome roadmap incl. shadow-mode pilot) +
   `reference/Udyam_Sehat_Card_Proposal.docx` (Modus AI founder's working — internal only).
-  **NAMING: "ArthSakhi"/"Asha" are working names; Jyoti has naming authority** (direction §0);
-  rename across repo/PoC/deck happens in one pass once she decides.
+  **NAMING: open (D9 reopened 2026-07-10)** — product is "Advisory OS" placeholder; final
+  name pending Kartik; rename across repo/PoC/deck happens in one pass once decided.
   Slide-by-asset mapping: `01-challenge-brief.md`. S13 needs: PUBLIC repo at submission,
   3-min demo video, hosted product link (PoC is static → GitHub Pages/Vercel).
 - `poc/` — working demo + engine + 36 golden tests

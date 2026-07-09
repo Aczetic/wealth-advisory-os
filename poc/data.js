@@ -1,5 +1,5 @@
 /* ================================================================
-   ArthSakhi PoC — synthetic data & market constants
+   Advisory OS PoC — synthetic data & market constants
    ALL DATA SYNTHETIC / INDICATIVE. Rates as of FY 2025-26, for demo.
    Loaded before engine.js (browser) / required by engine.js (Node).
    ================================================================ */

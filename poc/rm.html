@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>RM Console — ArthSakhi Advisor OS (PoC)</title>
+<title>RM Console — Advisor OS (PoC)</title>
 <link rel="stylesheet" href="styles.css">
 <style>body{background:var(--bg)} .top{background:var(--teal-dark);color:#fff;padding:16px 26px;display:flex;justify-content:space-between;align-items:center}
 .top a{color:#7dffd0;text-decoration:none;font-size:.85rem}</style>
@@ -46,7 +46,7 @@
 <script>
 'use strict';
 const F = Engine.fmt;
-const saved = localStorage.getItem('arthsakhi-graph-v1');
+const saved = localStorage.getItem('advisory-os-graph-v1');
 const graph = saved ? JSON.parse(saved) : Engine.createGraph(PERSONA_ROHAN);
 
 /* Lead queue */

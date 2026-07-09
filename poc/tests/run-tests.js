@@ -1,4 +1,4 @@
-/* Golden test cases for the ArthSakhi advisory engine.
+/* Golden test cases for the advisory engine.
    Run: node tests/run-tests.js   (from poc/)                    */
 'use strict';
 const path = require('path');

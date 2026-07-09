@@ -5,13 +5,13 @@ Source: https://hack2skill.com/event/idbinnovate (+ press coverage, verified 202
 ## Event
 
 - Organizer: IDBI Bank, on Hack2skill platform. Theme: "Build. Integrate. Transform."
-- Runs 2026-06-09 → 2026-08-21. **Application deadline: 2026-07-09.**
+- Runs 2026-06-09 → 2026-08-21. **Application deadline: 2026-07-13** (extended from 07-09).
 - Prize pool: ₹15,00,000. Track winners + runners-up, plus a separate Novel Idea Track.
 - Eligibility: experienced professionals, registered startups, fintechs.
 
 ## Stages
 
-1. Register on Hack2skill (by 2026-07-09)
+1. Register on Hack2skill (by 2026-07-13)
 2. Submit solution/idea aligned to problem statement
 3. Shortlisted teams get: sandbox banking APIs, synthetic datasets, cloud infrastructure, mentorship
 4. Build & refine → PoC inside IDBI's sandbox ecosystem; top teams progress toward bank adoption

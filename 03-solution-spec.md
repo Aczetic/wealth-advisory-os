@@ -1,4 +1,4 @@
-# Solution Spec — "ArthSakhi" Digital Wealth Management (IDBI Innovate 2026, Track 01)
+# Solution Spec — Advisory OS (name TBD) · Digital Wealth Management (IDBI Innovate 2026, Track 01)
 
 v0.9 · 2026-07-09 · Assembled from all research files + Kartik's methodology input.
 Working PoC exists in `poc/` (see `README-TEST.md`). Methodology numbers = **DRAFT,
