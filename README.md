@@ -18,8 +18,8 @@ one tap away. Guidance at scale, under the bank's existing distribution licence.
 | Who | Role | Owns | Start here |
 |---|---|---|---|
 | **Kartik** | PM + CA | product, finance/tax/compliance, methodology | `00-STATE.md` |
-| **Afraz** | Engineer | architecture, stack (LLM/TTS/STT), UI, integration | `docs/ONBOARDING-AFRAZ.md` |
-| **Jyoti** | CFA L1 + BAF | deck, AI logic / smart layer, AI→RM switch, RM view, memory | `docs/ONBOARDING-JYOTI.md` |
+| **Afraz** | Engineer | architecture, stack (LLM/TTS/STT), UI, memory/smart-layer build, RM console, integration | `docs/ONBOARDING-AFRAZ.md` |
+| **Jyoti** | CFA L1 + BAF | deck/story, advisory logic, persona + memory *rules*, AI→RM escalation *policy* | `docs/ONBOARDING-JYOTI.md` |
 
 **Everyone:** read **`00-STATE.md`** first — it's the single source of truth (status, all
 decisions D1–D7, what's open). Read it at the start of each session; update it at the end.

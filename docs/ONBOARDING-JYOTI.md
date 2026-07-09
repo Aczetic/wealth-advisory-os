@@ -1,9 +1,15 @@
-# Welcome Jyoti 👋 — get up to speed, then own the logic + deck
+# Welcome Jyoti 👋 — get up to speed, then own the intelligence + deck
 
-You're driving: **the deck, how the AI works (smart layer / logic), the tiered AI→RM
-switch, the RM view, and the memory design.** This doc gets you fully context-loaded, then
-points you at exactly where you plug in. Kartik (PM+CA) owns product/finance; Afraz owns
-engineering. You + Kartik own the story and the intelligence logic.
+You're driving: **the deck/story, the advisory intelligence (how a great wealth manager
+actually works), the persona + memory *rules*, and the AI→RM escalation *policy*.** The
+engineering *build* — the smart-layer, memory infrastructure, and the RM console — sits with
+Afraz; you give him the spec, he builds it. This doc gets you fully context-loaded, then
+points you at exactly where you plug in. Kartik (PM+CA) owns product/finance/tax; you + Kartik
+own the story and the finance intelligence.
+
+> **Scope note (re-lane):** your strength is finance + narrative, not plumbing — so stay on
+> the *domain* side (what advice, what to remember, when to escalate) and hand the *build*
+> side to Afraz. RM view = you define what an RM needs to see; Afraz builds the screen.
 
 ## Read in this order (≈45 min, all in this repo)
 
@@ -85,13 +91,21 @@ show "one twin, right advice for NRI vs GenZ vs pensioner."
   business-case framing, roadmap format), and the slide-by-asset mapping in
   `01-challenge-brief.md`. All deck copy follows `docs/WRITING-STYLE.md` (binding).
   Still: internalize the research first so the deck has no fluff (Kartik's rule).
-- **Smart-layer / logic** — how AI works: the engine decides, the LLM/avatar only explains
-  (see `03-solution-spec.md` §5 + `poc/engine.js`). Formalize the persona and memory logic.
-- **Tiered AI→RM switch** — the escalation boundary is a *feature* (compliance + lead-gen).
-  See D4 in `00-STATE.md`, the `stocks`/`crash` flows in `poc/app.js`, and the RM lead
-  queue in `poc/rm.html`. Define exactly *when* AI hands to human and *what context transfers*.
-- **RM view** — `research/research-advisor-os.md` + `poc/rm.html` (working demo). One engine, two faces.
-- **Memory** — co-own `docs/MEMORY-ARCHITECTURE.md`; run the §7 brainstorm with Kartik.
+- **Advisory playbook (your biggest lever)** — how a *great human* wealth manager actually
+  works, AI aside: discovery, risk profiling, asset allocation, product suitability, when to
+  rebalance, behavioural coaching, tax. This grounds everything else. Your CFA + equity-research
+  lane. Draft it; Kartik CA-reviews.
+- **Persona + memory *rules*** — the domain logic: persona → treatment, and what the twin
+  remembers/forgets and why (you've already drafted this well — finish it). *Rules only*; the
+  memory infrastructure/schema is Afraz's build. Co-input to `docs/MEMORY-ARCHITECTURE.md`.
+- **AI→RM escalation *policy*** — *when* AI hands to a human and *what context transfers*
+  (the compliance + lead-gen feature; D4 in `00-STATE.md`). You define the policy; Afraz wires it.
+- **Deck / story** — your primary deliverable (see below).
+
+**Hand to Afraz (you spec, he builds):** the smart-layer / LLM wiring (`poc/engine.js`,
+`app.js`), the memory infrastructure, and the **RM console** (`poc/rm.html`) — for RM view you
+define *what an RM needs to see* (`research/research-advisor-os.md` is your brief), he builds the screen.
+**Send to Kartik before final:** anything tax (NRI/DTAA/regime) — draft it, he confirms.
 
 ## House rules (please keep)
 - **`00-STATE.md` is the source of truth** — read it at the start of every session, update it
