@@ -1,6 +1,6 @@
 # Research: How Indian BFSI handles the advice-vs-distribution boundary (for D4)
 
-Researched 2026-07-08. Feeds decision D4 in `00-STATE.md`. Do not re-research.
+Research into distributor boundaries and financial guidance governance.
 
 ## What banks actually do
 

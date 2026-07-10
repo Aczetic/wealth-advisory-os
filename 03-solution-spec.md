@@ -1,8 +1,6 @@
-# Solution Spec — Advisory OS (name TBD) · Digital Wealth Management (IDBI Innovate 2026, Track 01)
+# Solution Spec — Wealth Advisory OS · Digital Wealth Management (IDBI Innovate 2026, Track 01)
 
-v0.9 · 2026-07-09 · Assembled from all research files + Kartik's methodology input.
-Working PoC exists in `poc/` (see `README-TEST.md`). Methodology numbers = **DRAFT,
-pending Kartik review** (marked ⚠️Kartik).
+Working prototype: `poc/` (see `README-TEST.md`). Thresholds, returns, and inflation rates are illustrative prototype assumptions.
 
 ## 1. One-liner
 
@@ -52,7 +50,7 @@ Client 360 from the same graph ✅ PoC (`rm.html`). Roadmap: meeting copilot (MS
 pattern), tax-harvesting lists across book. Benchmarks: Morgan Stanley 98% adoption,
 30 min/meeting; Range 50% message deflection (`research/research-advisor-os.md`).
 
-## 5. The engine (Kartik's methodology — `spec-input-kartik-methodology.md`)
+## 5. The engine (`advisory-engine-methodology.md`)
 
 - **Client Graph** (GRAPH-1.0): profile, income, expenses, assets, liabilities, insurance,
   taxes, goals, riskProfile, strategy, interactions, recommendations, events, escalations.
@@ -68,15 +66,13 @@ pattern), tax-harvesting lists across book. Benchmarks: Morgan Stanley 98% adopt
 - **Action taxonomy:** Buy · Sell · Redeem · Transfer · Rebalance · Harvest Loss ·
   **Prepay Loan** (PREPAY-1.0 post-tax comparison incl. 24b) ✅ PoC.
 - **Glide paths** (GLIDE-1.0, Zerodha-Lifecycle-inspired): allocation = f(risk bucket,
-  years-to-goal), linear de-risk inside 10y, capital-protection ≤1y. ⚠️Kartik review the
-  matrix. ✅ PoC
-- **Financial-health gate** (GATE-1.0): emergency fund (6mo ⚠️Kartik) → insurance (12x income
-  ⚠️Kartik) → then investing. ✅ PoC
+  years-to-goal), linear de-risk inside 10y, capital-protection ≤1y. ✅ PoC
+- **Financial-health gate** (GATE-1.0): emergency fund (6mo) → insurance (12x income) → then investing. ✅ PoC
 - **Suitability** (SUIT-1.0): 6-question conversational assessment → 4 buckets;
-  behavioral risk-capacity overlay from txn data = phase 2. ⚠️Kartik review scoring.
+  behavioral risk-capacity overlay from txn data = phase 2.
 - **Audit:** every recommendation = {action, amount, instrument, reason, ruleId+version,
   goalId, taxNote} ✅ PoC, visible debug panel. Rules registry with versions ✅.
-- **Golden tests:** 36 cases, `poc/tests/run-tests.js` ✅ — the production-readiness proof.
+- **Golden tests:** 36 cases, `poc/tests/run-tests.js` ✅ — regression coverage for the prototype.
 
 ## 6. Compliance by design (D4 — `research/research-d4-bfsi-advice-posture.md`)
 
@@ -100,7 +96,7 @@ microservices, Oracle/Mongo, RabbitMQ, Kibana/Grafana, Finacle via bancs-connect
 **On-prem DC/DR** → LLM via India-region/private endpoint; PII redaction pre-LLM.
 Delivery = D7 hybrid: native micro-SDK (mic/TTS/avatar canvas/auth bridge) +
 server-driven conversational UI; channel-agnostic (GO Mobile+ today, new digital app /
-WhatsApp later). PoC stack (static JS + keyless browser speech) is a deliberate
+WhatsApp later). PoC stack (browser JavaScript + browser speech) is a deliberate
 demo simplification; engine logic ports 1:1.
 
 ## 9. Language/speech
@@ -122,8 +118,6 @@ PoC (✅ built) → Sandbox (real APIs, synthetic data, LLM in loop, Hindi TTS) 
 Pilot (one segment, GO Mobile+ hybrid embed, RM console to one cluster) →
 Scale (AA, 15 languages, WhatsApp channel, meeting copilot, RIA-SIDD optional).
 
-## 12. Open items
+## 12. Deployment considerations
 
-⚠️Kartik review: glide matrix, gate thresholds, suitability scoring, return/inflation
-assumptions, tax rules. D6 scope = option (b) implemented — confirm. D7 confirm.
-Submission form fields still needed (registration deadline 2026-07-09!).
+Production deployment requires calibration of allocation matrices, financial-health thresholds, suitability scoring, return and inflation assumptions, and applicable tax rules. The prototype includes the customer avatar and an RM console; bank integrations and channel delivery are subsequent deployment phases.

@@ -1,7 +1,6 @@
-# Kartik's Methodology Input (2026-07-08 night) — CORE ENGINE REQUIREMENTS
+# Advisory Engine Methodology
 
-Source: Kartik directly. This IS the subsystem-B design input. Engine and
-onboarding/engagement/advisory/allocation must be planned around this. Binding.
+Requirements for financial modelling, portfolio allocation, and auditable recommendations.
 
 ## 1. Capability set (advisory engine must do all of these)
 
@@ -17,8 +16,7 @@ onboarding/engagement/advisory/allocation must be planned around this. Binding.
 ## 2. Action taxonomy (every recommendation resolves to one of these)
 
 Buy · Sell · Redeem · Transfer · Rebalance · Harvest Loss · **Prepay Loan**
-(Note: Prepay Loan as first-class advisory action = CA thinking; engine must compare
-prepayment vs investment on post-tax return — most robos never do this.)
+Prepayment and investment are compared using post-tax returns.
 
 ## 3. Financial state model (the ontology)
 
@@ -54,7 +52,7 @@ funds themselves can be recommended where distributed; otherwise engine replicat
 glide with MF baskets. Discipline + tax-efficiency + no-active-management = the promise
 to P1 "FD Family" persona in one sentence.
 
-## Build implications (overnight PoC must reflect)
+## Implementation requirements
 
 - Engine core = Client Graph + standing strategy + event loop (not request/response only)
 - Each demo journey shows a capability: idle-cash detection (#6/#5), goal funding w/

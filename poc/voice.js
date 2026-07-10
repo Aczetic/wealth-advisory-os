@@ -1,4 +1,4 @@
-/* Voice layer — browser Web Speech API only (keyless).
+/* Voice layer — browser Web Speech API.
    TTS: speechSynthesis with hi-IN/en-IN preference (Hinglish reads fine).
    STT: webkitSpeechRecognition if available; UI hides mic otherwise.
    Voice-note interaction model per research-avatar-spec-patterns.md:

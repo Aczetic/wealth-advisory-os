@@ -1,4 +1,4 @@
-/* Tiny static server for the PoC — zero dependencies. node server.js */
+/* Static server for Wealth Advisory OS. node server.js */
 const http = require('http'), fs = require('fs'), path = require('path');
 const ROOT = __dirname, PORT = process.env.PORT || 8765;
 const MIME = { '.html':'text/html', '.js':'text/javascript', '.css':'text/css',
@@ -12,4 +12,4 @@ http.createServer((req, res) => {
     res.writeHead(200, { 'Content-Type': MIME[path.extname(file)] || 'text/plain' });
     res.end(data);
   });
-}).listen(PORT, () => console.log('Advisory OS PoC → http://localhost:' + PORT));
+}).listen(PORT, () => console.log('Wealth Advisory OS → http://localhost:' + PORT));

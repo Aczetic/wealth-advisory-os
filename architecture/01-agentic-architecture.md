@@ -1,8 +1,6 @@
 # Agentic Architecture — AI Wealth Companion (IDBI)
 
-> Brainstorm notes on the technical architecture, stack, and plumbing to make the
-> Wealth Companion a *whole agentic* product — not a scripted chatbot with a nice UI.
-> Companion to the `ui/` design handoff and mock (`ui/wealth-companion-mock.html`).
+Proposed architecture for financial tools, customer memory, conversation services, and bank integrations. Companion to the design handoff in `ui/`.
 
 ---
 

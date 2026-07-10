@@ -1,20 +1,17 @@
-# Welcome Afraz 👋 — technical architecture, stack, integration
+# Engineering Guide
 
-You own: **technical architecture, tech stack (LLM/TTS/STT), UI, and integrations.**
-Kartik owns product/finance; Jyoti owns logic/deck/RM-view. This gets you to the
-code and the binding constraints fast.
+Architecture, interfaces, and integration considerations for Wealth Advisory OS.
 
-## Read/run first (≈30 min)
+## Application and reference documents
 
-1. **`00-STATE.md`** — project status + all decisions (D1–D7). Note **D7 = delivery mechanism**.
-2. **Run the PoC** — `README-TEST.md`: `cd poc && node server.js` → http://localhost:8765.
+1. **Run the PoC** — `README-TEST.md`: `cd poc && node server.js` → http://localhost:8765.
    Then `node poc/tests/run-tests.js` → 36/36 passing.
-3. **`poc/engine.js`** — the deterministic advisory engine (the moat). Client Graph, 7
+2. **`poc/engine.js`** — the deterministic advisory engine (the moat). Client Graph, 7
    capabilities, action taxonomy, glide paths, full audit trail. This logic ports 1:1 to
    production; the PoC's browser-JS wrapper does not.
-4. **`research/research-rfp-2022-baseline.md`** + `research/source-rfp-2022-idbi-digital-bank.pdf` §8 — IDBI's
+3. **`research/research-rfp-2022-baseline.md`** + `research/source-rfp-2022-idbi-digital-bank.pdf` §8 — IDBI's
    own mandated stack & constraints (below).
-5. **`docs/MEMORY-ARCHITECTURE.md`** — the Customer Graph you'll be persisting.
+4. **`docs/MEMORY-ARCHITECTURE.md`** — the Customer Graph you'll be persisting.
 
 ## Binding architecture constraints (from IDBI's 2022 RFP — non-negotiable for a bank judge)
 
@@ -28,12 +25,12 @@ code and the binding constraints fast.
 - Integrations named in RFP: NSDL, UIDAI, NPCI, CAMS, KFintech. Add **AA (Sahamati), ULI,
   OCEN** per `docs/MEMORY-ARCHITECTURE.md` §5.
 
-## Architecture decisions already taken (see 00-STATE.md for rationale)
+## Architecture design
 
 - **D4/D5 — engine/LLM split:** the deterministic engine *decides*; the LLM *only explains*
   and converses. Never let the LLM compute a number or name a product — it calls engine
   tools. This is the SEBI AI/ML-compliance backbone and the anti-hallucination design.
-  `poc/llm.js` is the pluggable stub where a real endpoint wires in.
+  `poc/llm.js` is the interface reserved for external language-model integration.
 - **D3 — avatar:** lightweight 2D rigged (no photoreal). PoC uses inline SVG + CSS
   (`poc/avatar.js`); production can use Rive/Lottie or a vendor (UneeQ) behind the same
   interface.
@@ -45,9 +42,9 @@ code and the binding constraints fast.
   Google/Azure Indic**, ElevenLabs. Hindi first, Hinglish code-switching, architecture ready
   for 15 languages (RFP line). Interaction model = **voice-note-first async** (India: voice =
   22% of WhatsApp comms), which relaxes live-latency needs — see
-  `research/research-avatar-spec-patterns.md`. PoC uses browser Web Speech API (keyless placeholder).
+  `research/research-avatar-spec-patterns.md`. The current application uses the browser Web Speech API.
 
-## Where you plug in
+## Integration responsibilities
 
 - Re-implement `engine.js` as production microservices on the RFP stack (the logic + the 36
   golden tests are your spec — keep them green).
@@ -56,7 +53,3 @@ code and the binding constraints fast.
 - Own the LLM/TTS/STT integration behind the existing interfaces (`llm.js`, `voice.js`).
 - Own AA / ULI / OCEN integration surfaces.
 - Own the security/on-prem deployment story for the pitch (bank judges score this heavily).
-
-## House rules
-- `00-STATE.md` = source of truth; read at session start, update at end.
-- One artifact at a time, finished. Keep the golden tests green as the correctness contract.

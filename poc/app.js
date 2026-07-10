@@ -300,8 +300,8 @@ async function route(text){
   for (const [re, fn] of table) if (re.test(t)) return fn();
   const llm = await LLM.generate({ messages:[{ role:'user', content:text }] });
   if (llm) return botSay(llm);
-  botSay(`Yeh main abhi scripted demo mein nahi samjhi 😅 (production mein yahan LLM hoga — jo sirf <b>explain</b> karega, advice engine hi dega). Neeche ke options try kariye!`,
-    'Yeh abhi demo mein nahi samjhi — neeche ke options try kariye.');
+  botSay(`Is request ko main abhi process nahi kar paayi. Neeche ke options se apna financial goal select kariye.`,
+    'Is request ko main abhi process nahi kar paayi. Neeche ke options try kariye.');
 }
 
 /* ---------------- boot ---------------- */

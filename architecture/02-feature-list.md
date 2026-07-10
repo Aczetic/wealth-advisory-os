@@ -1,69 +1,61 @@
-# Feature List — Architecture Brainstorm
+# Feature Design Reference
 
-> The full surface area we need to design/build. Grouped into tracks so we can brainstorm
-> one at a time. Each item: what it is + the key open question(s). Companion to
-> `01-agentic-architecture.md`.
-
-**Status legend**
-`✅ designed` (exists in the mock) · `🟡 architected` (sketched in doc 01) ·
-`🔴 open` (needs real brainstorm) · `⚪ new` (raised, not yet touched)
-
----
+Conversation, intelligence, latency, financial modelling, and relationship-manager capabilities. These describe the design scope; implemented functionality is documented in `../README-TEST.md`.
 
 ## Track A — Conversation surface (what the customer experiences)
 
-- **Text conversation** — `✅ designed`. Concierge chat, AI leads, bubbles + inline cards.
-  *Open Q:* do AI replies stream token-by-token / type in, or land as blocks?
+- **Text conversation**. Concierge chat, AI leads, bubbles + inline cards.
+  *Design consideration:* do AI replies stream token-by-token / type in, or land as blocks?
 
-- **Voice conversation (live)** — `✅ designed`. Real-time voice mode, sentient wave reacts
+- **Voice conversation (live)**. Real-time voice mode, sentient wave reacts
   to speech; everything spoken lands in the same chat thread, cards render inline.
-  *Open Q:* barge-in (interrupt the AI mid-sentence)? half-duplex vs full-duplex?
+  *Design consideration:* barge-in (interrupt the AI mid-sentence)? half-duplex vs full-duplex?
 
-- **Voice notes (async)** — `⚪ new`. Different from live voice: customer sends a recorded
+- **Voice notes (async)**. Different from live voice: customer sends a recorded
   voice message; AI transcribes, replies (text and/or its own voice note). Fits low-literacy,
   low-bandwidth, "leave it and check later" usage.
-  *Open Q:* is this a separate mode, or just "voice input in the text thread"?
+  *Design consideration:* is this a separate mode, or just "voice input in the text thread"?
 
-- **"Why I'm suggesting this"** — `✅ designed`. The visible **Plan → Think → Act → Reason**
+- **"Why I'm suggesting this"**. The visible **Plan → Think → Act → Reason**
   loop: ticking checklist of the agent's tool calls, collapsing to a ✓ pill. Dual-use — it's
   both a trust affordance *and* the suitability audit trail.
-  *Open Q:* how much reasoning do we expose vs. hide? per-step latency budget?
+  *Design consideration:* how much reasoning do we expose vs. hide? per-step latency budget?
 
-- **Cards / dynamic screen** — `✅ designed`. The screen composes itself from typed card
+- **Cards / dynamic screen**. The screen composes itself from typed card
   payloads the agent emits (loan, goal, holding, invest-simulator). "Generative UI."
-  *Open Q:* fixed card library the agent picks from, vs. genuinely generative layouts?
+  *Design consideration:* fixed card library the agent picks from, vs. genuinely generative layouts?
   How interactive can a card get (the invest-sim slider is the ceiling so far)?
 
-- **Languages / TTS / STT** — `🟡 architected`. English now; Indic ASR+TTS later
+- **Languages / TTS / STT**. English now; Indic ASR+TTS later
   (Bhashini / Sarvam / AI4Bharat). Modular pipeline so it's a config, not a rebuild.
-  *Open Q:* which languages in V1? translate-at-edges vs. reason-in-language?
+  *Design consideration:* which languages in V1? translate-at-edges vs. reason-in-language?
 
 ---
 
 ## Track B — Intelligence & memory (the brain)
 
-- **Memory** — `🟡 architected`. Structured financial knowledge-graph (goals, dependents,
+- **Memory**. Structured financial knowledge-graph (goals, dependents,
   risk appetite, past recommendations + outcomes) + semantic recall. Felt through the
   conversation, never shown as a "memory" badge.
-  *Open Q:* what's the fact schema? what's the write/reconcile logic? shared with the RM (see Track E).
+  *Design consideration:* what's the fact schema? what's the write/reconcile logic? shared with the RM (see Track E).
 
-- **Proactive engine** — `🟡 architected`. Nightly batch + event triggers surface insights
+- **Proactive engine**. Nightly batch + event triggers surface insights
   so the AI *leads* ("I looked over your accounts…") instead of waiting.
-  *Open Q:* how do we rank/throttle insights so it's helpful, not nagging?
+  *Design consideration:* how do we rank/throttle insights so it's helpful, not nagging?
 
-- **Orchestration of the whole workflow** — `🟡 architected`. The conductor: routing a turn
+- **Orchestration of the whole workflow**. The conductor: routing a turn
   through memory load → agent loop → tools → compliance → stream out → memory write; and
   routing money-actions to durable workflows.
-  *Open Q:* how much is deterministic state-machine vs. model-decided? this is where the
+  *Design consideration:* how much is deterministic state-machine vs. model-decided? this is where the
   RM handoff (Track E) has to be wired in.
 
 ---
 
 ## Track C — Cross-cutting (non-functional)
 
-- **Latency** — `🔴 open`. Modest phones, uneven networks. The "working notes" buy us
+- **Latency**. Modest phones, uneven networks. The "working notes" buy us
   perceived-latency cover, but we still need real budgets.
-  *Open Q:* target time-to-first-token? per-tool timeout? what degrades gracefully offline?
+  *Design consideration:* target time-to-first-token? per-tool timeout? what degrades gracefully offline?
   what's cached on-device (last state, invest-sim compute is already client-side)?
 
 ---
@@ -71,7 +63,7 @@
 ## Track D — How real wealth management works (NON-AI domain brainstorm)
 
 > Deliberately AI-free. Before we automate advice, we model what *good human* wealth
-> advisory actually is. Kartik leads this. This becomes the "product logic" the
+> advisory actually is. This becomes the "product logic" the
 > agent later executes.
 
 Topics to brainstorm:
@@ -122,7 +114,7 @@ Topics to brainstorm:
 - **Attribution & audit.** Legally, who said what matters (AI info vs. RM advice). The audit
   trail must distinguish actors turn-by-turn.
 
-**Open questions to brainstorm:**
+**Design considerations:**
 - Warm handoff protocol — what's in the AI-generated brief to the RM?
 - Async vs. live — RM won't always be available; how does the thread hold?
 - Does the customer always know when it's AI vs. human? (transparency vs. seamlessness)
@@ -130,9 +122,3 @@ Topics to brainstorm:
 - How does the RM *correct/override* the AI, and does that write back to memory?
 
 ---
-
-## Suggested brainstorm order
-1. **Track D** (real advisory model) — grounds everything else.
-2. **Track E** (the triad) — decides orchestration + compliance shape.
-3. Then finalize B (memory schema, orchestration) around D + E.
-4. C (latency) and A open-questions as we build.

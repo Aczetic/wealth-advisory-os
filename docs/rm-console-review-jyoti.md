@@ -1,8 +1,6 @@
-# RM console review — Jyoti
+# RM Console Design Review
 
-Task: judge `poc/rm.html` as a real RM would ("Priya, 300 clients, 20 min before
-her first meeting"). Output feeds Afraz's build list + the RM-view deck slide.
-Status: IN PROGRESS.
+Lead prioritisation considerations for `poc/rm.html`, based on an RM managing a large customer book.
 
 ## Missing
 
@@ -16,11 +14,3 @@ Status: IN PROGRESS.
    - **vulnerability flag** — pensioner + large decision jumps the queue
    Simple v1: three bands (🔴 now / 🟡 today / ⚪ this week), queue sorted by band
    then wait time.
-
-## Keep
-
-_(pending)_
-
-## Fix / confusing
-
-_(pending)_

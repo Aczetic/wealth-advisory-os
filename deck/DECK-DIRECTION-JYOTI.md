@@ -1,34 +1,12 @@
-# Deck Direction — for Jyoti
+# Presentation Guide
 
 Purpose: direction for preparing the prototype submission deck on the official IDBI
-template (`deck/IDBI-submission-template.pptx`). Slide-by-slide asset mapping is in
-`01-challenge-brief.md`. This note covers style, structure, differentiators, business
+template (`deck/IDBI-submission-template.pptx`). This note covers style, structure, differentiators, business
 case, and roadmap — the judgment calls, not the mechanics.
-
-## 0. Naming — reopened (2026-07-10)
-
-**Kartik rejected "ArthSakhi"; it has been wiped from the repo. The product is referred
-to as "Advisory OS" (placeholder) until a new name is locked. Avatar name "Asha" is
-retained for now.** Suggested checks before locking a name: meaningful in Hindi + acceptable in English; easy to say for a tier-2/3
-customer; no obvious trademark/domain conflict (quick MCA/Trademark + domain search);
-survives the writing-style test (credible on a PSU bank slide, not startup-cute); the
-avatar's name should sound like a person customers would trust with money. Once chosen,
-tell Kartik/Claude and we will rename across repo, PoC UI, and deck in one pass.
-
-The reference proposal reviewed for this direction is saved at
-`deck/reference/Udyam_Sehat_Card_Proposal.docx` (Modus AI founder's rough working for a
-different IDBI theme — **internal reference only, do not redistribute or quote**).
-
-Sources for this direction: the official template; a proposal document prepared by the
-founder of Modus AI for a different IDBI theme (Udyam Sehat Card — reviewed for structure,
-not copied); Kartik's instructions (2026-07-09).
-
----
 
 ## 1. Writing style — binding for all deck copy
 
-The deck follows `docs/WRITING-STYLE.md` (executive, understated, minimum necessary
-change). Practical consequences:
+Use concise, factual language:
 
 - No promotional vocabulary: avoid "seamless", "powerful", "transform", "leverage",
   "ecosystem", "journey". Prefer "identify", "estimate", "consolidate", "derive".
@@ -60,7 +38,7 @@ and One Engine Two Faces. The others appear in S4 (feature list).
 
 ### 2a-i. Memory is the lead differentiator — show the machinery, not the phrase
 
-Kartik's direction (2026-07-09): assume **every serious team will say "unified database"
+Assume **every serious team will say "unified database"
 or "digital twin."** Those words alone will not differentiate. What no other team is
 likely to show is a worked memory *system*. The deck should therefore spend real slide
 estate (S4 or S5) on how memory actually operates, drawn from `docs/MEMORY-ARCHITECTURE.md`:
@@ -83,7 +61,7 @@ with a database" (generic, correct, useless) and once by the memory graph (refer
 the family obligation, the last gold conversation, and the FD maturing next week).
 The difference *is* the pitch.
 
-### 2a-ii. Language commitment — 15+ languages, voice and text (Kartik, 2026-07-09)
+### 2a-ii. Language commitment — 15+ languages, voice and text
 
 The pitch commits to **support for 15+ Indian languages, in both voice and text**. Place
 it in S4 (features) and repeat in S8 (technology). Three anchors make this credible
@@ -148,7 +126,7 @@ full sentence on S12, not a bullet fragment.
 
 ### 2d-i. Future roadmap spike: app-wide contextual advisory
 
-Kartik's direction (2026-07-09) for S12: the module does not stay confined to a wealth
+The module does not stay confined to a wealth
 tab. Because the twin and engine sit behind the whole app, the assistant can surface
 **in context, at the moment of intent**, anywhere in GO Mobile+:
 
@@ -180,15 +158,3 @@ This tells the committee we understand how a bank actually buys and ships softwa
   import terminology from a lending context into a wealth advisory deck.
 - Its document format (14-section proposal) — our vehicle is the 15-slide template;
   depth lives in the GitHub repo, which S13 links to.
-
-## 5. Working order (suggested)
-
-1. Read `docs/ONBOARDING-JYOTI.md` end-to-end first (research + product grounding).
-2. Draft S2–S4 text (idea, opportunity/USP, features) in the writing style; review with Kartik.
-3. Storyboard the flagship demo moment with Afraz (video + S10 screenshots come from it).
-4. Draft S9/S12 (business case + roadmap/deployment) — your CFA lens leads here.
-5. Diagrams for S5/S7 with Afraz (twin → engine → two faces; architecture on the RFP stack).
-6. Assemble on the template last; polish once, per minimum-necessary-change.
-
-Open dependency: methodology numbers are pending Kartik's review — any slide showing
-glide paths or thresholds must say "illustrative" until that sign-off.

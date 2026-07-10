@@ -1,9 +1,7 @@
 # IDBI's 2022 Digital Bank App RFP — Our Bare-Minimum Baseline
 
 Source: `source-rfp-2022-idbi-digital-bank.pdf` (saved in this folder; IDBI-Bank/ITD/VMG/
-RFP/22-23/27, 12-Aug-2022, 114pp). Distilled 2026-07-08. **Kartik's framing: this is
-indicative of what we must offer as bare minimum** — it's the bank's own written
-definition of table stakes. Spec must COVER every relevant line, then EXCEED it.
+RFP/22-23/27, 12-Aug-2022, 114pp). This reference informs the minimum functional and architectural requirements.
 
 ## Use Case 1: "Digital Banking Application for Millennials" — scope
 

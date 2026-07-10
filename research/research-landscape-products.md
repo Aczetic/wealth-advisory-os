@@ -1,6 +1,6 @@
 # Research: Product & Startup Landscape — Digital Wealth / AI Advisory / Avatars
 
-Researched 2026-07-08. Inspiration + differentiation input for `02-solution-spec.md`. Do not re-research.
+Researched 2026-07-08. Inspiration + differentiation input for `03-solution-spec.md`.
 
 ## A. Bank-deployed avatars & AI assistants (closest to our exact brief)
 
@@ -25,7 +25,7 @@ Avatar tech vendors: **UneeQ** (now the main digital-human player; stock avatars
 | **Cleo (UK/US)** — 1M+ paid subs 2025 | Gen-Z AI money coach; Cleo 3.0 = two-way **voice**, long-term **memory**, personality; 20x engagement vs typical banking apps | **Personality + voice + memory = engagement moat.** An avatar with a remembered relationship ("aapne pichhle mahine bola tha...") is the retention story |
 | **Magnifi (US)** | Conversational investment search: plain-language questions → structured fund comparisons | Natural-language fund discovery UX for our in-universe product search |
 | **Nevis (US)** — Sequoia/ICONIQ, $40M | AI tools for human advisors (give RMs 80% of time back) | The B2B flip: our engine also powers an **RM console** — same brain, two faces. Strengthens bank business case |
-| **Farther (US)** | Tech-enhanced human advisors, tax-intelligent | Tax-intelligence as a wealth feature (Kartik's edge maps here) |
+| **Farther (US)** | Tech-enhanced human advisors, tax-intelligent | Tax-intelligence as a wealth feature |
 
 ## C. India wealthtech (competition + gap analysis)
 

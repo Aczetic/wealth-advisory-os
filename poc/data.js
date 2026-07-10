@@ -16,7 +16,7 @@ const CONSTANTS = {
     fdBreakPenalty: 0.01,    // 1% on applicable rate
     savingsIdle: 0.0275,
   },
-  expectedReturns: {          // long-run assumptions (DRAFT — CA review)
+  expectedReturns: {          // illustrative long-run return assumptions
     equity: 0.12, hybrid: 0.10, debt: 0.07, gold: 0.08, liquid: 0.065,
   },
   inflation: { general: 0.06, education: 0.10, wedding: 0.08, property: 0.07 },

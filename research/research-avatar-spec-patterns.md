@@ -1,7 +1,7 @@
 # Research: Avatar Spec Patterns — companion AI, AI-native dating, Indian voice behavior
 
 Researched 2026-07-08. Closes map subsystem D research item. Sources: Replika/Character.AI
-analyses, Wavelength/Sitch (AI-native dating), WhatsApp India voice-note data. Do not re-research.
+analyses, Wavelength/Sitch (AI-native dating), WhatsApp India voice-note data.
 
 ## 1. Companion AI (Replika vs Character.AI) — what creates attachment, and what to refuse
 

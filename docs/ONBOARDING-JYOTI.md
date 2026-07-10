@@ -1,38 +1,8 @@
-# Welcome Jyoti 👋 — get up to speed, then own the intelligence + deck
+# Advisory Design Guide
 
-You're driving **three things**: the **advisory playbook** (how a great wealth manager
-actually works), **finishing the persona** work, and **3–4 varied AI demo walkthroughs** that
-showcase what Asha can do. That's the whole scope — go deep on these, ignore everything else.
-This doc gets you context-loaded, then points you at exactly where you plug in. Kartik owns
-product/finance/tax; you + Kartik own the finance intelligence and the story.
+Data sources, customer segmentation, advisory playbooks, and customer journeys.
 
-> **Scope note:** your strength is finance + narrative — stay entirely on that. The engineering
-> build (smart-layer, memory infrastructure, RM console) simply isn't your concern; don't spend
-> a minute on it.
-
-## Read in this order (≈45 min, all in this repo)
-
-1. **`00-STATE.md`** — single source of truth: the whole project's status, every decision
-   (D1–D7) with rationale, and what's open. Start here, always.
-2. **`01-challenge-brief.md`** — the IDBI Innovate 2026 problem statement & rules (Track 01).
-3. **`research/research-landscape-products.md`** — global + India competitors; the white space we own.
-4. **`research/research-d4-bfsi-advice-posture.md`** — the compliance spine (distributor vs RIA;
-   why we never say "advice" in-product). Your CFA lens matters most here.
-5. **`research/research-idbi-client.md`** — who IDBI's customer actually is (LIC-owned, tier-2/3,
-   FD-heavy) + the Emergency Liquidity Advisor idea.
-6. **`research/research-rfp-2022-baseline.md`** — IDBI's OWN 2022 tender = our table stakes. The
-   "we're the intelligence layer your rails were waiting for" pitch line lives here.
-7. **`research/research-advisor-os.md`** — the RM-facing side (Morgan Stanley precedent). This is
-   your RM-view brief.
-8. **`research/research-failures-judge-lens.md`** — why robo-1.0 died + what bank judges score on.
-9. **`03-solution-spec.md`** — the assembled product spec (methodology marked ⚠️Kartik = pending
-   Kartik review).
-10. **`docs/MEMORY-ARCHITECTURE.md`** — the AI-native twin. **This is your brainstorm
-    starter with Kartik** (see its §7 agenda).
-11. **Run the PoC** — `README-TEST.md`. Click every flow. The deck must match what the
-    product actually does; the PoC is your ground truth.
-
-## Your brief (from Kartik) — mapped to where it lives
+## Financial data and customer context
 
 ### 1. Data sources for personalization: AA · OCEN · ULI
 Full treatment in `docs/MEMORY-ARCHITECTURE.md` §5. Short version:
@@ -40,7 +10,7 @@ Full treatment in `docs/MEMORY-ARCHITECTURE.md` §5. Short version:
 - **ULI** = RBI rails for consent-based *credit-enabling* data access → powers the
   liquidity/lending features.
 - **OCEN** = open protocol for *credit distribution* → embedded-credit option.
-- ⚠️ Don't conflate them in the deck — a bank judge will catch it. AA = share data,
+- Keep these rails distinct: AA = share data,
   ULI = enable credit underwriting, OCEN = distribute credit.
 
 **⭐ Your primary tool: `financial-database/`** (Kartik built this from the official specs):
@@ -82,10 +52,9 @@ Residency + life-stage live in the twin's **L1 identity layer** (`MEMORY-ARCHITE
 and *drive* the engine. Your job: formalize the persona → treatment rules so the deck can
 show "one twin, right advice for NRI vs GenZ vs pensioner."
 
-## Your deliverables — just these three (go deep, ignore the rest)
+## Advisory playbooks and journeys
 
-1. **Playbook library (your biggest lever)** — scope expanded per **D10/D11 in `00-STATE.md`**
-   (2026-07-10): the product is an **Advisory OS banks embed in their own apps**, and it must
+1. **Playbook library** — the product is an **Advisory OS banks embed in their own apps**, and it must
    **close the thread** — a conversation ends in a *completed action*, never in "go check that
    menu." So the playbook isn't only "how a great wealth manager works" anymore. Five families:
 
@@ -97,7 +66,7 @@ show "one twin, right advice for NRI vs GenZ vs pensioner."
    | 4 | **Proactive reach-outs & cross-sell** (bank-initiated — this is the bank's revenue case) | data-triggered moments where *the engine opens* the conversation | FD maturing; salary bump; idle balance ≥ threshold; SIP lapsed; goal off-track |
    | 5 | **RM collaboration** | when/why AI hands to human, what context transfers, RM's next-best-action | out-of-universe ask; vulnerable customer; high-value moment; customer asks for a human |
 
-   **⚠️ Critical — write every playbook as a *procedure the agent runs*, not an essay.** The
+   **Write every playbook as a *procedure the agent runs*, not an essay.** The
    agent executes it step-by-step in conversation. Break each situation into discrete **steps**
    and the **to-&-fro** (what it asks, how the customer might answer, how it branches).
    Flowchart / SOP, not textbook chapter. The template, expanded for close-the-thread:
@@ -109,7 +78,7 @@ show "one twin, right advice for NRI vs GenZ vs pensioner."
    | **Branches** | for each likely customer answer → the next step (this is the to-&-fro) |
    | **Rule** | the decision logic — if X and Y → recommend Z (thresholds, glide, suitability gate) |
    | **Recommend** | the output + the one-line *why* (this feeds "Why I'm suggesting this") |
-   | **Execute** | the close-the-thread step: confirm intent → action happens (order placed, application filed) → **failure branches** (payment fails, cut-off missed, eligibility declined) → completion message. Treat the mechanics as a black box that succeeds or fails — the API contract is Kartik/Afraz's side, not yours |
+   | **Execute** | the close-the-thread step: confirm intent → action happens (order placed, application filed) → **failure branches** (payment fails, cut-off missed, eligibility declined) → completion message. Treat the mechanics as a black box that succeeds or fails — the API contract is Kartik/Aczetic's side, not yours |
    | **Record** | what gets written to memory/twin after this interaction + the one-line audit entry |
    | **Follow-up** | what Asha proactively says/checks later (T+1: "order allotted"; T+30: "first SIP debited — here's how it went"). These follow-ups are exactly the memory-payoff beats your storylines need |
    | **Escalate** | the condition that hands to the RM + what context transfers with it |
@@ -163,11 +132,4 @@ show "one twin, right advice for NRI vs GenZ vs pensioner."
    fields (`financial-database/field-inventory/MASTER_field_inventory.csv`) so the data is
    defensible, and shape the profile to the engine's Client Graph (`03-solution-spec.md` §5).
 
-**One rule — send to Kartik before final:** anything tax (NRI/DTAA/regime) — draft it, he confirms.
-
-## House rules (please keep)
-- **`00-STATE.md` is the source of truth** — read it at the start of every session, update it
-  at the end. Any teammate (or AI) can pick up from it.
-- One artifact at a time, finished fully. Plain markdown, model-agnostic.
-- Discovery before deck: for anything new, ask "who's the best-in-world at this?" first —
-  we synthesize proven pieces, we don't design from blank paper.
+Tax scenarios distinguish residency, treaty eligibility, and tax regime; prototype examples use illustrative assumptions.

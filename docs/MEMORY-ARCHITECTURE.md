@@ -1,13 +1,6 @@
 # Memory Architecture — the AI-Native Financial Twin
 
-**Purpose:** design doc + brainstorm starter for Jyoti (logic/smart-layer) and Afraz
-(implementation). Captures Kartik's framework, decomposes it fully, and flags the
-third-order questions we must answer. Deck will show this as "proper machinery" at a
-high level; this doc is the machinery.
-
-Status: DRAFT for team brainstorm. Connects to the working `poc/engine.js` Client Graph.
-
----
+Customer financial state, relationships, preferences, and interaction history share a typed graph. This architecture extends the application’s Client Graph in `poc/engine.js`.
 
 ## 0. The thesis in one line
 
@@ -16,7 +9,7 @@ Status: DRAFT for team brainstorm. Connects to the working `poc/engine.js` Clien
 > and obligations around it, and the socio-economic + academic reality that shapes how
 > they relate to money. The avatar (Asha) and the RM are two windows into the same twin.
 
-Kartik's framing, kept verbatim as our north star:
+Core architecture principle:
 *"Creation of an AI-native twin for a customer who is aware about financial, socio-economic,
 academic reality, family habits which drive anybody's relationship with money."*
 
@@ -25,7 +18,7 @@ academic reality, family habits which drive anybody's relationship with money."*
 ## 1. Unified framework: ONE graph, typed layers, temporal index
 
 Everything is one **Customer Graph** (extends the `Client Graph` already in `engine.js`).
-It has two intertwined sub-graphs Kartik named:
+It has two intertwined sub-graphs:
 
 - **Memory graph** — what we know and when we learned/discussed it (facts + interactions).
 - **Relationship graph** — the people, entities, and obligations around the customer.
@@ -46,7 +39,7 @@ The **twin** = a queryable projection over L1–L5. The avatar reads/writes it
 conversationally; the engine reads/writes it analytically; the RM sees a consented view.
 (Same "one engine, two faces" principle, now extended to memory.)
 
-### 1b. Relationship graph (Kartik's second sub-graph)
+### 1b. Relationship graph
 
 The customer is not an island — money decisions are household decisions.
 
@@ -62,7 +55,7 @@ The customer is not an island — money decisions are household decisions.
 
 ---
 
-## 2. Memory dimensions (Kartik's short/long + time/event/conversation)
+## 2. Memory dimensions
 
 Retrieval is **multi-indexed** — the same memory is reachable three ways:
 
@@ -78,7 +71,7 @@ Retrieval is **multi-indexed** — the same memory is reachable three ways:
   month's salary, this week's FD). Kept hot in context.
 - **Long-term / consolidated:** twin identity (L1), goals, stated values, past decisions.
   Retrieved on demand.
-- Kartik's gold example is really **topic-scoped recency**: gold is long-term as a
+- The gold example is really **topic-scoped recency**: gold is long-term as a
   *preference* (L3) but its last *touchpoint* (5 May) is a recency signal that decides
   whether Asha proactively raises it again.
 
@@ -88,7 +81,7 @@ Retrieval is **multi-indexed** — the same memory is reachable three ways:
 
 **Cold start (Day 0):**
 - **AA pull** → instant L2 financial picture (accounts, deposits, MF, insurance).
-- **A few conversational questions** → L1 substrate. Kartik's examples, structured:
+- **A few conversational questions** → L1 substrate. Example questions:
   - *"Aap kahaan rehte hain — apna ghar, kiraya, ya family ke saath?"* → housing tenure
   - *"Ghar mein kaun-kaun hai, kaun aap par depend karta hai?"* → dependents / relationship graph
   - *"Kya karte hain, kahaan tak padhaai hui?"* → job + academics → income-stability + literacy register
@@ -103,7 +96,7 @@ is the retention moat (Cleo's memory = 20× engagement) and the answer to robo-1
 
 ---
 
-## 4. Third-order design questions WE MUST ANSWER (gaps Kartik didn't name — the real test)
+## 4. Design considerations
 
 These are the hard parts. Flagged for the Jyoti brainstorm:
 
@@ -140,7 +133,7 @@ These are the hard parts. Flagged for the Jyoti brainstorm:
 
 ---
 
-## 5. Data sources → which layer they feed (Jyoti's brief item 1)
+## 5. Data sources → which layer they feed
 
 | Rail | What it is | Feeds | Use in our product |
 |---|---|---|---|
@@ -152,7 +145,7 @@ These are the hard parts. Flagged for the Jyoti brainstorm:
 Accuracy note for the deck: AA = *data sharing*; ULI = *credit-enabling data access*;
 OCEN = *credit distribution protocol*. Don't conflate them — a bank judge will notice.
 
-**Field-level ground truth: `financial-database/`** — Kartik's inventory of all **1,731
+**Field-level ground truth: `financial-database/`** — the inventory of all **1,731
 fields** on these rails (`field-inventory/MASTER_field_inventory.csv`), parsed from the
 official ReBIT/Sahamati XSDs and iSPIRT OCEN schemas, with sample post-consent payloads
 in `source-specs/`. Every L1/L2 twin attribute we design should cite its source row there;
@@ -169,18 +162,3 @@ the twin → audit trail.** Label the memory as "AI-native financial twin." Keep
 five layers and three retrieval indexes as a single clean exhibit; the detail lives here.
 
 ---
-
-## 7. Brainstorm agenda for Jyoti (first working session)
-
-1. L1 twin question set — what minimum questions build a useful twin without feeling like an
-   interrogation? (Kartik's housing/dependents/job/academics set is the seed.)
-2. Salience + decay rules — what should Asha remember forever vs let fade?
-3. Persona × memory — how does the twin differ for NRI vs resident, GenZ vs pensioner?
-   (residency, life-stage, literacy register all live in L1 and switch the advisory.)
-4. Tiered AI→RM switch — what memory/context transfers on handoff, and what stays private?
-5. Relationship-graph obligations — how do we capture "who depends on whom" conversationally?
-6. Which of the §4 third-order items are v1 vs roadmap (bi-temporal + consent-scoped are
-   likely v1 for a bank; salience/decay can phase in).
-
-→ Output of that session updates this doc, then feeds the deck's "machinery" exhibit and
-the `spec-input-kartik-methodology.md` engine.

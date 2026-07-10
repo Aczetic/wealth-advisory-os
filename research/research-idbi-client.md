@@ -1,6 +1,5 @@
 # Research: IDBI Bank — the client we're building for
 
-Researched 2026-07-08. Discovery item 3 of 5. Do not re-research.
 
 ## Who IDBI is (and why it shapes the product)
 
@@ -46,7 +45,7 @@ it's exactly the "large number of customers" the problem statement says are unse
    Needs: income planning, capital protection, SCSS/debt-fund guidance, nominee/estate
    hygiene. (LIC ownership makes this persona strategically dear to the bank.)
 
-## The EPF thread (Kartik's lateral idea, pressure-tested)
+## Emergency liquidity and EPF
 
 **Mechanics correction:** there is no bank "loan against EPF." EPF can't be pledged;
 liquidity from EPF is an **EPFO advance** — purpose-bound (medical/education/marriage/

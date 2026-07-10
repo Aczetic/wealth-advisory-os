@@ -1,13 +1,13 @@
 /* ================================================================
    Advisory OS PoC — Deterministic Advisory Engine
-   Implements spec-input-kartik-methodology.md (BINDING):
+   Implements advisory-engine-methodology.md (BINDING):
    Client Graph · 7 capabilities · action taxonomy · glide paths ·
    Persistent Investment Intelligence event loop.
    Every recommendation carries {action, amount, instrument, reason,
    ruleId+version, goalId, taxNote} → audit trail.
    The LLM/avatar layer NEVER computes advice; it only explains
    what this engine returns. (D4/D5 architecture)
-   METHODOLOGY STATUS: DRAFT — pending Kartik CA review.
+   METHODOLOGY: illustrative prototype assumptions; calibrate for deployment.
    ================================================================ */
 (function (root) {
 'use strict';
@@ -142,7 +142,7 @@ function financialHealth(graph) {
 }
 
 /* ---------------- 3) Glide path (GLIDE-1.0) ---------------- */
-/* DRAFT — CA review. Base equity by bucket; linear de-risk inside 10 years to goal. */
+/* Illustrative allocation assumptions. Base equity by bucket; linear de-risk inside 10 years to goal. */
 function glidePath(bucket, yearsToGoal) {
   const base = { Conservative:35, Balanced:50, Growth:65, Aggressive:75 }[bucket];
   let equity;

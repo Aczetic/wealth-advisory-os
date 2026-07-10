@@ -2,7 +2,7 @@
 
 Technical architecture brainstorm — how the Wealth Companion works as a *whole agentic*
 product (stack, plumbing, orchestration). Complements the product/strategy docs at repo
-root (`00-STATE.md`, `03-solution-spec.md`) and the memory deep-dive
+root (`03-solution-spec.md`) and the memory deep-dive
 (`docs/MEMORY-ARCHITECTURE.md`).
 
 ## Files

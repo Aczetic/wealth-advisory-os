@@ -1,17 +1,16 @@
-# 🌅 Good morning Kartik — your product is ready to test
+# Running Wealth Advisory OS
 
-Built overnight (2026-07-09, ~03:30–04:30) from ALL our research + your methodology
-input. **36/36 engine tests passing. Every flow click-verified in a real browser.**
+Run the customer-facing avatar, advisory engine, and relationship manager console. Recommendations are calculated from customer profiles using versioned rules, with an audit trail for each decision.
 
 ## Run it (one command)
 
 ```bash
-cd "/Users/macncheese/Documents/Claude/Projects/Digital Wealth Management/poc"
+cd poc
 node server.js
 ```
 
 Then open **http://localhost:8765** in Chrome (Chrome = mic + best voices).
-No API keys, no npm install, no internet needed.
+Browser voice support depends on your browser and available voices.
 
 ## What to try (in this order)
 
@@ -19,14 +18,14 @@ No API keys, no npm install, no internet needed.
    (Wavelength pattern). Watch the right-side **Advice Audit Trail** panel: your answers
    become an auditable SEBI-style suitability record.
 2. **The insight cards on top** — idle cash, FD maturing, drift. That's *Persistent
-   Investment Intelligence*: the engine noticed these before you asked (your #5).
+   Investment Intelligence*: the engine noticed these before you asked.
 3. **💰 Idle cash?** — detects ₹88K idle, proposes glide-path deployment, max 3 curated
    funds with reasons (swipeless — no catalog).
-4. **🚨 Urgent paisa chahiye → ₹2 lakh** — YOUR EPF idea as the Emergency Liquidity
+4. **🚨 Urgent paisa chahiye → ₹2 lakh** — The EPF scenario as the Emergency Liquidity
    Advisor: every option ranked by TRUE cost (EPF advance shows retirement-compounding
    loss despite 0% interest). Personal loan never wins.
 5. **🎉 Bonus aaya!** — health gate first, 80C fill second, then **prepay-vs-invest**
-   post-tax comparison (24b deduction priced in — the CA feature).
+   post-tax comparison (24b deduction priced in).
 6. **📉 Market gir gayi — sab becho!** — anti-sycophancy: Asha warmly REFUSES, explains
    why, logs the advice, offers RM. (Companion apps engineer agreement; we engineer honesty.)
 7. **📈 Stock tips?** — out-of-universe → RM escalation with full context (D4 boundary
@@ -39,28 +38,20 @@ No API keys, no npm install, no internet needed.
 10. **Reload the page** — Asha remembers your last topic (episodic memory, localStorage).
 11. **Type or speak free text** — "shaadi ke liye plan banao" routes correctly. 🎤 works
     in Chrome.
-12. Run the engine tests yourself: `cd poc && node tests/run-tests.js` → 36 passing.
+12. From the repository root, run the engine tests: `node poc/tests/run-tests.js` → 36 passing.
 
-## What this PoC proves (the pitch, live)
+## Working capabilities
 
 - Deterministic engine decides; avatar only explains → auditable (SEBI AI/ML pillars)
-- Client Graph = one structure for memory + engine + RM handoff (your #4)
-- All 7 capabilities + action taxonomy incl. Prepay Loan working (your #1–#7)
+- Client Graph = one structure for memory + engine + RM handoff
+- All 7 capabilities + action taxonomy incl. Prepay Loan working
 - Glide-path allocation = f(risk, time-to-goal) (Zerodha Lifecycle inspiration)
-- Keyless scripted flows now; `llm.js` is the pluggable slot for a bank-VPC LLM later
+- A separate language-model interface keeps conversation services separate from financial calculations
 
-## Honest limitations (so you're not surprised)
+## Implementation scope
 
-- Conversation is scripted flows + keyword routing — the LLM slot is a stub by design
-  (keyless). Free text outside known intents gets a graceful fallback.
-- Methodology numbers (glide %s, thresholds, returns) are DRAFT — flagged for your CA
-  review in `03-solution-spec.md`.
+- Conversation uses predefined workflows and intent matching. External language-model integration is not implemented; unsupported requests receive a fallback response.
+- Allocation percentages, thresholds, and returns are illustrative prototype assumptions
+  documented in `03-solution-spec.md`.
 - Voice = browser TTS (robotic-ish); production = Sarvam/Bhashini per research.
 - Single synthetic persona (Rohan); RM book is part-synthetic.
-
-## Your morning checklist (before playing with the demo!)
-
-1. 🚨 **REGISTER ON HACK2SKILL — DEADLINE IS TODAY, JULY 9** 🚨
-2. Paste the submission form fields to me
-3. Text your tech friend the commitment ask
-4. Then play with the demo and mark up `03-solution-spec.md`

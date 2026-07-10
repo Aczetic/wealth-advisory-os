@@ -1,6 +1,5 @@
 # Research: Why Robo-Advisory 1.0 Failed + What IDBI's Judges Optimize For
 
-Researched 2026-07-08. Discovery items 4 & 5 (final). Do not re-research.
 
 ## Part 1 — The robo-advisory graveyard, and why we're structurally different
 
@@ -27,7 +26,7 @@ avatar structurally fixes all five — which is why this only works INSIDE a ban
 *prototype quality*. Finale = live presentation + technical evaluation + judge Q&A.
 Standard criteria family: innovation, feasibility, scalability, presentation, future
 potential. → Stage-1 submission must be sharp enough to survive screening by clarity
-alone; no fluff (matches Kartik's instinct).
+alone; no fluff.
 
 **IDBI/PSU-bank evaluator lens (what the bank-side judges will probe):**
 1. **Deployability inside bank infrastructure** — RBI Master Direction on IT Outsourcing

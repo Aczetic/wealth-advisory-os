@@ -2,7 +2,7 @@
 
 Researched 2026-07-08 from public sources (official IDBI pages, bank's features PDF,
 App Store v3.5 listing, walkthrough articles). Confidence: 🟢 = stated by IDBI/official,
-🟡 = inferred. In-app verification happens post-shortlist in sandbox. Do not re-research.
+🟡 = inferred. In-app verification happens post-shortlist in sandbox.
 
 ## Reconstructed navigation tree
 
@@ -73,7 +73,7 @@ Lottie/Rive lightweight rig, secure session bridge) + server-driven conversation
 Rationale: vendor codebase (minimize native surface), slow PSU release cycles (server-side
 iteration), crash isolation (3.7★ app), 2D-rig avatar per D3 keeps payload small.
 Full native module and pure-webview both rejected (former: too much vendor friction;
-latter: voice latency + avatar jank). → Formalize as D7 when Kartik confirms.
+latter: voice latency + avatar jank).
 
 ## Assumption log (verify in sandbox)
 
@@ -83,7 +83,7 @@ latter: voice latency + avatar jank). → Formalize as D7 when Kartik confirms.
 - A4: Snapwork remains the app vendor currently — package name evidence only
 - A5: Server-driven UI acceptable within bank's security policy — needs bank confirmation
 
-## ADDENDUM (2026-07-08, after Kartik's challenge "is this the only app?")
+## Bank application portfolio
 
 **No — IDBI runs a fragmented app fleet:** GO Mobile+ (flagship retail), PayWiz (UPI),
 Abhay (card control), PayApt (payments), mPassbook (being merged into GO Mobile+

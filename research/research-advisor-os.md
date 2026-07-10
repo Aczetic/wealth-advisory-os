@@ -1,8 +1,8 @@
 # Research: Advisor Operating System — the RM-facing side
 
-Researched 2026-07-08. Origin: Kartik's insight — customer avatar alone is half the product;
+Researched 2026-07-08. Architecture premise: customer avatar alone is half the product;
 RMs need an AI analyst too ("Advisor OS": CRM, portfolio analysis, goal planning, meeting
-copilot, tax insight). Do not re-research.
+copilot, tax insight).
 
 ## The category is real and hot
 
@@ -24,7 +24,7 @@ replace advisors, it gives them 80% of their time back.
 
 ## The precedent that wins the pitch: Morgan Stanley "AI @ MS"
 
-The world's biggest wealth manager built exactly Kartik's Advisor OS internally:
+The world's biggest wealth manager built a comparable advisor operating system internally:
 - **AI @ MS Assistant** (2023): GenAI chatbot over MS's 350K+ research docs.
   **98% of FA teams adopted.** Query time: 30 minutes → seconds.
 - **AI @ MS Debrief** (2024): meeting copilot — with client consent, records, summarizes,
@@ -50,7 +50,7 @@ intelligence, audit trail — rendered through two interfaces:
 | Conversation layer | Voice/chat avatar | Meeting copilot: consented recording → summary → CRM note → draft follow-up |
 | Escalation | "Let me connect you to your RM" | **Qualified-lead queue with full context handoff** (the two faces meet here) |
 
-Kartik's 5 components mapped: Client CRM = briefing + auto-notes into bank CRM;
+Five components mapped: Client CRM = briefing + auto-notes into bank CRM;
 Portfolio Analysis = book-level dashboards; Goal Planning = shared plan visible to both
 customer and RM (continuity!); Meeting Copilot = Debrief pattern; Tax Insight = harvesting
 lists (CA edge).
@@ -65,13 +65,6 @@ lists (CA edge).
    makes THEM look good turns the union/staff story from threat to upgrade.
 4. **Continuity moat**: customer talks to avatar at 11pm; RM sees the full context at 10am.
    No fintech competitor can offer that handoff.
-
-## Scope question (decision D6, open)
-
-PoC scope options: (a) customer avatar only, Advisor OS as roadmap slides;
-(b) avatar + ONE Advisor OS surface demoed (recommended: the RM morning briefing +
-lead-queue handoff — cheap to build off the same engine, demonstrates "one engine two
-faces" live); (c) full both-sides build (too heavy for PoC).
 
 ## Sources
 
